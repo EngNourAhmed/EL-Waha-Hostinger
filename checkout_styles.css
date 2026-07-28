@@ -1,0 +1,448 @@
+/* Checkout Page Redesign Styles - Based on Tailwind CSS */
+
+/* Color Variables */
+:root {
+    --alain-blue: #0d6b8a;
+    --sky-50: #f0f9ff;
+    --sky-100: #e0f2fe;
+    --sky-200: #bae6fd;
+    --sky-600: #0369a1;
+    --sky-700: #0c63e4;
+    --slate-50: #f8fafc;
+    --slate-100: #f1f5f9;
+    --slate-200: #e2e8f0;
+    --slate-400: #cbd5e1;
+    --slate-500: #64748b;
+    --slate-600: #475569;
+    --slate-700: #334155;
+    --slate-900: #0f172a;
+    --emerald-50: #f0fdf4;
+    --emerald-200: #86efac;
+    --emerald-800: #166534;
+}
+
+/* Main Checkout Section */
+#page-checkout-delivery-view {
+    background-color: var(--sky-50);
+    min-height: 70vh;
+    padding: 2.5rem 0;
+}
+
+#checkout-top {
+    background-color: var(--sky-50);
+}
+
+.max-w-3xl {
+    max-width: 48rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.px-4 {
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.sm\:px-6 {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+
+/* Header */
+.text-center {
+    text-align: center;
+}
+
+.mb-8 {
+    margin-bottom: 2rem;
+}
+
+#checkout-delivery-title {
+    font-size: 1.875rem;
+    font-weight: 900;
+    color: var(--slate-900);
+    margin-bottom: 0.5rem;
+}
+
+#checkout-delivery-subtitle {
+    color: var(--slate-500);
+    margin-top: 0.5rem;
+    font-weight: 500;
+}
+
+/* Free Delivery Banner */
+.rounded-2xl {
+    border-radius: 1rem;
+}
+
+.bg-emerald-50 {
+    background-color: var(--emerald-50);
+}
+
+.border {
+    border: 1px solid;
+}
+
+.border-emerald-200 {
+    border-color: var(--emerald-200);
+}
+
+.px-4 {
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.py-3 {
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+}
+
+.mb-6 {
+    margin-bottom: 1.5rem;
+}
+
+.flex {
+    display: flex;
+}
+
+.items-center {
+    align-items: center;
+}
+
+.gap-3 {
+    gap: 0.75rem;
+}
+
+.text-emerald-800 {
+    color: var(--emerald-800);
+}
+
+.font-semibold {
+    font-weight: 600;
+}
+
+.text-sm {
+    font-size: 0.875rem;
+}
+
+/* Form Sections */
+.space-y-6 > * + * {
+    margin-top: 1.5rem;
+}
+
+.bg-white {
+    background-color: white;
+}
+
+.border-slate-100 {
+    border-color: var(--slate-100);
+}
+
+.shadow-sm {
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+.p-5 {
+    padding: 1.25rem;
+}
+
+.md\:p-6 {
+    padding: 1.5rem;
+}
+
+.space-y-4 > * + * {
+    margin-top: 1rem;
+}
+
+/* Section Titles */
+.font-black {
+    font-weight: 900;
+}
+
+.text-lg {
+    font-size: 1.125rem;
+}
+
+/* Form Labels */
+.block {
+    display: block;
+}
+
+.text-sm {
+    font-size: 0.875rem;
+}
+
+.font-bold {
+    font-weight: 700;
+}
+
+.text-slate-700 {
+    color: var(--slate-700);
+}
+
+.mb-1\.5 {
+    margin-bottom: 0.375rem;
+}
+
+/* Form Inputs */
+.w-full {
+    width: 100%;
+}
+
+.px-4 {
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.py-3 {
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+}
+
+.rounded-xl {
+    border-radius: 0.75rem;
+}
+
+.border-slate-200 {
+    border-color: var(--slate-200);
+}
+
+.focus\:outline-none:focus {
+    outline: 2px solid transparent;
+    outline-offset: 2px;
+}
+
+.focus\:ring-2:focus {
+    box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.05), 0 0 0 4px var(--sky-200);
+}
+
+/* Grid Layout */
+.grid {
+    display: grid;
+}
+
+.sm\:grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.gap-4 {
+    gap: 1rem;
+}
+
+/* Map Button */
+.border-2 {
+    border-width: 2px;
+}
+
+.border-alain-blue {
+    border-color: var(--alain-blue);
+}
+
+.bg-sky-50\/80 {
+    background-color: rgba(240, 249, 255, 0.8);
+}
+
+.hover\:bg-sky-50:hover {
+    background-color: var(--sky-50);
+}
+
+.transition {
+    transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
+}
+
+.text-start {
+    text-align: start;
+}
+
+.group {
+    position: relative;
+}
+
+/* Map Icon */
+.w-11 {
+    width: 2.75rem;
+}
+
+.h-11 {
+    height: 2.75rem;
+}
+
+.rounded-full {
+    border-radius: 9999px;
+}
+
+.text-white {
+    color: white;
+}
+
+.flex-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.shrink-0 {
+    flex-shrink: 0;
+}
+
+.shadow-sm {
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+.w-5 {
+    width: 1.25rem;
+}
+
+.h-5 {
+    height: 1.25rem;
+}
+
+/* Map Container */
+#leaflet-map-container {
+    position: relative;
+    width: 100%;
+    margin: 1rem 0;
+    overflow: hidden;
+    border-radius: 0.75rem;
+}
+
+#leaflet-map {
+    width: 100%;
+    height: 320px;
+    border-radius: 0.75rem;
+    border: 1px solid var(--slate-400);
+    z-index: 1;
+}
+
+#location-map-hint {
+    font-size: 0.85rem;
+    color: var(--slate-500);
+    margin-top: 0.5rem;
+    text-align: center;
+}
+
+/* Divider */
+.flex-1 {
+    flex: 1 1 0%;
+}
+
+.h-px {
+    height: 1px;
+}
+
+.bg-slate-200 {
+    background-color: var(--slate-200);
+}
+
+.my-4 {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.text-slate-400 {
+    color: var(--slate-400);
+}
+
+/* Textarea */
+textarea {
+    resize: none;
+}
+
+/* Payment Options */
+.border-2 {
+    border-width: 2px;
+}
+
+.p-4 {
+    padding: 1rem;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.gap-3 {
+    gap: 0.75rem;
+}
+
+.mt-1 {
+    margin-top: 0.25rem;
+}
+
+.leading-6 {
+    line-height: 1.5rem;
+}
+
+/* Order Summary */
+.space-y-3 > * + * {
+    margin-top: 0.75rem;
+}
+
+.mb-4 {
+    margin-bottom: 1rem;
+}
+
+.justify-between {
+    justify-content: space-between;
+}
+
+.text-alain-blue {
+    color: var(--alain-blue);
+}
+
+.pt-2 {
+    padding-top: 0.5rem;
+}
+
+.pt-3 {
+    padding-top: 0.75rem;
+}
+
+.border-t {
+    border-top: 1px solid;
+}
+
+/* Continue Button */
+.py-4 {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.px-6 {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+
+.bg-sky-600 {
+    background-color: var(--sky-600);
+}
+
+.hover\:bg-sky-700:hover {
+    background-color: var(--sky-700);
+}
+
+.text-white {
+    color: white;
+}
+
+.text-lg {
+    font-size: 1.125rem;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+    #checkout-delivery-title {
+        font-size: 1.5rem;
+    }
+    
+    .md\:py-14 {
+        padding-top: 2.5rem;
+        padding-bottom: 2.5rem;
+    }
+    
+    .md\:p-6 {
+        padding: 1.25rem;
+    }
+}
