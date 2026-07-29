@@ -58,7 +58,7 @@ function initCheckoutPage() {
 // Update cities based on selected province
 function updateCities(province, citySelect) {
     const cities = {
-        'muscat': ['مسقط', 'مطرح', 'بوشر', 'السيب', 'العامرات', 'قريات'],
+        'muscat': ['مدينة الكويت', 'مطرح', 'بوشر', 'السيب', 'العامرات', 'قريات'],
         'dhofar': ['صلالة', 'طاقة', 'مرباط', 'رخيوت', 'ضلكوت', 'ثمريت'],
         'musandam': ['خصب', 'بخا', 'دبا', 'مدحاء'],
         'buraimi': ['البريمي', 'محضة', 'السنينة'],
@@ -177,7 +177,7 @@ function validateAndContinue() {
     }
 
     if (!phone || phone.length !== 8) {
-        alert('الرجاء إدخال رقم جوال عماني صحيح (8 أرقام)');
+        alert('الرجاء إدخال رقم جوال الكويتي صحيح (8 أرقام)');
         return;
     }
 
@@ -199,7 +199,7 @@ function validateAndContinue() {
     // Save data
     window.checkoutData = window.checkoutData || {};
     window.checkoutData.fullName = fullName;
-    window.checkoutData.phone = '+968' + phone;
+    window.checkoutData.phone = '+965' + phone;
     window.checkoutData.province = province;
     window.checkoutData.city = city;
     window.checkoutData.address = address;

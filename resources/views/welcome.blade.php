@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr" id="html-root">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OASIS OMAN | Pure Hydration, Delivered.</title>
-    <meta name="description" content="Premium bottled water for your family and office across all governorates of Oman.">
+    <title>مياه الواحة الكويت | ترطيب نقي، يصلك إلى بابك.</title>
+    <meta name="description" content="Premium bottled water for your family and office across all governorates of Kuwait.">
     
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -146,7 +146,7 @@
             box-shadow: 0 12px 32px rgba(0, 0, 0, 0.22);
         }
 
-        /* LEFT: Logo — OASIS OMAN brand mark */
+        /* LEFT: Logo — مياه الواحة الكويت brand mark */
         .brand-logo {
             display: flex;
             align-items: center;
@@ -1243,7 +1243,7 @@
             color: #03364f;
         }
 
-        /* ── WHY CHOOSE OASIS OMAN SECTION ── */
+        /* ── WHY CHOOSE مياه الواحة الكويت SECTION ── */
         .why-us-wrapper {
             background-color: #eef6fb;
             color: #0f172a;
@@ -1504,7 +1504,7 @@
             font-weight: 500;
         }
 
-        /* ── DELIVERY ACROSS OMAN SECTION ── */
+        /* ── DELIVERY ACROSS KUWAIT SECTION ── */
         .delivery-wrapper {
             background-color: #e8f4fa;
             color: #0f172a;
@@ -3761,22 +3761,88 @@
     <!-- FontAwesome & Leaflet -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script></head>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script><style>
+        /* ── PREVENT HORIZONTAL VIEWPORT OVERFLOW ON MOBILE ── */
+        html, body {
+            width: 100% !important;
+            max-width: 100% !important;
+            overflow-x: hidden !important;
+            position: relative;
+            box-sizing: border-box;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
+        #homepage-view,
+        #about-page-view,
+        #faq-page-view,
+        #contact-page-view,
+        #policy-page-view,
+        #page-cart-view,
+        #page-checkout-delivery-view,
+        #page-checkout-location-view,
+        #page-checkout-review-view,
+        #page-checkout-payment-view,
+        #page-checkout-success-view,
+        #page-checkout-otp-view,
+        #page-checkout-failure-view {
+            width: 100% !important;
+            max-width: 100% !important;
+            overflow-x: hidden !important;
+            box-sizing: border-box !important;
+        }
+
+        @media (max-width: 768px) {
+            .policy-page-content-wrapper,
+            .story-wrapper,
+            .why-us-wrapper,
+            .contact-wrapper,
+            .delivery-wrapper,
+            .reviews-wrapper,
+            .hero-container,
+            .checkout-shell,
+            .footer-container {
+                width: 100% !important;
+                max-width: 100% !important;
+                padding-left: 14px !important;
+                padding-right: 14px !important;
+                box-sizing: border-box !important;
+                overflow-x: hidden !important;
+            }
+
+            .page-mission-vision-grid,
+            .page-stats-row,
+            .page-values-grid,
+            .contact-main-grid,
+            .delivery-main-grid,
+            .products-grid-ref,
+            .why-us-grid,
+            .quality-grid,
+            .reviews-grid {
+                grid-template-columns: 1fr !important;
+                width: 100% !important;
+                box-sizing: border-box !important;
+            }
+        }
+</style>
+</head>
 <body>
         <!-- 1. STICKY NAVBAR -->
         <header class="anim-navbar">
             <!-- LEFT: Logo -->
             <a href="/" class="brand-logo" onclick="goHome(event)">
                 <div class="logo-circle-icon"><svg class="logo-droplet-icon" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15.5 21a5.5 5.5 0 0 0 5.5-5.5c0-2-1.5-3.5-3-5.5-.5-.7-1-1.5-1.5-2.5-.5 1-1 1.8-1.5 2.5-1.5 2-3 3.5-3 5.5A5.5 5.5 0 0 0 15.5 21z"></path><path d="M8.5 18a4.5 4.5 0 0 0 4.5-4.5c0-1.5-1-3-2.5-5C10 7.5 9.5 6.5 9 5.5 8.5 6.5 8 7.5 7.5 8.5 6 10.5 5 12 5 13.5A4.5 4.5 0 0 0 9.5 18z"></path></svg></div>
-                <span class="brand-logo-text"><span class="brand-logo-oasis">OASIS</span><span class="brand-logo-oman">OMAN</span></span>
+                <span class="brand-logo-text"><span class="brand-logo-oasis">مياه الواحة</span> <span class="brand-logo-oman">الكويت</span></span>
             </a>
 
             <!-- CENTER: Navigation Links Capsule -->
             <nav class="nav-links-center">
-                <a href="#home" class="nav-item active" id="nav-home" onclick="goHome(event)">Home</a>
-                <a href="#about" class="nav-item" id="nav-about" onclick="navigateToPage('about', event)">About</a>
-                <a href="#contact" class="nav-item" id="nav-contact" onclick="navigateToPage('contact', event)">Contact</a>
-                <a href="#faq" class="nav-item" id="nav-faq" onclick="navigateToPage('faq', event)">FAQ</a>
+                <a href="#home" class="nav-item active" id="nav-home" onclick="goHome(event)">الرئيسية</a>
+                <a href="#about" class="nav-item" id="nav-about" onclick="navigateToPage('about', event)">من نحن</a>
+                <a href="#contact" class="nav-item" id="nav-contact" onclick="navigateToPage('contact', event)">اتصل بنا</a>
+                <a href="#faq" class="nav-item" id="nav-faq" onclick="navigateToPage('faq', event)">الأسئلة الشائعة</a>
 
                 
 
@@ -3784,20 +3850,20 @@
                 <!-- 2. POLICIES DROPDOWN CONTAINER -->
                 <div class="policies-dropdown-container" id="policies-container">
                     <div class="nav-item" onclick="togglePoliciesDropdown(event)">
-                        <span id="nav-policies">Policies</span> <span class="policy-chevron" id="policy-chevron">▾</span>
+                        <span id="nav-policies">السياسات</span> <span class="policy-chevron" id="policy-chevron">▾</span>
                     </div>
                     <div class="policies-dropdown-menu">
-                        <div class="dropdown-menu-item" id="nav-pol-privacy" onclick="openPolicyModal('privacy')"><svg class="inline-icon" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg> Privacy Policy</div>
-                        <div class="dropdown-menu-item" id="nav-pol-terms" onclick="openPolicyModal('terms')"><svg class="inline-icon" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg> Terms & Conditions</div>
-                        <div class="dropdown-menu-item" id="nav-pol-delivery" onclick="openPolicyModal('delivery')"><svg class="inline-icon" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg> Delivery Policy</div>
-                        <div class="dropdown-menu-item" id="nav-pol-refund" onclick="openPolicyModal('refund')"><svg class="inline-icon" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"></polyline><polyline points="1 20 1 14 7 14"></polyline><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path></svg> Refund Policy</div>
+                        <div class="dropdown-menu-item" id="nav-pol-privacy" onclick="openPolicyModal('privacy')"><svg class="inline-icon" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg> سياسة الخصوصية</div>
+                        <div class="dropdown-menu-item" id="nav-pol-terms" onclick="openPolicyModal('terms')"><svg class="inline-icon" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg> الشروط والأحكام</div>
+                        <div class="dropdown-menu-item" id="nav-pol-delivery" onclick="openPolicyModal('delivery')"><svg class="inline-icon" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg> سياسة التوصيل</div>
+                        <div class="dropdown-menu-item" id="nav-pol-refund" onclick="openPolicyModal('refund')"><svg class="inline-icon" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"></polyline><polyline points="1 20 1 14 7 14"></polyline><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path></svg> سياسة الاسترجاع</div>
                     </div>
                 </div>
             </nav>
 
             <!-- RIGHT: Language & Cart -->
             <div class="header-right">
-                <div class="lang-dropdown-container" id="lang-container">
+                <div class="lang-dropdown-container" id="lang-container" style="display: none !important;">
                     <button class="lang-btn" onclick="toggleLangDropdown(event)">
                         <span id="current-lang-lbl">EN</span> <span style="font-size:0.75rem; margin-left:4px;">▾</span>
                     </button>
@@ -3831,36 +3897,34 @@
         <div class="hero-container" id="home">
             
             <div class="hero-badge anim-badge" id="hero-badge">
-                <i class="fa-solid fa-star"></i> Oman's #1 Premium Water Delivery <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i> ★ توصيل مياه متميزة رقم 1 في الكويت ★ <i class="fa-solid fa-star"></i>
             </div>
 
             <h1 class="hero-title anim-title" id="hero-title">
-                Pure Hydration, Delivered.
+                ترطيب نقي، يصلك إلى بابك.
             </h1>
 
             <p class="hero-subtitle anim-subtitle" id="hero-subtitle">
-                Premium bottled water for your family and office across all governorates of<br>Oman.
+                مياه معبأة فاخرة لعائلتك ومكتبك عبر جميع محافظات دولة الكويت.
             </p>
 
             <div class="anim-button">
-                <button class="btn-primary-cta" id="hero-cta" onclick="scrollToProducts(event)">
-                    <svg class="inline-icon" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg> Order Now
-                </button>
+                <button class="btn-primary-cta" id="hero-cta" onclick="scrollToProducts(event)"><svg class="inline-icon" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg> اطلب الآن</button>
             </div>
 
             <!-- Statistics Row -->
             <div class="hero-stats-row">
                 <div class="stat-item anim-stat-1">
-                    <div class="stat-number">11</div>
-                    <div class="stat-label" id="stat-lbl-1">Emirates</div>
+                    <div class="stat-number">6</div>
+                    <div class="stat-label" id="stat-lbl-1">محافظات</div>
                 </div>
                 <div class="stat-item anim-stat-2">
                     <div class="stat-number">24+</div>
-                    <div class="stat-label" id="stat-lbl-2">Certified</div>
+                    <div class="stat-label" id="stat-lbl-2">شهادة جودة</div>
                 </div>
                 <div class="stat-item anim-stat-3">
                     <div class="stat-number"><i class="fa-solid fa-check"></i></div>
-                    <div class="stat-label" id="stat-lbl-3">Free Delivery</div>
+                    <div class="stat-label" id="stat-lbl-3">توصيل مجاني</div>
                 </div>
             </div>
 
@@ -3872,150 +3936,103 @@
     <div class="products-wrapper" id="products">
         <div class="products-container">
             <div class="section-header-ref reveal-on-scroll">
-                <h2 class="section-title-ref" id="sec-products-title">Our Premium Selection</h2>
-                <p class="section-subtitle-ref" id="sec-products-sub">Sourced from pristine natural springs, every bottle is a promise of purity.</p>
+                <h2 class="section-title-ref" id="sec-products-title">تشكيلتنا المتميرة</h2>
+                <p class="section-subtitle-ref" id="sec-products-sub">نقية ومنعشة لكل عائلة ومؤسسة في الكويت.</p>
             </div>
 
-            <div class="products-grid-ref">
-                <!-- Product Card 1 (OASIS 900ml - Reference Image 2 Replica) -->
+            <div class="products-grid-ref" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 24px; max-width: 1200px; margin: 0 auto;">
+                <!-- Product Card 1 (OASIS 200ml) -->
                 <div class="product-card-ref reveal-on-scroll card-delay-1">
-                    <span class="product-badge-tag" id="prod-badge-1">Most Popular</span>
+                    <span class="product-badge-tag" id="prod-badge-1">حزمة اقتصادية</span>
                     <div class="product-banner-box">
-                        <img src="/images/oasis_900ml.jpg" alt="مياه الواحة 900 مل">
+                        <img src="/images/oasis_200ml.jpg" alt="مياه الواحة 200 مل">
                     </div>
                     <div class="product-card-body">
-                        <h3 class="product-title-ref" id="prod-title-1">OASIS Water 900ml</h3>
-                        <p class="product-desc-ref" id="prod-desc-1">Ultra-pure mineral balanced hydration water crafted under the highest quality standards for home, office, and daily use.</p>
+                        <h3 class="product-title-ref" id="prod-title-1">مياه الواحة 200 مل</h3>
+                        <p class="product-desc-ref" id="prod-desc-1">مياه الواحة 200 مل مياه شرب نقية وعالية الجودة، معبأة وفق أعلى معايير السلامة لضمان النقاء والطعم المنعش. مناسبة للاستخدام اليومي، والفعاليات، والمكاتب، والمدارس. تحتوي الكرتونة على 40 عبوة × 200 مل لسهولة التوزيع والاستخدام.</p>
                         <div class="product-bottom-bar">
-                            <div class="product-price-tag" id="prod-price-1">0.400 OMR</div>
-                            <button class="btn-add-ref btn-add-lbl" onclick="addToCart('p1')">+ Add to Cart</button>
+                            <div class="product-price-tag" id="prod-price-1">0.400 د.ك.</div>
+                            <button class="btn-add-ref btn-add-lbl" onclick="addToCart('p1')">+ أضف للسلة</button>
                         </div>
                     </div>
                 </div>
 
-                <!-- Product Card 2 (OASIS 700ml) -->
+                <!-- Product Card 2 (OASIS 330ml) -->
                 <div class="product-card-ref reveal-on-scroll card-delay-2">
-                    <span class="product-badge-tag" id="prod-badge-2">Best Seller</span>
+                    <span class="product-badge-tag" id="prod-badge-2">الأكثر مبيعاً</span>
                     <div class="product-banner-box">
-                        <img src="/images/oasis_700ml.jpg" alt="مياه الواحة 700 مل">
+                        <img src="/images/oasis_330ml.jpg" alt="مياه الواحة 330 مل">
                     </div>
                     <div class="product-card-body">
-                        <h3 class="product-title-ref" id="prod-title-2">OASIS Water 700ml</h3>
-                        <p class="product-desc-ref" id="prod-desc-2">Convenient personal hydration bottle filled with pristine purified spring water for active routines and travel.</p>
+                        <h3 class="product-title-ref" id="prod-title-2">مياه الواحة 330 مل</h3>
+                        <p class="product-desc-ref" id="prod-desc-2">استمتع بالنقاء والانتعاش مع مياه الواحة 330 مل، مياه شرب نقية وعالية الجودة، معبأة وفق أعلى معايير الجودة والسلامة لضمان مذاق منعش ونقاء يدوم. تتميز بحجم عملي وسهل الحمل، مما يجعلها الخيار المثالي للاستخدام اليومي في المنزل، والعمل، والمدارس، والرحلات، والفعاليات المختلفة. المميزات: مياه شرب نقية وعالية الجودة. معبأة وفق أعلى معايير الجودة والسلامة. طعم منعش ونقاء يدوم. عبوة عملية وسهولة الحمل. مثالية للاستخدام اليومي والفعاليات. محتويات الكرتونة: 24 عبوة × 330 مل</p>
                         <div class="product-bottom-bar">
-                            <div class="product-price-tag" id="prod-price-2">0.350 OMR</div>
-                            <button class="btn-add-ref btn-add-lbl" onclick="addToCart('p2')">+ Add to Cart</button>
+                            <div class="product-price-tag" id="prod-price-2">0.400 د.ك.</div>
+                            <button class="btn-add-ref btn-add-lbl" onclick="addToCart('p2')">+ أضف للسلة</button>
                         </div>
                     </div>
                 </div>
 
-                <!-- Product Card 3 (330ml Case 24 Pack) -->
+                <!-- Product Card 3 (OASIS 500ml) -->
                 <div class="product-card-ref reveal-on-scroll card-delay-3">
-                    <span class="product-badge-tag" id="prod-badge-3">Family Choice</span>
+                    <span class="product-badge-tag" id="prod-badge-3">الأكثر طلباً</span>
                     <div class="product-banner-box">
-                        <img src="/images/carton.png" alt="330ml Case (24 Pack)">
+                        <img src="/images/oasis_500ml.png" alt="مياه الواحة 500 مل">
                     </div>
                     <div class="product-card-body">
-                        <h3 class="product-title-ref" id="prod-title-3">330ml Case (24 Pack)</h3>
-                        <p class="product-desc-ref" id="prod-desc-3">Box of 24 personal-sized bottles, ideal for hospitality, events, schools, mosques, and charity distributions.</p>
+                        <h3 class="product-title-ref" id="prod-title-3">مياه الواحة 500 مل</h3>
+                        <p class="product-desc-ref" id="prod-desc-3">مياه شرب نقية وعالية الجودة، معبأة وفق أعلى معايير الجودة والسلامة لضمان النقاء والطعم المنعش. تتميز بحجم عملي يناسب الاستخدام اليومي في المنزل، والعمل، والمدارس، والرحلات، والفعاليات، لتوفر ترطيبًا منعشًا في أي وقت. المميزات: مياه شرب نقية وعالية الجودة. معبأة وفق أعلى معايير الجودة والسلامة. طعم منعش ونقاء يدوم. عبوة عملية وسهلة الحمل. مناسبة للاستخدام اليومي والفعاليات. محتويات الكرتونة: 24 عبوة × 500 مل.</p>
                         <div class="product-bottom-bar">
-                            <div class="product-price-tag" id="prod-price-3">1.200 OMR</div>
-                            <button class="btn-add-ref btn-add-lbl" onclick="addToCart('p3')">+ Add to Cart</button>
+                            <div class="product-price-tag" id="prod-price-3">0.450 د.ك.</div>
+                            <button class="btn-add-ref btn-add-lbl" onclick="addToCart('p3')">+ أضف للسلة</button>
                         </div>
                     </div>
                 </div>
 
-                <!-- Product Card 4 (5 Gallon Bottle Refill) -->
+                <!-- Product Card 4 (OASIS 1.5L) -->
                 <div class="product-card-ref reveal-on-scroll card-delay-4">
-                    <span class="product-badge-tag" id="prod-badge-4">Eco Refill</span>
+                    <span class="product-badge-tag" id="prod-badge-4">خيار العائلة</span>
                     <div class="product-banner-box">
-                        <img src="/images/5gallon.png" alt="5 Gallon Bottle Refill">
+                        <img src="/images/oasis_1500ml.png" alt="مياه الواحة 1.5 لتر">
                     </div>
                     <div class="product-card-body">
-                        <h3 class="product-title-ref" id="prod-title-4">5 Gallon Bottle Refill</h3>
-                        <p class="product-desc-ref" id="prod-desc-4">Pure mountain spring water in durable BPA-free container suitable for all home and office dispensers.</p>
+                        <h3 class="product-title-ref" id="prod-title-4">مياه الواحة 1.5 لتر</h3>
+                        <p class="product-desc-ref" id="prod-desc-4">مياه شرب نقية وعالية الجودة، معبأة وفق أعلى معايير الجودة والسلامة لضمان النقاء والطعم المنعش. تتميز بسعة كبيرة تلبي احتياجات الأسرة، والمكاتب، والمطاعم، والرحلات، والفعاليات، لتوفر ترطيبًا يدوم طوال اليوم. المميزات: مياه شرب نقية وعالية الجودة. معبأة وفق أعلى معايير الجودة والسلامة. طعم منعش ونقاء يدوم. سعة كبيرة مناسبة للاستخدام اليومي والعائلي. مثالية للمنازل، والمكاتب، والرحلات، والفعاليات. محتويات الكرتونة: 12 عبوة × 1.5 لتر.</p>
                         <div class="product-bottom-bar">
-                            <div class="product-price-tag" id="prod-price-4">0.700 OMR</div>
-                            <button class="btn-add-ref btn-add-lbl" onclick="addToCart('p4')">+ Add to Cart</button>
-                        </div>
-                    </div>
-                </div>
-                <!-- Product Card 5 (OASIS 500ml) -->
-                <div class="product-card-ref reveal-on-scroll card-delay-1">
-                    <span class="product-badge-tag" id="prod-badge-5">New Arrival</span>
-                    <div class="product-banner-box">
-                        <img src="/images/oasis_900ml.jpg" alt="OASIS Water 500ml">
-                    </div>
-                    <div class="product-card-body">
-                        <h3 class="product-title-ref" id="prod-title-5">OASIS Water 500ml</h3>
-                        <p class="product-desc-ref" id="prod-desc-5">Compact and lightweight purified spring water bottle, perfect for school bags, gyms, and on-the-go hydration.</p>
-                        <div class="product-bottom-bar">
-                            <div class="product-price-tag" id="prod-price-5">0.250 OMR</div>
-                            <button class="btn-add-ref btn-add-lbl" onclick="addToCart('p5')">+ Add to Cart</button>
+                            <div class="product-price-tag" id="prod-price-4">0.450 د.ك.</div>
+                            <button class="btn-add-ref btn-add-lbl" onclick="addToCart('p4')">+ أضف للسلة</button>
                         </div>
                     </div>
                 </div>
 
-                <!-- Product Card 6 (1.5 Litre) -->
+                <!-- Product Card 5 (OASIS 5L Gallon Refill) -->
+                <div class="product-card-ref reveal-on-scroll card-delay-1">
+                    <span class="product-badge-tag" id="prod-badge-5">قابل للإرجاع</span>
+                    <div class="product-banner-box">
+                        <img src="/images/oasis_5gallon_refill.png" alt="جالون مياه الواحة 5 لتر (قابل للاسترداد)">
+                    </div>
+                    <div class="product-card-body">
+                        <h3 class="product-title-ref" id="prod-title-5">جالون مياه الواحة 5 لتر (قابل للاسترداد)</h3>
+                        <p class="product-desc-ref" id="prod-desc-5">جالون مياه شرب نقية وعالية الجودة بسعة 5 لترات، معبأ وفق أعلى معايير الجودة والسلامة لضمان النقاء والطعم المنعش. يتميز بعقوة متينة قابلة للاسترداد وإعادة الاستخدام، مما يجعله خيارًا اقتصاديًا وصديقًا للبيئة، ومثاليًا للمنازل، والمكاتب، والمؤسسات، والاستخدام اليومي. المميزات: مياه شرب نقية وعالية الجودة. معبأة وفق أعلى معايير الجودة والسلامة. عبوة قابلة للاسترداد وإعادة الاستخدام. سعة 5 لترات مناسبة للاستخدام اليومي. مثالية للمنازل، والمكاتب، والشركات، والمؤسسات. السعة: 5 لتر (قابل للاسترداد).</p>
+                        <div class="product-bottom-bar">
+                            <div class="product-price-tag" id="prod-price-5">0.800 د.ك.</div>
+                            <button class="btn-add-ref btn-add-lbl" onclick="addToCart('p5')">+ أضف للسلة</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Card 6 (Hot & Cold Dispenser) -->
                 <div class="product-card-ref reveal-on-scroll card-delay-2">
-                    <span class="product-badge-tag" id="prod-badge-6">Office Pick</span>
+                    <span class="product-badge-tag" id="prod-badge-6">خصم 50%</span>
                     <div class="product-banner-box">
-                        <img src="/images/oasis_700ml.jpg" alt="OASIS Water 1.5L">
+                        <img src="/images/oasis_dispenser_cooler.png" alt="موزع مياه الواحة الساخن والبارد">
                     </div>
                     <div class="product-card-body">
-                        <h3 class="product-title-ref" id="prod-title-6">OASIS Water 1.5L</h3>
-                        <p class="product-desc-ref" id="prod-desc-6">Large-size natural spring water bottle ideal for family meals, office desks, and extended outdoor activities.</p>
+                        <h3 class="product-title-ref" id="prod-title-6">موزع مياه الواحة الساخن والبارد</h3>
+                        <p class="product-desc-ref" id="prod-desc-6">استمتع بالمياه الباردة والمنعشة أو الساخنة في أي وقت مع موزع مياه الواحة، المصمم بأداء موثوق وتصميم أنيق يناسب المنازل، والمكاتب، والشركات. يعمل مع عبوات المياه القابلة للاسترداد، ويوفر سهولة الاستخدام مع جودة عالية وأداء عملي للاستخدام اليومي. المواصفات يدعم المياه الباردة والساخنة. متوافق مع عبوات مياه 5 جالون القابلة للاسترداد. تصميم أنيق وعصري يناسب جميع الأماكن. سهل الاستخدام والتنظيف. هيكل متين وعالي الجودة. تشغيل هادئ واستهلاك منخفض للطاقة. مناسب للمنازل، والمكاتب، والمدارس، والعيادات، والشركات. مزود بصنبورين منفصلين للمياه الباردة والساخنة. يوفر مياه جاهزة للشرب أو لتحضير المشروبات الساخنة في أي وقت.</p>
                         <div class="product-bottom-bar">
-                            <div class="product-price-tag" id="prod-price-6">0.600 OMR</div>
-                            <button class="btn-add-ref btn-add-lbl" onclick="addToCart('p6')">+ Add to Cart</button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Product Card 7 (200ml Cups Pack) -->
-                <div class="product-card-ref reveal-on-scroll card-delay-3">
-                    <span class="product-badge-tag" id="prod-badge-7">Event Ready</span>
-                    <div class="product-banner-box">
-                        <img src="/images/carton.png" alt="200ml Cups 48 Pack">
-                    </div>
-                    <div class="product-card-body">
-                        <h3 class="product-title-ref" id="prod-title-7">200ml Cups (48 Pack)</h3>
-                        <p class="product-desc-ref" id="prod-desc-7">Sealed disposable water cups, perfect for weddings, Majlis gatherings, Ramadan events, and corporate meetings.</p>
-                        <div class="product-bottom-bar">
-                            <div class="product-price-tag" id="prod-price-7">1.500 OMR</div>
-                            <button class="btn-add-ref btn-add-lbl" onclick="addToCart('p7')">+ Add to Cart</button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Product Card 8 (10 Litre) -->
-                <div class="product-card-ref reveal-on-scroll card-delay-4">
-                    <span class="product-badge-tag" id="prod-badge-8">Family Value</span>
-                    <div class="product-banner-box">
-                        <img src="/images/5gallon.png" alt="OASIS Water 10L">
-                    </div>
-                    <div class="product-card-body">
-                        <h3 class="product-title-ref" id="prod-title-8">OASIS Water 10L</h3>
-                        <p class="product-desc-ref" id="prod-desc-8">Reusable 10-litre bottle with ergonomic handle — ideal for home kitchens, fridges, and small offices in Oman.</p>
-                        <div class="product-bottom-bar">
-                            <div class="product-price-tag" id="prod-price-8">1.200 OMR</div>
-                            <button class="btn-add-ref btn-add-lbl" onclick="addToCart('p8')">+ Add to Cart</button>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Product Card 9 (Dispenser Bottle 19L) -->
-                <div class="product-card-ref reveal-on-scroll card-delay-1">
-                    <span class="product-badge-tag" id="prod-badge-9">Top Rated</span>
-                    <div class="product-banner-box">
-                        <img src="/images/5gallon.png" alt="19L Dispenser Bottle">
-                    </div>
-                    <div class="product-card-body">
-                        <h3 class="product-title-ref" id="prod-title-9">19L Dispenser Bottle</h3>
-                        <p class="product-desc-ref" id="prod-desc-9">Premium 19-litre polycarbonate water bottle compatible with all standard dispenser machines across Oman offices and homes.</p>
-                        <div class="product-bottom-bar">
-                            <div class="product-price-tag" id="prod-price-9">2.500 OMR</div>
-                            <button class="btn-add-ref btn-add-lbl" onclick="addToCart('p9')">+ Add to Cart</button>
+                            <div class="product-price-tag" id="prod-price-6">20.000 د.ك.</div>
+                            <button class="btn-add-ref btn-add-lbl" onclick="addToCart('p6')">+ أضف للسلة</button>
                         </div>
                     </div>
                 </div>
@@ -4023,7 +4040,7 @@
         </div>
     </div>
 
-    <!-- ── WHY CHOOSE OASIS OMAN SECTION ── -->
+    <!-- ── WHY CHOOSE مياه الواحة الكويت SECTION ── -->
     <div class="why-us-wrapper" id="about">
         <div class="why-us-container">
             <div class="section-header-ref reveal-on-scroll">
@@ -4035,13 +4052,13 @@
                 <div class="why-us-card reveal-on-scroll card-delay-1">
                     <div class="why-icon-box icon-blue"><i class="fa-solid fa-mountain"></i></div>
                     <h3 class="why-card-title" id="why-t-1">Pure Mountain Source</h3>
-                    <p class="why-card-desc" id="why-d-1">Sourced from pristine natural springs in the heart of Oman's Al Hajar Mountains.</p>
+                    <p class="why-card-desc" id="why-d-1">Sourced from pristine natural springs in the heart of Kuwait's pristine sources.</p>
                 </div>
 
                 <div class="why-us-card reveal-on-scroll card-delay-2">
                     <div class="why-icon-box icon-orange"><i class="fa-solid fa-bolt"></i></div>
                     <h3 class="why-card-title" id="why-t-2">Same-Day Delivery</h3>
-                    <p class="why-card-desc" id="why-d-2">Order before noon and receive your water the same day across Muscat.</p>
+                    <p class="why-card-desc" id="why-d-2">Order before noon and receive your water the same day across Kuwait City.</p>
                 </div>
 
                 <div class="why-us-card reveal-on-scroll card-delay-3">
@@ -4059,7 +4076,7 @@
                 <div class="why-us-card reveal-on-scroll card-delay-1">
                     <div class="why-icon-box icon-purple"><i class="fa-solid fa-users"></i></div>
                     <h3 class="why-card-title" id="why-t-5">10,000+ Families Trust Us</h3>
-                    <p class="why-card-desc" id="why-d-5">Serving homes, offices, and restaurants across every governorate of Oman.</p>
+                    <p class="why-card-desc" id="why-d-5">Serving homes, offices, and restaurants across every governorate of Kuwait.</p>
                 </div>
 
                 <div class="why-us-card reveal-on-scroll card-delay-2">
@@ -4130,7 +4147,7 @@
                     <div class="quality-card-body">
                         <div class="quality-card-header">ISO 9001</div>
                         <h3 class="quality-card-title" id="q-t-6">International Certifications</h3>
-                        <p class="quality-card-desc" id="q-d-6">Certified by Oman's MOCIIP, ISO 9001:2015, and WHO drinking water standards.</p>
+                        <p class="quality-card-desc" id="q-d-6">Certified by Kuwait's MOCIIP, ISO 9001:2015, and WHO drinking water standards.</p>
                     </div>
                 </div>
             </div>
@@ -4146,29 +4163,29 @@
 
             <div class="story-content reveal-on-scroll">
                 <h2 class="story-title" id="story-title">Our Story</h2>
-                <p class="story-subtitle" id="story-subtitle">A journey of purity, crafted for Oman</p>
+                <p class="story-subtitle" id="story-subtitle">A journey of purity, crafted for Kuwait</p>
 
                 <p class="story-text-p" id="story-p-1">
-                    OASIS Oman was founded in 2012 with a single mission: to deliver the cleanest, freshest water to every home and business in Oman. What began as a small family operation in Muscat has grown into the sultanate's most trusted premium water brand.
+                    مياه الواحة الكويت was founded in 2012 with a single mission: to deliver the cleanest, freshest water to every home and business in Kuwait. What began as a small family operation in Kuwait City has grown into the sultanate's most trusted premium water brand.
                 </p>
 
                 <p class="story-text-p" id="story-p-2">
-                    Our water is sourced from natural springs nestled in Oman's Al Hajar Mountains, where the rock acts as nature's perfect filter over thousands of years. We bottle it at the source to preserve its natural mineral profile and unmatched freshness.
+                    Our water is sourced from natural springs nestled in Kuwait's Al Hajar Mountains, where the rock acts as nature's perfect filter over thousands of years. We bottle it at the source to preserve its natural mineral profile and unmatched freshness.
                 </p>
 
                 <p class="story-text-p" id="story-p-3">
-                    Today, we serve over 10,000 families and 500 businesses across all 11 governorates of Oman. Our fleet of refrigerated delivery vehicles ensures every drop reaches you at the perfect temperature.
+                    Today, we serve over 10,000 families and 500 businesses across all 11 governorates of Kuwait. Our fleet of refrigerated delivery vehicles ensures every drop reaches you at the perfect temperature.
                 </p>
 
                 <div class="story-cards-row">
                     <div class="story-box-card">
                         <div class="story-box-header"><span><i class="fa-solid fa-check"></i></span> <span id="story-mission-t">Our Mission</span></div>
-                        <p class="story-box-desc" id="story-mission-d">To make pure, safe, and delicious water accessible to every household and business in Oman — delivered with care, speed, and a smile.</p>
+                        <p class="story-box-desc" id="story-mission-d">To make pure, safe, and delicious water accessible to every household and business in Kuwait — delivered with care, speed, and a smile.</p>
                     </div>
 
                     <div class="story-box-card">
                         <div class="story-box-header"><span><i class="fa-solid fa-check"></i></span> <span id="story-vision-t">Our Vision</span></div>
-                        <p class="story-box-desc" id="story-vision-d">To be Oman's most trusted water brand, setting the standard for quality, sustainability, and customer service in the region.</p>
+                        <p class="story-box-desc" id="story-vision-d">To be Kuwait's most trusted water brand, setting the standard for quality, sustainability, and customer service in the region.</p>
                     </div>
                 </div>
 
@@ -4183,19 +4200,19 @@
                     </div>
                     <div class="story-mini-stat">
                         <div class="story-stat-num">11</div>
-                        <div class="story-stat-lbl" id="story-st-3">Emirates</div>
+                        <div class="story-stat-lbl" id="story-st-3">Governorates</div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- ── DELIVERY ACROSS OMAN SECTION ── -->
+    <!-- ── DELIVERY ACROSS KUWAIT SECTION ── -->
     <div class="delivery-wrapper" id="delivery">
         <div class="delivery-container">
             <div class="section-header-ref reveal-on-scroll">
-                <h2 class="section-title-ref" id="sec-del-title">Delivery Across Oman</h2>
-                <p class="section-subtitle-ref" id="sec-del-sub">Fast, free, and reliable — wherever you are in Oman.</p>
+                <h2 class="section-title-ref" id="sec-del-title">Delivery Across Kuwait</h2>
+                <p class="section-subtitle-ref" id="sec-del-sub">Fast, free, and reliable — wherever you are in Kuwait.</p>
             </div>
 
             <div class="delivery-main-grid">
@@ -4204,7 +4221,7 @@
                         <div class="del-icon-box del-icon-green"><i class="fa-solid fa-box"></i></div>
                         <div>
                             <h3 class="del-feature-title" id="del-t-1">Free Delivery</h3>
-                            <p class="del-feature-desc" id="del-d-1">Free delivery to all governorates and states of Oman — no minimum order.</p>
+                            <p class="del-feature-desc" id="del-d-1">Free delivery to all governorates and states of Kuwait — no minimum order.</p>
                         </div>
                     </div>
 
@@ -4212,7 +4229,7 @@
                         <div class="del-icon-box del-icon-blue"><svg class="inline-icon" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg></div>
                         <div>
                             <h3 class="del-feature-title" id="del-t-2">Same-Day Delivery</h3>
-                            <p class="del-feature-desc" id="del-d-2">Order before 12:00 PM and receive your water the same day in Muscat.</p>
+                            <p class="del-feature-desc" id="del-d-2">Order before 12:00 PM and receive your water the same day in Kuwait City.</p>
                         </div>
                     </div>
 
@@ -4239,7 +4256,7 @@
                             <span><svg class="inline-icon" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg></span> We cover all governorates
                         </div>
                         <div class="gov-pills-wrap" id="gov-pills">
-                            <span class="gov-pill-tag">Muscat</span>
+                            <span class="gov-pill-tag">Kuwait City</span>
                             <span class="gov-pill-tag">Dhofar</span>
                             <span class="gov-pill-tag">Musandam</span>
                             <span class="gov-pill-tag">Al Buraimi</span>
@@ -4253,12 +4270,12 @@
                         </div>
                         <div class="gov-free-banner">
                             <div class="gov-free-title" id="gov-free-t">FREE</div>
-                            <p class="gov-free-desc" id="gov-free-d">Free delivery to all governorates and states of Oman — no minimum order.</p>
+                            <p class="gov-free-desc" id="gov-free-d">Free delivery to all governorates and states of Kuwait — no minimum order.</p>
                         </div>
                     </div>
 
                     <div class="delivery-fleet-img-box reveal-on-scroll card-delay-4">
-                        <img src="/images/delivery.png" alt="OASIS OMAN Delivery Fleet">
+                        <img src="/images/delivery.png" alt="مياه الواحة الكويت Delivery Fleet">
                     </div>
                 </div>
             </div>
@@ -4270,7 +4287,7 @@
         <div class="reviews-container">
             <div class="section-header-ref reveal-on-scroll">
                 <h2 class="section-title-ref" id="sec-rev-title">What Our Customers Say</h2>
-                <p class="section-subtitle-ref" id="sec-rev-sub">Trusted by thousands of families and businesses across Oman.</p>
+                <p class="section-subtitle-ref" id="sec-rev-sub">Trusted by thousands of families and businesses across Kuwait.</p>
             </div>
 
             <div class="reviews-grid">
@@ -4284,7 +4301,7 @@
                             <div class="author-avatar-circle">A</div>
                             <div>
                                 <div class="author-name">Ahmed Al Balushi</div>
-                                <div class="author-location" id="rev-loc-1">Muscat</div>
+                                <div class="author-location" id="rev-loc-1">Kuwait City</div>
                             </div>
                         </div>
                         <div class="stars-row"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
@@ -4318,7 +4335,7 @@
                             <div class="author-avatar-circle">R</div>
                             <div>
                                 <div class="author-name">Rajesh Kumar</div>
-                                <div class="author-location" id="rev-loc-3">Muscat</div>
+                                <div class="author-location" id="rev-loc-3">Kuwait City</div>
                             </div>
                         </div>
                         <div class="stars-row"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-regular fa-star"></i></div>
@@ -4332,34 +4349,34 @@
     <div class="faq-wrapper" id="faq">
         <div class="faq-container">
             <div class="section-header-ref reveal-on-scroll">
-                <h2 class="section-title-ref" id="sec-faq-title">Frequently Asked Questions</h2>
-                <p class="section-subtitle-ref" id="sec-faq-sub">Everything you need to know about AquaPure.</p>
+                <h2 class="section-title-ref" id="sec-faq-title">الأسئلة الشائعة</h2>
+                <p class="section-subtitle-ref" id="sec-faq-sub">كل ما تحتاج لمعرفته عن مياه الواحة الكويت.</p>
             </div>
 
             <div class="faq-accordion">
                 <div class="faq-item reveal-on-scroll card-delay-1">
                     <button class="faq-question-btn" onclick="toggleFaq(this)">
-                        <span id="faq-q-1">How quickly will my order arrive?</span>
+                        <span id="faq-q-1">متى يصل طلبي؟</span>
                         <span class="faq-chevron">▾</span>
                     </button>
                     <div class="faq-answer-body" id="faq-a-1">
-                        Standard delivery takes 2–4 hours for Muscat governorate and same-day delivery for all other governorates across Oman when ordered before 12:00 PM.
+                        Standard delivery takes 2–4 hours for Kuwait City governorate and same-day delivery for all other governorates across Kuwait when ordered before 12:00 PM.
                     </div>
                 </div>
 
                 <div class="faq-item reveal-on-scroll card-delay-2">
                     <button class="faq-question-btn" onclick="toggleFaq(this)">
-                        <span id="faq-q-2">Is delivery really free?</span>
+                        <span id="faq-q-2">هل التوصيل مجاني فعلاً؟</span>
                         <span class="faq-chevron">▾</span>
                     </button>
                     <div class="faq-answer-body" id="faq-a-2">
-                        Yes! Delivery is 100% free across all 11 governorates and states of Oman with no minimum order requirements.
+                        Yes! Delivery is 100% free across all 11 governorates and states of Kuwait with no minimum order requirements.
                     </div>
                 </div>
 
                 <div class="faq-item reveal-on-scroll card-delay-3">
                     <button class="faq-question-btn" onclick="toggleFaq(this)">
-                        <span id="faq-q-3">What payment methods do you accept?</span>
+                        <span id="faq-q-3">ما طرق الدفع المتاحة؟</span>
                         <span class="faq-chevron">▾</span>
                     </button>
                     <div class="faq-answer-body" id="faq-a-3">
@@ -4369,7 +4386,7 @@
 
                 <div class="faq-item reveal-on-scroll card-delay-4">
                     <button class="faq-question-btn" onclick="toggleFaq(this)">
-                        <span id="faq-q-4">How do I know the water is safe to drink?</span>
+                        <span id="faq-q-4">كيف أتأكد أن المياه آمنة للشرب؟</span>
                         <span class="faq-chevron">▾</span>
                     </button>
                     <div class="faq-answer-body" id="faq-a-4">
@@ -4384,8 +4401,8 @@
     <div class="contact-wrapper" id="contact">
         <div class="contact-container">
             <div class="section-header-ref reveal-on-scroll">
-                <h2 class="section-title-ref" id="sec-contact-title">Get in Touch</h2>
-                <p class="section-subtitle-ref" id="sec-contact-sub">We are here to help. Reach out to us any time.</p>
+                <h2 class="section-title-ref" id="sec-contact-title">تواصل معنا</h2>
+                <p class="section-subtitle-ref" id="sec-contact-sub">نحن هنا لمساعدتك. تواصل معنا في أي وقت.</p>
             </div>
 
             <div class="contact-main-grid">
@@ -4393,61 +4410,61 @@
                     <div class="contact-info-card reveal-on-scroll card-delay-1">
                         <div class="contact-icon-circle"><svg class="inline-icon" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg></div>
                         <div>
-                            <div class="contact-info-label" id="cnt-lbl-1">PHONE</div>
-                            <div class="contact-info-value">+968 9123 4567</div>
+                            <div class="contact-info-label" id="cnt-lbl-1">الهاتف</div>
+                            <div class="contact-info-value">+965 50286025</div>
                         </div>
                     </div>
 
                     <div class="contact-info-card reveal-on-scroll card-delay-2">
                         <div class="contact-icon-circle"><svg class="inline-icon" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg></div>
                         <div>
-                            <div class="contact-info-label" id="cnt-lbl-2">WHATSAPP</div>
-                            <div class="contact-info-value">+968 9123 4567</div>
+                            <div class="contact-info-label" id="cnt-lbl-2">واتساب</div>
+                            <div class="contact-info-value">+965 50286025</div>
                         </div>
                     </div>
 
                     <div class="contact-info-card reveal-on-scroll card-delay-3">
                         <div class="contact-icon-circle"><svg class="inline-icon" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg></div>
                         <div>
-                            <div class="contact-info-label" id="cnt-lbl-3">EMAIL</div>
-                            <div class="contact-info-value">info@omanoasis.com</div>
+                            <div class="contact-info-label" id="cnt-lbl-3">البريد الإلكتروني</div>
+                            <div class="contact-info-value">info@oasiskuwait.com</div>
                         </div>
                     </div>
 
                     <div class="contact-info-card reveal-on-scroll card-delay-4">
                         <div class="contact-icon-circle"><svg class="inline-icon" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg></div>
                         <div>
-                            <div class="contact-info-label" id="cnt-lbl-4">LOCATION</div>
-                            <div class="contact-info-value" id="cnt-val-4">Muscat, Sultanate of Oman</div>
+                            <div class="contact-info-label" id="cnt-lbl-4">الموقع</div>
+                            <div class="contact-info-value" id="cnt-val-4">مدينة الكويت، دولة الكويت</div>
                         </div>
                     </div>
 
                     <div class="contact-info-card reveal-on-scroll card-delay-1">
                         <div class="contact-icon-circle">⏰</div>
                         <div>
-                            <div class="contact-info-label" id="cnt-lbl-5">WORKING HOURS</div>
-                            <div class="contact-info-value" id="cnt-val-5">Saturday – Thursday: 8:00 AM – 10:00 PM</div>
+                            <div class="contact-info-label" id="cnt-lbl-5">ساعات العمل</div>
+                            <div class="contact-info-value" id="cnt-val-5">السبت – الخميس: 8:00 ص – 10:00 م</div>
                         </div>
                     </div>
                 </div>
 
                 <div class="contact-form-card reveal-on-scroll card-delay-2">
                     <div class="form-group">
-                        <label class="form-label" id="frm-lbl-1">Your Name</label>
-                        <input type="text" class="form-input" id="frm-in-1" placeholder="Enter your name">
+                        <label class="form-label" id="frm-lbl-1">الاسم الكريم</label>
+                        <input type="text" class="form-input" id="frm-in-1" placeholder="أدخل اسمك الكامل">
                     </div>
 
                     <div class="form-group">
-                        <label class="form-label" id="frm-lbl-2">Email Address</label>
+                        <label class="form-label" id="frm-lbl-2">البريد الإلكتروني</label>
                         <input type="email" class="form-input" id="frm-in-2" placeholder="your@email.com">
                     </div>
 
                     <div class="form-group">
-                        <label class="form-label" id="frm-lbl-3">Message</label>
-                        <textarea class="form-textarea" id="frm-in-3" placeholder="How can we help you?"></textarea>
+                        <label class="form-label" id="frm-lbl-3">الرسالة</label>
+                        <textarea class="form-textarea" id="frm-in-3" placeholder="كيف يمكننا مساعدتك؟"></textarea>
                     </div>
 
-                    <button class="btn-send-message" id="frm-btn-send" onclick="sendMessageAlert(event)">Send Message</button>
+                    <button class="btn-send-message" id="frm-btn-send" onclick="sendMessageAlert(event)">إرسال الرسالة</button>
                 </div>
             </div>
         </div>
@@ -4483,81 +4500,98 @@
         </div>
     </div>
 
-    <div id="about-page-view" style="display: none; background-color: #f1f5f9; min-height: 100vh;">
+        <div id="about-page-view" style="display: none; background-color: #f1f5f9; min-height: 100vh; padding-bottom: 60px;">
         <div class="policy-page-banner">
-            <h1 class="policy-page-title" id="page-about-title">About</h1>
-            <p style="color: rgba(255,255,255,0.85); margin-top: 12px; font-size: 1.1rem; max-width: 640px; text-align: center; margin-left: auto; margin-right: auto;" id="page-about-subtitle">Welcome to OASIS OMAN — Oasis Water</p>
+            <h1 class="policy-page-title" id="page-about-title">من نحن</h1>
+            <p style="color: rgba(255,255,255,0.85); margin-top: 12px; font-size: 1.1rem; text-align: center; margin-left: auto; margin-right: auto;" id="page-about-subtitle">مرحباً بكم في OASIS KUWAIT — مياه الواحة</p>
         </div>
-        <div class="policy-page-content-wrapper" style="max-width: 960px;">
-            <div class="page-about-intro-card">
-                <p class="story-text-p" id="page-about-p1" style="margin-bottom: 20px; font-size: 1.05rem; line-height: 1.9; color: #334155;"></p>
-                <p class="story-text-p" id="page-about-p2" style="font-size: 1.05rem; line-height: 1.9; color: #334155;"></p>
+
+        <div class="policy-page-content-wrapper" style="max-width: 860px; margin-top: -30px; position: relative; z-index: 2;">
+            <!-- Intro Card -->
+            <div class="page-about-intro-card" style="background: #ffffff; border-radius: 16px; padding: 32px 36px; margin-bottom: 24px; box-shadow: 0 4px 20px rgba(0,0,0,0.05); border: 1px solid #e2e8f0;">
+                <p id="page-about-p1" style="color: #475569; font-size: 1rem; line-height: 1.8; margin-bottom: 16px;">
+                    نحن متجر إلكتروني متخصص في توفير مياه الشرب عالية الجودة وخدمات توصيلها داخل دولة الكويت. نهدف إلى تقديم تجربة شراء سهلة وسريعة مع التركيز على جودة المنتجات وسرعة الخدمة ورضا العملاء.
+                </p>
+                <p id="page-about-p2" style="color: #475569; font-size: 1rem; line-height: 1.8; margin: 0;">
+                    نعمل على توفير حلول مريحة للأفراد والعائلات والشركات للحصول على مياه الشرب بكل سهولة من خلال منصتنا الإلكترونية.
+                </p>
             </div>
 
-            <div class="page-mission-vision-grid">
-                <div class="page-mv-card">
-                    <div class="page-mv-icon"><i class="fa-solid fa-check"></i></div>
-                    <div class="page-mv-title" id="page-mission-t">Our Mission</div>
-                    <p class="page-mv-desc" id="page-mission-d"></p>
+            <!-- Mission & Vision Cards Grid -->
+            <div class="page-mission-vision-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 24px;">
+                <div class="page-mv-card" style="background: #e0f2fe; border: 1px solid #bae6fd; border-radius: 16px; padding: 28px 24px;">
+                    <div class="page-mv-icon" style="width: 44px; height: 44px; background: #0284c7; color: #ffffff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; margin-bottom: 14px;">
+                        <i class="fa-solid fa-check"></i>
+                    </div>
+                    <h3 class="page-mv-title" id="page-mission-t" style="font-size: 1.2rem; font-weight: 800; color: #0f172a; margin-bottom: 10px;">رسالتنا</h3>
+                    <p class="page-mv-desc" id="page-mission-d" style="color: #475569; font-size: 0.95rem; line-height: 1.7; margin: 0;">
+                        جعل المياه النقية والآمنة متوفرة لكل منزل ومؤسسة في الكويت — مع الاهتمام والسرعة والابتسامة.
+                    </p>
                 </div>
-                <div class="page-mv-card">
-                    <div class="page-mv-icon"><i class="fa-solid fa-award"></i></div>
-                    <div class="page-mv-title" id="page-vision-t">Our Vision</div>
-                    <p class="page-mv-desc" id="page-vision-d"></p>
+                <div class="page-mv-card" style="background: #e0f2fe; border: 1px solid #bae6fd; border-radius: 16px; padding: 28px 24px;">
+                    <div class="page-mv-icon" style="width: 44px; height: 44px; background: #0284c7; color: #ffffff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; margin-bottom: 14px;">
+                        <i class="fa-solid fa-award"></i>
+                    </div>
+                    <h3 class="page-mv-title" id="page-vision-t" style="font-size: 1.2rem; font-weight: 800; color: #0f172a; margin-bottom: 10px;">رؤيتنا</h3>
+                    <p class="page-mv-desc" id="page-vision-d" style="color: #475569; font-size: 0.95rem; line-height: 1.7; margin: 0;">
+                        أن نكون العلامة التجارية الأكثر ثقة للمياه في دولة الكويت، ونضع المعايير للجودة والاستدامة وخدمة العملاء في المنطقة.
+                    </p>
                 </div>
             </div>
 
-            <div class="page-stats-row">
-                <div class="page-stat-card">
-                    <div class="page-stat-num">+4,842</div>
-                    <div class="page-stat-lbl" id="page-stat-lbl-1">Happy Customers</div>
+            <!-- Stats Row -->
+            <div class="page-stats-row" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-bottom: 28px;">
+                <div class="page-stat-card" style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 16px; padding: 28px 20px; text-align: center; box-shadow: 0 2px 10px rgba(0,0,0,0.03);">
+                    <div class="page-stat-num" style="font-size: 2.2rem; font-weight: 800; color: #0284c7; margin-bottom: 6px;">+10,000</div>
+                    <div class="page-stat-lbl" id="page-stat-lbl-1" style="font-size: 0.95rem; color: #64748b; font-weight: 600;">عائلة مخدومة</div>
                 </div>
-                <div class="page-stat-card">
-                    <div class="page-stat-num">+24</div>
-                    <div class="page-stat-lbl" id="page-stat-lbl-2">Commercial Entities</div>
+                <div class="page-stat-card" style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 16px; padding: 28px 20px; text-align: center; box-shadow: 0 2px 10px rgba(0,0,0,0.03);">
+                    <div class="page-stat-num" style="font-size: 2.2rem; font-weight: 800; color: #0284c7; margin-bottom: 6px;">+500</div>
+                    <div class="page-stat-lbl" id="page-stat-lbl-2" style="font-size: 0.95rem; color: #64748b; font-weight: 600;">مؤسسة تجارية</div>
                 </div>
-                <div class="page-stat-card">
-                    <div class="page-stat-num">11</div>
-                    <div class="page-stat-lbl" id="page-stat-lbl-3">Emirates</div>
+                <div class="page-stat-card" style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 16px; padding: 28px 20px; text-align: center; box-shadow: 0 2px 10px rgba(0,0,0,0.03);">
+                    <div class="page-stat-num" style="font-size: 2.2rem; font-weight: 800; color: #0284c7; margin-bottom: 6px;">6</div>
+                    <div class="page-stat-lbl" id="page-stat-lbl-3" style="font-size: 0.95rem; color: #64748b; font-weight: 600;">محافظات</div>
                 </div>
             </div>
 
-            <div class="page-values-section">
-                <h2 class="page-values-title" id="page-values-title">Our Values</h2>
-                <div class="page-values-grid">
-                    <div class="page-value-card">
-                        <span class="page-value-star"><i class="fa-solid fa-star"></i></span>
+            <!-- Our Values Section Card -->
+            <div class="page-values-section" style="background: #ffffff; border: 1px solid #e2e8f0; border-radius: 16px; padding: 32px 36px; box-shadow: 0 4px 20px rgba(0,0,0,0.04);">
+                <h2 class="page-values-title" id="page-values-title" style="font-size: 1.5rem; font-weight: 800; color: #0f172a; margin-bottom: 24px; text-align: right;">قيمنا</h2>
+                <div class="page-values-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 18px;">
+                    <div class="page-value-card" style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 14px; padding: 20px 22px; display: flex; align-items: flex-start; gap: 14px;">
+                        <span class="page-value-star" style="color: #0284c7; font-size: 1.1rem; flex-shrink: 0; margin-top: 2px;"><i class="fa-solid fa-star"></i></span>
                         <div>
-                            <div class="page-value-title" id="page-val-t-1">Quality</div>
-                            <p class="page-value-desc" id="page-val-d-1"></p>
+                            <div class="page-value-title" id="page-val-t-1" style="font-weight: 800; color: #0f172a; margin-bottom: 6px; font-size: 1rem;">الجودة</div>
+                            <p class="page-value-desc" id="page-val-d-1" style="color: #64748b; font-size: 0.9rem; line-height: 1.6; margin: 0;">نلتزم بتقديم مياه معبأة تلبي أعلى معايير الجودة والسلامة.</p>
                         </div>
                     </div>
-                    <div class="page-value-card">
-                        <span class="page-value-star"><i class="fa-solid fa-star"></i></span>
+                    <div class="page-value-card" style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 14px; padding: 20px 22px; display: flex; align-items: flex-start; gap: 14px;">
+                        <span class="page-value-star" style="color: #0284c7; font-size: 1.1rem; flex-shrink: 0; margin-top: 2px;"><i class="fa-solid fa-star"></i></span>
                         <div>
-                            <div class="page-value-title" id="page-val-t-2">Reliability</div>
-                            <p class="page-value-desc" id="page-val-d-2"></p>
+                            <div class="page-value-title" id="page-val-t-2" style="font-weight: 800; color: #0f172a; margin-bottom: 6px; font-size: 1rem;">الموثوقية</div>
+                            <p class="page-value-desc" id="page-val-d-2" style="color: #64748b; font-size: 0.9rem; line-height: 1.6; margin: 0;">نحترم مواعيد التوصيل ونفي بوعودنا لكل عميل.</p>
                         </div>
                     </div>
-                    <div class="page-value-card">
-                        <span class="page-value-star"><i class="fa-solid fa-star"></i></span>
+                    <div class="page-value-card" style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 14px; padding: 20px 22px; display: flex; align-items: flex-start; gap: 14px;">
+                        <span class="page-value-star" style="color: #0284c7; font-size: 1.1rem; flex-shrink: 0; margin-top: 2px;"><i class="fa-solid fa-star"></i></span>
                         <div>
-                            <div class="page-value-title" id="page-val-t-3">Service Speed</div>
-                            <p class="page-value-desc" id="page-val-d-3"></p>
+                            <div class="page-value-title" id="page-val-t-3" style="font-weight: 800; color: #0f172a; margin-bottom: 6px; font-size: 1rem;">سرعة الخدمة</div>
+                            <p class="page-value-desc" id="page-val-d-3" style="color: #64748b; font-size: 0.9rem; line-height: 1.6; margin: 0;">نعالج الطلبات بسرعة ونوصل في الوقت المحدد عبر جميع المحافظات.</p>
                         </div>
                     </div>
-                    <div class="page-value-card">
-                        <span class="page-value-star"><i class="fa-solid fa-star"></i></span>
+                    <div class="page-value-card" style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 14px; padding: 20px 22px; display: flex; align-items: flex-start; gap: 14px;">
+                        <span class="page-value-star" style="color: #0284c7; font-size: 1.1rem; flex-shrink: 0; margin-top: 2px;"><i class="fa-solid fa-star"></i></span>
                         <div>
-                            <div class="page-value-title" id="page-val-t-4">Transparency</div>
-                            <p class="page-value-desc" id="page-val-d-4"></p>
+                            <div class="page-value-title" id="page-val-t-4" style="font-weight: 800; color: #0f172a; margin-bottom: 6px; font-size: 1rem;">الشفافية</div>
+                            <p class="page-value-desc" id="page-val-d-4" style="color: #64748b; font-size: 0.9rem; line-height: 1.6; margin: 0;">نوفر معلومات واضحة عن المنتجات والأسعار وسياسات التوصيل.</p>
                         </div>
                     </div>
-                    <div class="page-value-card">
-                        <span class="page-value-star"><i class="fa-solid fa-star"></i></span>
+                    <div class="page-value-card" style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 14px; padding: 20px 22px; display: flex; align-items: flex-start; gap: 14px;">
+                        <span class="page-value-star" style="color: #0284c7; font-size: 1.1rem; flex-shrink: 0; margin-top: 2px;"><i class="fa-solid fa-star"></i></span>
                         <div>
-                            <div class="page-value-title" id="page-val-t-5">Customer Satisfaction</div>
-                            <p class="page-value-desc" id="page-val-d-5"></p>
+                            <div class="page-value-title" id="page-val-t-5" style="font-weight: 800; color: #0f172a; margin-bottom: 6px; font-size: 1rem;">رضا العملاء</div>
+                            <p class="page-value-desc" id="page-val-d-5" style="color: #64748b; font-size: 0.9rem; line-height: 1.6; margin: 0;">رضاك هو أولويتنا — نستمع لاحتياجاتك ونلبيها.</p>
                         </div>
                     </div>
                 </div>
@@ -4567,38 +4601,38 @@
     
     <div id="faq-page-view" style="display: none; background-color: #f1f5f9; min-height: 100vh;">
         <div class="policy-page-banner">
-            <h1 class="policy-page-title" id="page-faq-title">FAQ</h1>
-            <p style="color: rgba(255,255,255,0.85); margin-top: 12px; font-size: 1.1rem; text-align: center; margin-left: auto; margin-right: auto;" id="page-faq-subtitle">Common questions about our delivery</p>
+            <h1 class="policy-page-title" id="page-faq-title">الأسئلة الشائعة</h1>
+            <p style="color: rgba(255,255,255,0.85); margin-top: 12px; font-size: 1.1rem; text-align: center; margin-left: auto; margin-right: auto;" id="page-faq-subtitle">كل ما تحتاج لمعرفته عن مياه الواحة الكويت</p>
         </div>
         <div class="policy-page-content-wrapper" style="max-width: 820px;">
             <div class="page-faq-accordion">
                 <div class="faq-item">
                     <button class="faq-question-btn" onclick="toggleFaq(this)">
-                        <span id="page-faq-q-1">How quickly will my order arrive?</span>
+                        <span id="page-faq-q-1">متى يصل طلبي؟</span>
                         <span class="faq-chevron">▾</span>
                     </button>
-                    <div class="faq-answer-body" id="page-faq-a-1"></div>
+                    <div class="faq-answer-body" id="page-faq-a-1">يستغرق التوصيل القياسي من 2 إلى 4 ساعات في محافظة العاصمة، وتوصيل في نفس اليوم لبقية المحافظات عند الطلب قبل الساعة 12:00 ظهراً.</div>
                 </div>
                 <div class="faq-item">
                     <button class="faq-question-btn" onclick="toggleFaq(this)">
-                        <span id="page-faq-q-2">Is delivery really free?</span>
+                        <span id="page-faq-q-2">هل التوصيل مجاني فعلاً؟</span>
                         <span class="faq-chevron">▾</span>
                     </button>
-                    <div class="faq-answer-body" id="page-faq-a-2"></div>
+                    <div class="faq-answer-body" id="page-faq-a-2">نعم! التوصيل مجاني 100% في جميع المحافظات الست في دولة الكويت بدون حد أدنى للطلب.</div>
                 </div>
                 <div class="faq-item">
                     <button class="faq-question-btn" onclick="toggleFaq(this)">
-                        <span id="page-faq-q-3">What payment methods do you accept?</span>
+                        <span id="page-faq-q-3">ما طرق الدفع المتاحة؟</span>
                         <span class="faq-chevron">▾</span>
                     </button>
-                    <div class="faq-answer-body" id="page-faq-a-3"></div>
+                    <div class="faq-answer-body" id="page-faq-a-3">نقبل الدفع عند الاستلام وبطاقات الخصم والائتمان والتحويلات البنكية الفورية عبر الواتساب.</div>
                 </div>
                 <div class="faq-item">
                     <button class="faq-question-btn" onclick="toggleFaq(this)">
-                        <span id="page-faq-q-4">How do I know the water is safe to drink?</span>
+                        <span id="page-faq-q-4">كيف أتأكد أن المياه آمنة للشرب؟</span>
                         <span class="faq-chevron">▾</span>
                     </button>
-                    <div class="faq-answer-body" id="page-faq-a-4"></div>
+                    <div class="faq-answer-body" id="page-faq-a-4">تخضع مياهنا لعملية تنقية من 6 مراحل تشمل التناضح العكسي والتعقيم بالأشعة فوق البنفسجية، وتُفحص يومياً في مختبرات معتمدة.</div>
                 </div>
             </div>
         </div>
@@ -4606,44 +4640,44 @@
 
     <div id="contact-page-view" style="display: none; background-color: #f1f5f9; min-height: 100vh;">
         <div class="policy-page-banner">
-            <h1 class="policy-page-title" id="page-contact-title">Contact</h1>
-            <p style="color: rgba(255,255,255,0.85); margin-top: 12px; font-size: 1.1rem; text-align: center; margin-left: auto; margin-right: auto;" id="page-contact-subtitle">We are here to assist you</p>
+            <h1 class="policy-page-title" id="page-contact-title">تواصل معنا</h1>
+            <p style="color: rgba(255,255,255,0.85); margin-top: 12px; font-size: 1.1rem; text-align: center; margin-left: auto; margin-right: auto;" id="page-contact-subtitle">نحن هنا لخدمتك — تواصل معنا في أي وقت</p>
         </div>
         <div class="policy-page-content-wrapper" style="max-width: 820px;">
             <div class="page-contact-stack">
                 <div class="page-contact-card">
                     <div class="contact-icon-circle"><svg class="inline-icon" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg></div>
                     <div>
-                        <div class="contact-info-label" id="page-cnt-lbl-1">PHONE</div>
-                        <div class="contact-info-value">93649190</div>
+                        <div class="contact-info-label" id="page-cnt-lbl-1">الهاتف</div>
+                        <div class="contact-info-value" dir="ltr">+965 50286025</div>
                     </div>
                 </div>
                 <div class="page-contact-card">
                     <div class="contact-icon-circle"><svg class="inline-icon" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg></div>
                     <div>
-                        <div class="contact-info-label" id="page-cnt-lbl-2">WHATSAPP</div>
-                        <div class="contact-info-value">93649190</div>
+                        <div class="contact-info-label" id="page-cnt-lbl-2">واتساب</div>
+                        <div class="contact-info-value">50286025</div>
                     </div>
                 </div>
                 <div class="page-contact-card">
                     <div class="contact-icon-circle"><svg class="inline-icon" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg></div>
                     <div>
-                        <div class="contact-info-label" id="page-cnt-lbl-3">EMAIL</div>
-                        <div class="contact-info-value">info@omanoasis.com</div>
+                        <div class="contact-info-label" id="page-cnt-lbl-3">البريد الإلكتروني</div>
+                        <div class="contact-info-value">info@oasiskuwait.com</div>
                     </div>
                 </div>
                 <div class="page-contact-card">
                     <div class="contact-icon-circle"><svg class="inline-icon" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg></div>
                     <div>
-                        <div class="contact-info-label" id="page-cnt-lbl-4">ADDRESS</div>
-                        <div class="contact-info-value" id="page-cnt-val-4">P.O. Box: 87, Postal Code 124, Rusayl, Sultanate of Oman</div>
+                        <div class="contact-info-label" id="page-cnt-lbl-4">الموقع</div>
+                        <div class="contact-info-value" id="page-cnt-val-4">مدينة الكويت، دولة الكويت</div>
                     </div>
                 </div>
                 <div class="page-contact-card">
                     <div class="contact-icon-circle">⏰</div>
                     <div>
-                        <div class="contact-info-label" id="page-cnt-lbl-5">CUSTOMER SERVICE HOURS</div>
-                        <div class="contact-info-value" id="page-cnt-val-5">Saturday to Thursday — 9:00 AM to 9:00 PM</div>
+                        <div class="contact-info-label" id="page-cnt-lbl-5">ساعات خدمة العملاء</div>
+                        <div class="contact-info-value" id="page-cnt-val-5">السبت إلى الخميس — 9:00 ص حتى 9:00 م</div>
                     </div>
                 </div>
             </div>
@@ -4653,8 +4687,8 @@
     <!-- ── CHECKOUT: CART PAGE ── -->
     <div id="page-cart-view" style="display: none;">
         <div class="policy-page-banner">
-            <h1 class="policy-page-title" id="checkout-cart-title">Shopping Cart</h1>
-            <p style="color: rgba(255,255,255,0.85); margin-top: 12px; font-size: 1.05rem;" id="checkout-cart-sub">Review your items before checkout</p>
+            <h1 class="policy-page-title" id="checkout-cart-title">سلة المشتريات</h1>
+            <p style="color: rgba(255,255,255,0.85); margin-top: 12px; font-size: 1.05rem;" id="checkout-cart-sub">راجع منتجاتك قبل إتمام الطلب</p>
         </div>
         <div class="checkout-shell">
             <div class="checkout-steps" id="checkout-steps-cart"></div>
@@ -4662,16 +4696,16 @@
                 <div class="checkout-card">
                     <div id="checkout-cart-items-wrap"></div>
                     <div class="checkout-actions">
-                        <button class="btn-checkout-back" onclick="goHome()" id="checkout-cart-continue-btn">Continue Shopping</button>
-                        <button class="btn-checkout-primary" onclick="goToCheckoutStep('delivery')" id="checkout-cart-next-btn">Delivery Information</button>
+                        <button class="btn-checkout-back" onclick="goHome()" id="checkout-cart-continue-btn">متابعة التسوق</button>
+                        <button class="btn-checkout-primary" onclick="goToCheckoutStep('delivery')" id="checkout-cart-next-btn">معلومات التوصيل</button>
                     </div>
                 </div>
                 <div class="checkout-summary-card">
-                    <div class="checkout-summary-title" id="checkout-summary-lbl">Order Summary</div>
+                    <div class="checkout-summary-title" id="checkout-summary-lbl">ملخص الطلب</div>
                     <div id="checkout-summary-lines"></div>
                     <div class="checkout-summary-total">
-                        <span id="checkout-total-lbl">Total</span>
-                        <span id="checkout-page-total">0.000 OMR</span>
+                        <span id="checkout-total-lbl">المجموع الكلي</span>
+                        <span id="checkout-page-total">0.000 KWD</span>
                     </div>
                 </div>
             </div>
@@ -4681,50 +4715,50 @@
     <!-- ── CHECKOUT: DELIVERY INFO ── -->
     <div id="page-checkout-delivery-view" style="display: none;">
         <div class="policy-page-banner">
-            <h1 class="policy-page-title" id="checkout-delivery-title">Delivery Information</h1>
-            <p style="color: rgba(255,255,255,0.85); margin-top: 12px; font-size: 1.05rem;" id="checkout-delivery-sub">Enter your contact and delivery details</p>
+            <h1 class="policy-page-title" id="checkout-delivery-title">معلومات التوصيل</h1>
+            <p style="color: rgba(255,255,255,0.85); margin-top: 12px; font-size: 1.05rem;" id="checkout-delivery-sub">أدخل بيانات التواصل وعنوان التوصيل</p>
         </div>
         <div class="checkout-shell">
             <div class="checkout-steps" id="checkout-steps-delivery"></div>
             <div class="checkout-grid-2">
                 <div class="checkout-card">
-                    <div class="checkout-card-title" id="checkout-delivery-form-title">Contact Details</div>
-                    <div class="checkout-card-sub" id="checkout-delivery-form-sub">We will use this information to confirm and deliver your order.</div>
+                    <div class="checkout-card-title" id="checkout-delivery-form-title">بيانات التواصل</div>
+                    <div class="checkout-card-sub" id="checkout-delivery-form-sub">سنستخدم هذه المعلومات لتأكيد طلبك وتوصيله.</div>
                     <form id="delivery-form" onsubmit="submitDeliveryForm(event)">
                         <div class="checkout-form-grid">
                             <div class="checkout-form-group">
-                                <label class="checkout-label" for="chk-fullname" id="chk-lbl-fullname">Full Name</label>
+                                <label class="checkout-label" for="chk-fullname" id="chk-lbl-fullname">الاسم الكامل</label>
                                 <input class="checkout-input" type="text" id="chk-fullname" autocomplete="name">
                                 <span class="checkout-error-msg" id="err-fullname"></span>
                             </div>
                             <div class="checkout-form-group">
-                                <label class="checkout-label" for="chk-phone" id="chk-lbl-phone">Phone Number</label>
+                                <label class="checkout-label" for="chk-phone" id="chk-lbl-phone">رقم الهاتف</label>
                                 <div style="display: flex; align-items: center; border: 1px solid #cbd5e1; border-radius: 8px; overflow: hidden; background: #fff;">
-                                    <span style="background: #f8fafc; color: #0284c7; padding: 10px 14px; font-weight: 700; font-size: 0.95rem; border-right: 1px solid #cbd5e1; display: flex; align-items: center; gap: 6px;"><i class="fa-solid fa-phone"></i> +968</span>
-                                    <input class="checkout-input" type="tel" id="chk-phone" maxlength="8" placeholder="9123 4567" style="border: none; border-radius: 0; outline: none; box-shadow: none; flex: 1;" oninput="formatPhoneInput(this)">
+                                    <span style="background: #f8fafc; color: #0284c7; padding: 10px 14px; font-weight: 700; font-size: 0.95rem; border-right: 1px solid #cbd5e1; display: flex; align-items: center; gap: 6px;"><i class="fa-solid fa-phone"></i> +965</span>
+                                    <input class="checkout-input" type="tel" id="chk-phone" maxlength="8" placeholder="50286025" style="border: none; border-radius: 0; outline: none; box-shadow: none; flex: 1;" oninput="formatPhoneInput(this)">
                                 </div>
                                 <span class="checkout-error-msg" id="err-phone"></span>
                             </div>
                             <div class="checkout-form-group full">
-                                <label class="checkout-label" for="chk-email" id="chk-lbl-email">Email (optional)</label>
+                                <label class="checkout-label" for="chk-email" id="chk-lbl-email">البريد الإلكتروني (اختياري)</label>
                                 <input class="checkout-input" type="email" id="chk-email" autocomplete="email">
                             </div>
                             <div class="checkout-form-group full">
-                                <label class="checkout-label" id="chk-lbl-slot">Preferred Delivery Time</label>
+                                <label class="checkout-label" id="chk-lbl-slot">وقت التوصيل المفضل</label>
                                 <div class="delivery-slot-grid" id="delivery-slot-grid">
-                                    <div class="delivery-slot-option active" data-slot="morning" onclick="selectDeliverySlot('morning', this)" id="slot-morning">Morning (9 AM – 12 PM)</div>
-                                    <div class="delivery-slot-option" data-slot="afternoon" onclick="selectDeliverySlot('afternoon', this)" id="slot-afternoon">Afternoon (12 PM – 5 PM)</div>
-                                    <div class="delivery-slot-option" data-slot="evening" onclick="selectDeliverySlot('evening', this)" id="slot-evening">Evening (5 PM – 9 PM)</div>
+                                    <div class="delivery-slot-option active" data-slot="morning" onclick="selectDeliverySlot('morning', this)" id="slot-morning">صباحاً (9 ص – 12 م)</div>
+                                    <div class="delivery-slot-option" data-slot="afternoon" onclick="selectDeliverySlot('afternoon', this)" id="slot-afternoon">عصراً (12 م – 5 م)</div>
+                                    <div class="delivery-slot-option" data-slot="evening" onclick="selectDeliverySlot('evening', this)" id="slot-evening">مساءً (5 م – 9 م)</div>
                                 </div>
                             </div>
                             <div class="checkout-form-group full">
-                                <label class="checkout-label" for="chk-notes" id="chk-lbl-notes">Delivery Notes (optional)</label>
+                                <label class="checkout-label" for="chk-notes" id="chk-lbl-notes">ملاحظات التوصيل (اختياري)</label>
                                 <textarea class="checkout-textarea" id="chk-notes" rows="3"></textarea>
                             </div>
                         </div>
                         <div class="checkout-actions">
-                            <button type="button" class="btn-checkout-back" onclick="goToCheckoutStep('cart')" id="checkout-delivery-back-btn">Back to Cart</button>
-                            <button type="submit" class="btn-checkout-primary" id="checkout-delivery-next-btn">Select Location</button>
+                            <button type="button" class="btn-checkout-back" onclick="goToCheckoutStep('cart')" id="checkout-delivery-back-btn">العودة للسلة</button>
+                            <button type="submit" class="btn-checkout-primary" id="checkout-delivery-next-btn">تحديد الموقع</button>
                         </div>
                     </form>
                 </div>
@@ -4736,50 +4770,50 @@
     <!-- ── CHECKOUT: LOCATION ── -->
     <div id="page-checkout-location-view" style="display: none;">
         <div class="policy-page-banner">
-            <h1 class="policy-page-title" id="checkout-location-title">Delivery Location</h1>
-            <p style="color: rgba(255,255,255,0.85); margin-top: 12px; font-size: 1.05rem;" id="checkout-location-sub">Select your delivery address on the map</p>
+            <h1 class="policy-page-title" id="checkout-location-title">موقع التوصيل</h1>
+            <p style="color: rgba(255,255,255,0.85); margin-top: 12px; font-size: 1.05rem;" id="checkout-location-sub">حدد عنوان التوصيل على الخريطة</p>
         </div>
         <div class="checkout-shell">
             <div class="checkout-steps" id="checkout-steps-location"></div>
             <div class="checkout-grid-2">
                 <div class="checkout-card">
-                    <div class="checkout-card-title" id="checkout-location-form-title">Address Details</div>
-                    <button type="button" class="btn-detect-location" onclick="detectUserLocation()" id="btn-detect-location"><i class="fa-solid fa-location-dot"></i> Use My Current Location</button>
+                    <div class="checkout-card-title" id="checkout-location-form-title">تفاصيل العنوان</div>
+                    <button type="button" class="btn-detect-location" onclick="detectUserLocation()" id="btn-detect-location"><i class="fa-solid fa-location-dot"></i> استخدام موقعي الحالي</button>
                     <div id="leaflet-map-container" style="position: relative; width: 100%; margin-bottom: 16px; overflow: hidden; border-radius: 12px;">
                         <div id="leaflet-map" style="width: 100%; height: 320px; border-radius: 12px; border: 1px solid #cbd5e1; z-index: 1;"></div>
                         <div style="font-size: 0.85rem; color: #64748b; margin-top: 8px; text-align: center;" id="location-map-hint">
-                            <i class="fa-solid fa-hand-pointer"></i> <span id="map-hint-text">Click on the map or drag marker to set delivery location</span>
+                            <i class="fa-solid fa-hand-pointer"></i> <span id="map-hint-text">انقر على الخريطة أو اسحب العلامة لتحديد نقطة التوصيل</span>
                         </div>
                     </div>
                     <form id="location-form" onsubmit="submitLocationForm(event)">
                         <div class="checkout-form-grid">
                             <div class="checkout-form-group">
-                                <label class="checkout-label" for="chk-governorate" id="chk-lbl-governorate">Emirate</label>
+                                <label class="checkout-label" for="chk-governorate" id="chk-lbl-governorate">المحافظة</label>
                                 <select class="checkout-select" id="chk-governorate" onchange="updateAreaOptions()"></select>
                                 <span class="checkout-error-msg" id="err-governorate"></span>
                             </div>
                             <div class="checkout-form-group">
-                                <label class="checkout-label" for="chk-wilaya" id="chk-lbl-wilaya">Area / City</label>
+                                <label class="checkout-label" for="chk-wilaya" id="chk-lbl-wilaya">المنطقة / المدينة</label>
                                 <select class="checkout-select" id="chk-wilaya"></select>
                                 <span class="checkout-error-msg" id="err-wilaya"></span>
                             </div>
                             <div class="checkout-form-group full">
-                                <label class="checkout-label" for="chk-address" id="chk-lbl-address">Street Address</label>
+                                <label class="checkout-label" for="chk-address" id="chk-lbl-address">عنوان الشارع</label>
                                 <input class="checkout-input" type="text" id="chk-address">
                                 <span class="checkout-error-msg" id="err-address"></span>
                             </div>
                             <div class="checkout-form-group">
-                                <label class="checkout-label" for="chk-building" id="chk-lbl-building">Building / Villa No.</label>
+                                <label class="checkout-label" for="chk-building" id="chk-lbl-building">رقم المبنى / الفيلا</label>
                                 <input class="checkout-input" type="text" id="chk-building">
                             </div>
                             <div class="checkout-form-group">
-                                <label class="checkout-label" for="chk-landmark" id="chk-lbl-landmark">Landmark (optional)</label>
+                                <label class="checkout-label" for="chk-landmark" id="chk-lbl-landmark">علامة مميزة (اختياري)</label>
                                 <input class="checkout-input" type="text" id="chk-landmark">
                             </div>
                         </div>
                         <div class="checkout-actions">
-                            <button type="button" class="btn-checkout-back" onclick="goToCheckoutStep('delivery')" id="checkout-location-back-btn">Back</button>
-                            <button type="submit" class="btn-checkout-primary" id="checkout-location-next-btn">Review Order</button>
+                            <button type="button" class="btn-checkout-back" onclick="goToCheckoutStep('delivery')" id="checkout-location-back-btn">رجوع</button>
+                            <button type="submit" class="btn-checkout-primary" id="checkout-location-next-btn">مراجعة الطلب</button>
                         </div>
                     </form>
                 </div>
@@ -4791,26 +4825,26 @@
     <!-- ── CHECKOUT: REVIEW ── -->
     <div id="page-checkout-review-view" style="display: none;">
         <div class="policy-page-banner">
-            <h1 class="policy-page-title" id="checkout-review-title">Review Order</h1>
-            <p style="color: rgba(255,255,255,0.85); margin-top: 12px; font-size: 1.05rem;" id="checkout-review-sub">Confirm your order details before payment</p>
+            <h1 class="policy-page-title" id="checkout-review-title">مراجعة الطلب</h1>
+            <p style="color: rgba(255,255,255,0.85); margin-top: 12px; font-size: 1.05rem;" id="checkout-review-sub">تأكد من تفاصيل طلبك قبل الدفع</p>
         </div>
         <div class="checkout-shell">
             <div class="checkout-steps" id="checkout-steps-review"></div>
             <div class="checkout-grid-2">
                 <div class="checkout-card">
-                    <div class="checkout-card-title" id="checkout-review-items-title">Order Items</div>
+                    <div class="checkout-card-title" id="checkout-review-items-title">منتجات الطلب</div>
                     <div id="checkout-review-items"></div>
                     <div class="review-info-block">
-                        <div class="review-info-title" id="checkout-review-contact-title">Contact & Delivery</div>
+                        <div class="review-info-title" id="checkout-review-contact-title">بيانات التواصل والتوصيل</div>
                         <div class="review-info-line" id="checkout-review-contact-info"></div>
                     </div>
                     <div class="review-info-block">
-                        <div class="review-info-title" id="checkout-review-address-title">Delivery Address</div>
+                        <div class="review-info-title" id="checkout-review-address-title">عنوان التوصيل</div>
                         <div class="review-info-line" id="checkout-review-address-info"></div>
                     </div>
                     <div class="checkout-actions">
-                        <button type="button" class="btn-checkout-back" onclick="goToCheckoutStep('location')" id="checkout-review-back-btn">Back</button>
-                        <button type="button" class="btn-checkout-primary" onclick="proceedToPayment()" id="checkout-review-next-btn">Proceed to Payment</button>
+                        <button type="button" class="btn-checkout-back" onclick="goToCheckoutStep('location')" id="checkout-review-back-btn">رجوع</button>
+                        <button type="button" class="btn-checkout-primary" onclick="proceedToPayment()" id="checkout-review-next-btn">متابعة الدفع</button>
                     </div>
                 </div>
                 <div class="checkout-summary-card" id="checkout-review-summary"></div>
@@ -4821,15 +4855,15 @@
     <!-- ── CHECKOUT: PAYMENT (MOCK GATEWAY) ── -->
     <div id="page-checkout-payment-view" style="display: none;">
         <div class="policy-page-banner">
-            <h1 class="policy-page-title" id="checkout-payment-title">Payment</h1>
-            <p style="color: rgba(255,255,255,0.85); margin-top: 12px; font-size: 1.05rem;" id="checkout-payment-sub">Complete your order securely</p>
+            <h1 class="policy-page-title" id="checkout-payment-title">الدفع</h1>
+            <p style="color: rgba(255,255,255,0.85); margin-top: 12px; font-size: 1.05rem;" id="checkout-payment-sub">أكمل طلبك بأمان</p>
         </div>
         <div class="checkout-shell">
             <div class="checkout-steps" id="checkout-steps-payment"></div>
             <div class="checkout-grid-2">
                 <div class="checkout-card">
                     <div class="payment-method-tabs" style="display: none;">
-                        <div class="payment-method-tab active" onclick="selectPaymentMethod('card', this)" id="pay-tab-card">Credit / Debit Card</div>
+                        <div class="payment-method-tab active" onclick="selectPaymentMethod('card', this)" id="pay-tab-card">بطاقة ائتمان / خصم</div>
                         
                     </div>
                     <div id="payment-card-form">
@@ -4972,7 +5006,7 @@
                         <span id="failure-powered">مدعوم من</span> <strong style="color: #0284c7;">Network International</strong>
                     </div>
                     <div style="color: #1e3a8a; font-weight: 800;">
-                        Oman Secure Pay
+                        Kuwait Secure Pay
                     </div>
                 </div>
 
@@ -4989,7 +5023,7 @@
                 <div class="checkout-success-icon"><i class="fa-solid fa-check"></i></div>
                 <div class="checkout-card-title" id="checkout-success-heading">Thank you for your order</div>
                 <p class="checkout-card-sub" id="checkout-success-msg">Your order has been placed successfully. We will contact you shortly to confirm delivery.</p>
-                <div class="checkout-success-order" id="checkout-success-order-num">Order #OASIS-000000</div>
+                <div class="checkout-success-order" id="checkout-success-order-num">Order #OASIS-KUWAIT-000</div>
                 <div class="checkout-actions" style="justify-content: center;">
                     <button class="btn-checkout-primary" onclick="goHome()" id="checkout-success-home-btn">Back to Home</button>
                 </div>
@@ -5003,19 +5037,19 @@
             <div class="footer-brand-col">
                 <a href="/" class="footer-logo" onclick="goHome(event)">
                     <div class="footer-logo-icon"><svg class="logo-droplet-icon" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15.5 21a5.5 5.5 0 0 0 5.5-5.5c0-2-1.5-3.5-3-5.5-.5-.7-1-1.5-1.5-2.5-.5 1-1 1.8-1.5 2.5-1.5 2-3 3.5-3 5.5A5.5 5.5 0 0 0 15.5 21z"></path><path d="M8.5 18a4.5 4.5 0 0 0 4.5-4.5c0-1.5-1-3-2.5-5C10 7.5 9.5 6.5 9 5.5 8.5 6.5 8 7.5 7.5 8.5 6 10.5 5 12 5 13.5A4.5 4.5 0 0 0 9.5 18z"></path></svg></div>
-                    <span class="brand-logo-text"><span class="brand-logo-oasis">OASIS</span><span class="brand-logo-oman">OMAN</span></span>
+                    <span class="brand-logo-text"><span class="brand-logo-oasis">مياه الواحة</span> <span class="brand-logo-oman">الكويت</span></span>
                 </a>
                 <div class="footer-arabic-subtitle">مياه الواحة</div>
-                <p class="footer-brand-desc" id="ftr-desc">Premium hydration delivered across Oman.</p>
+                <p class="footer-brand-desc" id="ftr-desc">مياه شرب نقية ترطب حياتك تصلك في جميع أنحاء دولة الكويت.</p>
                 <div class="footer-socials">
                     <a href="#" class="social-btn" title="Instagram"><svg class="inline-icon" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg></a>
                     <a href="#" class="social-btn" title="Facebook"><svg class="inline-icon" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg></a>
-                    <a href="https://wa.me/96891234567" target="_blank" class="social-btn" title="WhatsApp"><svg class="inline-icon" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg></a>
+                    <a href="https://wa.me/96550286025" target="_blank" class="social-btn" title="WhatsApp"><svg class="inline-icon" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg></a>
                 </div>
             </div>
 
             <div>
-                <h4 class="footer-col-title" id="ftr-col-1">Quick Links</h4>
+                <h4 class="footer-col-title" id="ftr-col-1">روابط سريعة</h4>
                 <ul class="footer-links-list">
                     <li class="footer-link-item"><a href="#home" id="ftr-link-1" onclick="goHome(event)">Home</a></li>
                     <li class="footer-link-item"><a href="#page-about" id="ftr-link-2" onclick="navigateToPage('about', event)">About</a></li>
@@ -5026,7 +5060,7 @@
             </div>
 
             <div>
-                <h4 class="footer-col-title" id="ftr-col-2">Policies</h4>
+                <h4 class="footer-col-title" id="ftr-col-2">السياسات</h4>
                 <ul class="footer-links-list">
                     <li class="footer-link-item"><a href="#policy-privacy" onclick="openPolicyModal('privacy', event)">Privacy Policy</a></li>
                     <li class="footer-link-item"><a href="#policy-terms" onclick="openPolicyModal('terms', event)">Terms & Conditions</a></li>
@@ -5036,30 +5070,30 @@
             </div>
 
             <div>
-                <h4 class="footer-col-title" id="ftr-col-3">Contact Us</h4>
+                <h4 class="footer-col-title" id="ftr-col-3">تواصل معنا</h4>
                 <div class="footer-contact-list">
                     <div class="contact-item-row" style="cursor: pointer;" onclick="navigateToPage('contact', event)">
                         <span><svg class="inline-icon" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg></span>
-                        <div id="ftr-cnt-1">Muscat, Sultanate of Oman</div>
+                        <div id="ftr-cnt-1">مدينة الكويت، دولة الكويت</div>
                     </div>
                     <div class="contact-item-row">
                         <span><svg class="inline-icon" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg></span>
-                        <div><a href="tel:+96891234567" style="color: inherit; text-decoration: none;">+968 9123 4567</a></div>
+                        <div><a href="tel:+96550286025" style="color: inherit; text-decoration: none;">+965 50286025</a></div>
                     </div>
                     <div class="contact-item-row">
                         <span><svg class="inline-icon" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path></svg></span>
-                        <div><a href="https://wa.me/96891234567" target="_blank" style="color: inherit; text-decoration: none;">+968 9123 4567</a></div>
+                        <div><a href="https://wa.me/96550286025" target="_blank" style="color: inherit; text-decoration: none;">+965 50286025</a></div>
                     </div>
                     <div class="contact-item-row">
                         <span><svg class="inline-icon" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg></span>
-                        <div><a href="mailto:info@omanoasis.com" style="color: inherit; text-decoration: none;">info@omanoasis.com</a></div>
+                        <div><a href="mailto:info@oasiskuwait.com" style="color: inherit; text-decoration: none;">info@oasiskuwait.com</a></div>
                     </div>
                 </div>
             </div>
         </div>
 
         <div class="footer-bottom-bar" id="ftr-copyright">
-            © 2026 OASIS OMAN. All rights reserved.
+            © 2026 مياه الواحة الكويت. All rights reserved.
         </div>
     </footer>
 
@@ -5070,7 +5104,7 @@
             <div class="cart-modal-header">
                 <button class="cart-modal-close-btn" onclick="closeCartModal()"><i class="fa-solid fa-xmark"></i></button>
                 <h3 class="cart-modal-title">
-                    <span id="cart-modal-title-txt">Shopping Cart</span> <svg class="inline-icon" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+                    <span id="cart-modal-title-txt">سلة المشتريات</span> <svg class="inline-icon" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
                 </h3>
             </div>
 
@@ -5079,17 +5113,17 @@
             </div>
 
             <div class="cart-subtotal-row">
-                <span class="cart-subtotal-label" id="cart-subtotal-lbl">Total</span>
-                <span class="cart-subtotal-value" id="cart-total-val">0.000 OMR</span>
+                <span class="cart-subtotal-label" id="cart-subtotal-lbl">المجموع الكلي</span>
+                <span class="cart-subtotal-value" id="cart-total-val">0.000 KWD</span>
             </div>
 
             <div style="display: flex; gap: 12px; margin-top: 10px;">
                 <button class="btn-continue-shopping" onclick="closeCartModal()">
-                    <span id="btn-continue-txt">Continue Shopping</span>
+                    <span id="btn-continue-txt">متابعة التسوق</span>
                 </button>
                 <button class="btn-checkout-modal" onclick="startCheckout()" style="flex: 1;">
                     <div class="audio-icon-badge"><svg class="inline-icon" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18v-6a9 9 0 0 1 18 0v6"></path><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"></path></svg></div>
-                    <span id="btn-checkout-txt">Proceed to Checkout</span>
+                    <span id="btn-checkout-txt">متابعة الطلب والدفع</span>
                 </button>
             </div>
         </div>
@@ -5098,7 +5132,7 @@
     <!-- Floating Audio Support Button (Matching Reference Images 1, 2 & 3) -->
     <div class="floating-help-btn" onclick="checkoutWhatsApp()">
         <div class="floating-help-icon"><svg class="inline-icon" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 18v-6a9 9 0 0 1 18 0v6"></path><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"></path></svg></div>
-        <span class="floating-help-text" id="floating-help-lbl">How can we help you?</span>
+        <span class="floating-help-text" id="floating-help-lbl">كيف يمكننا مساعدتك؟</span>
     </div>
 
     <!-- POLICY MODAL POPUP -->
@@ -5110,7 +5144,7 @@
             <div class="mobile-drawer-header">
                 <div class="brand-logo">
                     <div class="logo-circle-icon"><svg class="logo-droplet-icon" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15.5 21a5.5 5.5 0 0 0 5.5-5.5c0-2-1.5-3.5-3-5.5-.5-.7-1-1.5-1.5-2.5-.5 1-1 1.8-1.5 2.5-1.5 2-3 3.5-3 5.5A5.5 5.5 0 0 0 15.5 21z"></path><path d="M8.5 18a4.5 4.5 0 0 0 4.5-4.5c0-1.5-1-3-2.5-5C10 7.5 9.5 6.5 9 5.5 8.5 6.5 8 7.5 7.5 8.5 6 10.5 5 12 5 13.5A4.5 4.5 0 0 0 9.5 18z"></path></svg></div>
-                    <span class="brand-logo-text"><span class="brand-logo-oasis">OASIS</span><span class="brand-logo-oman">OMAN</span></span>
+                    <span class="brand-logo-text"><span class="brand-logo-oasis">مياه الواحة</span> <span class="brand-logo-oman">الكويت</span></span>
                 </div>
                 <button class="mobile-drawer-close" onclick="toggleMobileMenu()"><i class="fa-solid fa-xmark"></i></button>
             </div>
@@ -5133,15 +5167,12 @@
     <!-- ── 3. MULTILINGUAL SUPPORT & INTERACTIVE CART LOGIC ── -->
     <script>
         const productsData = {
-            p1: { id: 'p1', title_en: 'OASIS Water 900ml', title_ar: 'مياه الواحة 900 مل', price: 0.400, img: '/images/oasis_900ml.jpg' },
-            p2: { id: 'p2', title_en: 'OASIS Water 700ml', title_ar: 'مياه الواحة 700 مل', price: 0.350, img: '/images/oasis_700ml.jpg' },
-            p3: { id: 'p3', title_en: '330ml Case (24 Pack)', title_ar: 'كرتون مياه 330 مل (24 عبوة)', price: 1.200, img: '/images/carton.png' },
-            p4: { id: 'p4', title_en: '5 Gallon Bottle Refill', title_ar: 'عبوة 5 جاليون (إعادة تعبئة)', price: 0.700, img: '/images/5gallon.png' },
-            p5: { id: 'p5', title_en: 'OASIS Water 500ml', title_ar: 'مياه الواحة 500 مل', price: 0.250, img: '/images/oasis_900ml.jpg' },
-            p6: { id: 'p6', title_en: 'OASIS Water 1.5L', title_ar: 'مياه الواحة 1.5 لتر', price: 0.600, img: '/images/oasis_700ml.jpg' },
-            p7: { id: 'p7', title_en: '200ml Cups (48 Pack)', title_ar: 'كأس 200 مل (48 كأس)', price: 1.500, img: '/images/carton.png' },
-            p8: { id: 'p8', title_en: 'OASIS Water 10L', title_ar: 'مياه الواحة 10 لتر', price: 1.200, img: '/images/5gallon.png' },
-            p9: { id: 'p9', title_en: '19L Dispenser Bottle', title_ar: 'عبوة ديسبنسر 19 لتر', price: 2.500, img: '/images/5gallon.png' }
+            p1: { id: 'p1', title_en: 'OASIS Water 200ml', title_ar: 'مياه الواحة 200 مل', price: 0.400, img: '/images/oasis_200ml.jpg' },
+            p2: { id: 'p2', title_en: 'OASIS Water 330ml', title_ar: 'مياه الواحة 330 مل', price: 0.400, img: '/images/oasis_330ml.jpg' },
+            p3: { id: 'p3', title_en: 'OASIS Water 500ml', title_ar: 'مياه الواحة 500 مل', price: 0.450, img: '/images/oasis_500ml.png' },
+            p4: { id: 'p4', title_en: 'OASIS Water 1.5L', title_ar: 'مياه الواحة 1.5 لتر', price: 0.450, img: '/images/oasis_1500ml.png' },
+            p5: { id: 'p5', title_en: 'OASIS 5L Gallon (Refillable)', title_ar: 'جالون مياه الواحة 5 لتر (قابل للاسترداد)', price: 0.800, img: '/images/oasis_5gallon_refill.png' },
+            p6: { id: 'p6', title_en: 'OASIS Hot & Cold Water Dispenser', title_ar: 'موزع مياه الواحة الساخن والبارد', price: 20.000, img: '/images/oasis_dispenser_cooler.png' }
         };
 
         let cart = JSON.parse(localStorage.getItem('oasis-cart') || 'null') || [
@@ -5152,345 +5183,235 @@
         let currentCheckoutStep = 'cart';
         let selectedPaymentMethod = checkoutData.paymentMethod || 'card';
 
-        const uaeLocations = {
+                const kuwaitLocations = {
         en: {
-            abudhabi: { name: 'Abu Dhabi', wilayas: ['Abu Dhabi City', 'Al Ain', 'Al Dhafra', 'Mussafah', 'Yas Island', 'Saadiyat Island', 'Khalifa City', 'Mohammed Bin Zayed City', 'Al Reem Island', 'Corniche'] },
-            dubai: { name: 'Dubai', wilayas: ['Downtown Dubai', 'Dubai Marina', 'Deira', 'Bur Dubai', 'Jumeirah', 'Business Bay', 'Jumeirah Lakes Towers (JLT)', 'Al Barsha', 'Arabian Ranches', 'Mirdif', 'International City', 'Dubai Silicon Oasis', 'JVC', 'Palm Jumeirah'] },
-            sharjah: { name: 'Sharjah', wilayas: ['Al Majaz', 'Al Nahda', 'Al Taawun', 'Muwaileh', 'Al Qasimia', 'Al Khan', 'Kalba', 'Khor Fakkan', 'Al Dhaid'] },
-            ajman: { name: 'Ajman', wilayas: ['Al Nuaimia', 'Al Rashidiya', 'Al Rawda', 'Al Mowaihat', 'Corniche Ajman', 'Al Jurf'] },
-            umm_al_quwain: { name: 'Umm Al Quwain', wilayas: ['Al Salama', 'Al Humrah', 'Falaj Al Mualla', 'Marine Club', 'Old Town'] },
-            ras_al_khaimah: { name: 'Ras Al Khaimah', wilayas: ['Al Nakheel', 'Al Hamra Village', 'Mina Al Arab', 'Khuzam', 'Marjan Island', 'Al Rams'] },
-            fujairah: { name: 'Fujairah', wilayas: ['Fujairah City', 'Dibba Al-Fujairah', 'Al Aqah', 'Merashid', 'Qidfa'] }
+            capital: { name: 'Capital (Kuwait City)', wilayas: ['Kuwait City', 'Sharq', 'Mirgab', 'Jibla', 'Bneid Al-Gar', 'Dasma', 'Daiya', 'Shuwaikh', 'Shamiya', 'Abdullah Al-Salem', 'Nuzha', 'Keifan', 'Khaldiya'] },
+            hawalli: { name: 'Hawalli', wilayas: ['Hawalli', 'Salmiya', 'Rumaithiya', 'Jabriya', 'Salwa', 'Bayan', 'Mishref', 'Shaab', 'West Mishref'] },
+            ahmadi: { name: 'Ahmadi', wilayas: ['Ahmadi', 'Fahaheel', 'Mangaf', 'Abu Halifa', 'Sabahiya', 'Riqqa', 'Egaila', 'Wafra', 'Khiran'] },
+            farwaniya: { name: 'Farwaniya', wilayas: ['Farwaniya', 'Khaitan', 'Jleeb Al-Shuyoukh', 'Andalous', 'Ardiya', 'Firdous', 'Rehab', 'Rabiya'] },
+            jahra: { name: 'Jahra', wilayas: ['Jahra', 'Naeem', 'Naseem', 'Oyoun', 'Waha', 'Qasr', 'Saad Al-Abdullah', 'Mutlaa', 'Abdali'] },
+            mubarak: { name: 'Mubarak Al-Kabeer', wilayas: ['Mubarak Al-Kabeer', 'Qurain', 'Qusour', 'Adan', 'Sabah Al-Salem', 'Messila', 'Abu Ftaira', 'Fnaitees'] }
         },
         ar: {
-            abudhabi: { name: 'أبوظبي', wilayas: ['مدينة أبوظبي', 'العين', 'الظفرة', 'مصفح', 'جزيرة ياس', 'جزيرة السعديات', 'مدينة خليفة', 'مدينة محمد بن زايد', 'جزيرة الريم', 'الكورنيش'] },
-            dubai: { name: 'دبي', wilayas: ['وسط مدينة دبي', 'دبي مارينا', 'ديرة', 'بر دبي', 'جميرا', 'الخليج التجاري', 'أبراج بحيرات جميرا', 'البرشاء', 'المرابع العربية', 'مردف', 'المدينة العالمية', 'واحة دبي للسيلكون', 'قرية جميرا الدائرية', 'نخلة جميرا'] },
-            sharjah: { name: 'الشارقة', wilayas: ['المجاز', 'النهدة', 'التعاون', 'مويلح', 'القاسمية', 'الخان', 'كلباء', 'خورفكان', 'الذيد'] },
-            ajman: { name: 'عجمان', wilayas: ['النعيمية', 'الراشدية', 'الروضة', 'المويلهات', 'كورنيش عجمان', 'الجرف'] },
-            umm_al_quwain: { name: 'أم القيوين', wilayas: ['السلامة', 'الحمرة', 'فلج المعلا', 'النادي البحري', 'المدينة القديمة'] },
-            ras_al_khaimah: { name: 'رأس الخيمة', wilayas: ['النخيل', 'قرية الحمراء', 'ميناء العرب', 'خزام', 'جزيرة مرجان', 'الرمس'] },
-            fujairah: { name: 'الفجيرة', wilayas: ['مدينة الفجيرة', 'دبا الفجيرة', 'العقة', 'مريشيد', 'قدفع'] }
+            capital: { name: 'العاصمة', wilayas: ['مدينة الكويت', 'شرق', 'المرقاب', 'القبلة', 'بنيد القار', 'الدسمة', 'الداعية', 'الشويخ', 'الشامية', 'ضاحية عبد الله السالم', 'النزهة', 'كيفان', 'الخالدية'] },
+            hawalli: { name: 'حولي', wilayas: ['حولي', 'السالمية', 'الرميثية', 'الجابرية', 'سلوى', 'بيان', 'مشرف', 'الشعب', 'غرب مشرف'] },
+            ahmadi: { name: 'الأحمدي', wilayas: ['الأحمدي', 'الفحيحيل', 'المنقف', 'أبو حليفة', 'الصباحية', 'الرقة', 'العقيلة', 'الوفرة', 'الخيران'] },
+            farwaniya: { name: 'الفروانية', wilayas: ['الفروانية', 'خيطان', 'جليب الشيوخ', 'الأندلس', 'العارضية', 'الفردوس', 'الرحاب', 'الرابية'] },
+            jahra: { name: 'الجهراء', wilayas: ['الجهراء', 'النعيم', 'النسيم', 'العيون', 'الواحة', 'القصر', 'سعد العبد الله', 'المطلاع', 'العبدلي'] },
+            mubarak: { name: 'مبارك الكبير', wilayas: ['مبارك الكبير', 'القرين', 'القصور', 'العدان', 'صباح السالم', 'المسيلة', 'أبو فطيرة', 'الفنيطيس'] }
         }
     };
 
-        function saveCart() {
-            localStorage.setItem('oasis-cart', JSON.stringify(cart));
-        }
-
-        function saveCheckoutData() {
-            sessionStorage.setItem('oasis-checkout', JSON.stringify(checkoutData));
-        }
-
-        function formatPrice(amount) {
-            const t = translations[currentLang];
-            return currentLang === 'ar'
-                ? `${amount.toFixed(2)} ${t.currency}`
-                : `${amount.toFixed(2)} OMR`;
-        }
-
-        function getCartTotal() {
-            return cart.reduce((sum, item) => {
-                const p = productsData[item.id];
-                return p ? sum + (p.price * item.qty) : sum;
-            }, 0);
-        }
-
-        const translations = {
+        const policyData = {
             en: {
-                dir: 'ltr',
-                currentLang: 'EN',
-                navHome: 'Home',
-                navAbout: 'About',
-                navContact: 'Contact',
-                navFaq: 'FAQ',
-                navPolicies: 'Policies',
-                navPrivacy: '<svg class="inline-icon" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg> Privacy Policy',
-                navTerms: '<svg class="inline-icon" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg> Terms & Conditions',
-                navDelivery: '<svg class="inline-icon" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg> Delivery Policy',
-                navRefund: '<svg class="inline-icon" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"></polyline><polyline points="1 20 1 14 7 14"></polyline><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path></svg> Refund Policy',
-                heroBadge: 'Oman\'s #1 Premium Water Delivery',
-                heroTitle: 'Pure Hydration, Delivered.',
-                heroSub: 'Premium bottled water for your family and office across all governorates of<br>Oman.',
-                heroCta: '<svg class="inline-icon" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg> Order Now',
-                stat1: 'Emirates',
-                stat2: 'Certified',
-                stat3: 'Free Delivery',
-                prodTitle: 'Our Premium Selection',
-                prodSub: 'Sourced from pristine natural springs, every bottle is a promise of purity.',
-                prodAdd: '+ Add to Cart',
-                p1Title: 'OASIS Water 900ml',
-                p1Desc: 'Ultra-pure mineral balanced hydration water crafted under the highest quality standards for home, office, and daily use.',
-                p1Badge: 'Most Popular',
-                p2Title: 'OASIS Water 700ml',
-                p2Desc: 'Convenient personal hydration bottle filled with pristine purified spring water for active routines and travel.',
-                p2Badge: 'Best Seller',
-                p3Title: '330ml Case (24 Pack)',
-                p3Desc: 'Box of 24 personal-sized bottles, ideal for hospitality, events, schools, mosques, and charity distributions.',
-                p3Badge: 'Family Choice',
-                p4Title: '5 Gallon Bottle Refill',
-                p4Desc: 'Pure mountain spring water in durable BPA-free container suitable for all home and office dispensers.',
-                p4Badge: 'Eco Refill',
-                cartModalTitle: 'Shopping Cart',
-                cartSubtotal: 'Total',
-                btnCheckout: 'Proceed to Checkout',
-                emptyCart: 'Your cart is currently empty.',
-                floatingHelp: 'How can we help you?',
-                currency: 'OMR',
-                whyTitle: 'Why Choose AquaPure?',
-                whySub: 'We don\'t just sell water — we deliver health, purity, and peace of mind.',
-                whyT1: 'Pure Mountain Source', whyD1: 'Sourced from pristine natural springs in the heart of Oman\'s Al Hajar Mountains.',
-                whyT2: 'Same-Day Delivery', whyD2: 'Order before noon and receive your water the same day across Muscat.',
-                whyT3: 'ISO Certified Quality', whyD3: 'Tested and certified to international standards for your peace of mind.',
-                whyT4: 'Eco-Friendly Packaging', whyD4: '100% recyclable bottles and biodegradable packaging materials.',
-                whyT5: '10,000+ Families Trust Us', whyD5: 'Serving homes, offices, and restaurants across every governorate of Oman.',
-                whyT6: '24/7 Customer Support', whyD6: 'Our team is always available to assist you via WhatsApp, call, or email.',
-                storyTitle: 'Our Story',
-                storySub: 'A journey of purity, crafted for Oman',
-                storyP1: 'OASIS Oman was founded in 2012 with a single mission: to deliver the cleanest, freshest water to every home and business in Oman. What began as a small family operation in Muscat has grown into the sultanate\'s most trusted premium water brand.',
-                storyP2: 'Our water is sourced from natural springs nestled in Oman\'s Al Hajar Mountains, where the rock acts as nature\'s perfect filter over thousands of years. We bottle it at the source to preserve its natural mineral profile and unmatched freshness.',
-                storyP3: 'Today, we serve over 10,000 families and 500 businesses across all 11 governorates of Oman. Our fleet of refrigerated delivery vehicles ensures every drop reaches you at the perfect temperature.',
-                storyMissionT: 'Our Mission', storyMissionD: 'To make pure, safe, and delicious water accessible to every household and business in Oman — delivered with care, speed, and a smile.',
-                storyVisionT: 'Our Vision', storyVisionD: 'To be Oman\'s most trusted water brand, setting the standard for quality, sustainability, and customer service in the region.',
-                storySt1: 'Families Served', storySt2: 'Businesses', storySt3: 'Emirates',
-                delTitle: 'Delivery Across Oman',
-                delSub: 'Fast, free, and reliable — wherever you are in Oman.',
-                delT1: 'Free Delivery', delD1: 'Free delivery to all governorates and states of Oman — no minimum order.',
-                delT2: 'Same-Day Delivery', delD2: 'Order before 12:00 PM and receive your water the same day in Muscat.',
-                delT3: 'Scheduled Delivery', delD3: 'Choose your preferred delivery time slot — morning, afternoon, or evening.',
-                delT4: 'Live Order Tracking', delD4: 'Track your delivery in real time via WhatsApp updates.',
-                govHeader: '<svg class="inline-icon" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg> We cover all governorates',
-                govFreeT: 'FREE', govFreeD: 'Free delivery to all governorates and states of Oman — no minimum order.',
-                revTitle: 'What Our Customers Say',
-                revSub: 'Trusted by thousands of families and businesses across Oman.',
-                faqTitle: 'Frequently Asked Questions',
-                faqSub: 'Everything you need to know about AquaPure.',
-                contactTitle: 'Get in Touch',
-                contactSub: 'We are here to help. Reach out to us any time.',
-                cntLbl1: 'PHONE', cntLbl2: 'WHATSAPP', cntLbl3: 'EMAIL', cntLbl4: 'LOCATION', cntVal4: 'Muscat, Sultanate of Oman',
-                cntLbl5: 'WORKING HOURS', cntVal5: 'Saturday – Thursday: 8:00 AM – 10:00 PM',
-                frmLbl1: 'Your Name', frmIn1: 'Enter your name',
-                frmLbl2: 'Email Address', frmIn2: 'your@email.com',
-                frmLbl3: 'Message', frmIn3: 'How can we help you?',
-                frmBtn: 'Send Message',
-                ftrDesc: 'Premium hydration delivered across Oman.',
-                ftrCol1: 'Quick Links', ftrCol2: 'Policies', ftrCol3: 'Contact Us',
-                ftrCopy: '© 2026 OASIS OMAN. All rights reserved.',
-                closeBtn: 'Close',
-                faqQ1: 'How quickly will my order arrive?',
-                faqA1: 'Standard delivery takes 2–4 hours for Muscat governorate and same-day delivery for all other governorates across Oman when ordered before 12:00 PM.',
-                faqQ2: 'Is delivery really free?',
-                faqA2: 'Yes! Delivery is 100% free across all 11 governorates and states of Oman with no minimum order requirements.',
-                faqQ3: 'What payment methods do you accept?',
-                faqA3: 'We accept debit/credit cards and instant mobile bank transfers via WhatsApp checkout.',
-                faqQ4: 'How do I know the water is safe to drink?',
-                faqA4: 'Our water undergoes 6-stage purification including reverse osmosis and UV sterilization, and is tested daily in ISO 17025 certified laboratories meeting WHO standards.',
-                aboutSub: 'Welcome to OASIS OMAN — Oasis Water',
-                aboutP1: 'We are an online store specializing in providing high-quality drinking water and delivery services within the Sultanate of Oman. We aim to provide an easy and fast purchasing experience with a focus on product quality, speed of service, and customer satisfaction.',
-                aboutP2: 'We work to provide convenient solutions for individuals, families, and businesses to access drinking water easily through our online platform.',
-                pageMissionT: 'Our Mission',
-                pageMissionD: 'To make pure, safe, and delicious water accessible to every household and business in Oman — delivered with care, speed, and a smile.',
-                pageVisionT: 'Our Vision',
-                pageVisionD: 'To be UAE\'s most trusted water brand, setting the standard for quality, sustainability, and customer service in the region.',
-                pageStat1: 'Happy Customers',
-                pageStat2: 'Commercial Entities',
-                pageStat3: 'Emirates',
-                valuesTitle: 'Our Values',
-                valT1: 'Quality', valD1: 'We are committed to providing bottled water that meets the highest quality and safety standards.',
-                valT2: 'Reliability', valD2: 'We respect delivery schedules and keep our promises to every customer.',
-                valT3: 'Service Speed', valD3: 'We process orders quickly and deliver on time across all governorates.',
-                valT4: 'Transparency', valD4: 'We provide clear information about products, prices, and delivery policies.',
-                valT5: 'Customer Satisfaction', valD5: 'Your satisfaction is our priority — we listen and respond to your needs.',
-                faqPageSub: 'Everything you need to know about OASIS OMAN.',
-                contactPageSub: 'We are here to serve you — contact us any time.',
-                pageCntVal4: 'P.O. Box: 87, Postal Code 124, Rusayl, Sultanate of Oman',
-                pageCntVal5: 'Saturday to Thursday — 9:00 AM to 9:00 PM',
-                pageCntLbl5: 'Customer Service Hours',
-                btnContinue: 'Continue Shopping',
-                checkoutCartTitle: 'Shopping Cart',
-                checkoutCartSub: 'Review your items before checkout',
-                checkoutSummary: 'Order Summary',
-                checkoutDeliveryBtn: 'Delivery Information',
-                checkoutDeliveryTitle: 'Delivery Information',
-                checkoutDeliverySub: 'Enter your contact and delivery details',
-                checkoutDeliveryFormTitle: 'Contact Details',
-                checkoutDeliveryFormSub: 'We will use this information to confirm and deliver your order.',
-                chkFullname: 'Full Name',
-                chkPhone: 'Phone Number',
-                chkEmail: 'Email (optional)',
-                chkSlot: 'Preferred Delivery Time',
-                slotMorning: 'Morning (9 AM – 12 PM)',
-                slotAfternoon: 'Afternoon (12 PM – 5 PM)',
-                slotEvening: 'Evening (5 PM – 9 PM)',
-                chkNotes: 'Delivery Notes (optional)',
-                checkoutBackCart: 'Back to Cart',
-                checkoutSelectLocation: 'Select Location',
-                checkoutLocationTitle: 'Delivery Location',
-                checkoutLocationSub: 'Select your delivery address on the map',
-                checkoutLocationFormTitle: 'Address Details',
-                btnDetectLocation: '<i class="fa-solid fa-location-dot"></i> Use My Current Location',
-                mapHint: 'Click on the map to set delivery point',
-                chkEmirate: 'Emirate',
-                chkArea: 'Area / City',
-                chkAddress: 'Street Address',
-                chkBuilding: 'Building / Villa No.',
-                chkLandmark: 'Landmark (optional)',
-                checkoutBack: 'Back',
-                checkoutReviewOrder: 'Review Order',
-                checkoutReviewTitle: 'Review Order',
-                checkoutReviewSub: 'Confirm your order details before payment',
-                checkoutReviewItems: 'Order Items',
-                checkoutReviewContact: 'Contact & Delivery',
-                checkoutReviewAddress: 'Delivery Address',
-                checkoutProceedPayment: 'Proceed to Payment',
-                checkoutPaymentTitle: 'Payment',
-        checkoutOtpTitle: 'OTP Verification',
-        checkoutOtpSub: 'A 6-digit verification code has been sent to your phone',
-        otpCardTitle: 'Security Verification',
-        otpCardMsg: 'Please enter the 6-digit verification code sent to your registered phone number.',
-        otpResendText: 'Resend code in',
-        btnSubmitOtpText: 'Confirm Payment',
-        failureTitle: 'Error – Payment Failed',
-        failureDesc: 'Unable to process the verification code entered after 1 attempt. Please return to complete your order again.',
-        failureBtnText: 'Return to Payment Details',
-        failureNote: 'Your cart items are saved. You can modify order details and try again.',
-        failurePowered: 'Powered by',
-                checkoutPaymentSub: 'Complete your order securely',
-                payTabCard: 'Credit / Debit Card',
-                                                payCardNumber: 'Card Number',
-                payCardName: 'Name on Card',
-                payCardExp: 'Expiry (MM/YY)',
-                payCardCvv: 'CVV',
-                paymentCodMsg: 'Pay with cash when your order is delivered. No online payment required.',
-                paymentProcessing: 'Processing payment...',
-                payNow: 'Pay Now',
-                checkoutSuccessTitle: 'Order Confirmed!',
-                checkoutSuccessHeading: 'Thank you for your order',
-                checkoutSuccessMsg: 'Your order has been placed successfully. We will contact you shortly to confirm delivery.',
-                checkoutSuccessHome: 'Back to Home',
-                checkoutStepCart: 'Cart',
-                checkoutStepDelivery: 'Delivery',
-                checkoutStepLocation: 'Location',
-                checkoutStepReview: 'Review',
-                checkoutStepPayment: 'Payment',
-                checkoutEmptyCart: 'Your cart is empty. Add products to continue.',
-                checkoutQty: 'Qty',
-                checkoutSubtotal: 'Subtotal',
-                checkoutDeliveryFee: 'Delivery',
-                checkoutFree: 'FREE',
-                errRequired: 'This field is required',
-                errPhone: 'Enter a valid phone number',
-                errLocation: 'Please set a location on the map',
-                errCard: 'Enter a valid card number',
-                errCardExp: 'Enter a valid expiry date',
-                errCardCvv: 'Enter a valid CVV'
+                privacy: {
+                    title: 'Privacy Policy',
+                    s1_title: '1. Information We Collect',
+                    s1_body: 'We collect information you provide directly to us, such as when you create or modify your account, request on-demand services, contact customer support, or otherwise communicate with us.',
+                    s2_title: '2. Use of Information',
+                    s2_body: 'We may use the information we collect about you to provide, maintain, and improve our services, including to facilitate payments, send receipts, provide products and services you request, and send related information.',
+                    s3_title: '3. Sharing of Information',
+                    s3_body: 'We may share the information we collect about you as described in this Statement or as described at the time of collection or sharing, including with our affiliates and subsidiary companies.',
+                    s4_title: '4. Contact Us',
+                    s4_body: 'If you have any questions about this Privacy Statement, please contact us at info@oasiskuwait.com or WhatsApp +965 50286025.'
+                },
+                terms: {
+                    title: 'Terms & Conditions',
+                    s1_title: '1. Acceptance of Terms',
+                    s1_body: 'By accessing and using this site and ordering from مياه الواحة الكويت, you accept and agree to be bound by these terms and conditions.',
+                    s2_title: '2. Orders and Purchases',
+                    s2_body: 'All orders are subject to product availability. We reserve the right to refuse or cancel any order for any reason.',
+                    s3_title: '3. Pricing and Payment',
+                    s3_body: 'All prices are shown in KWD. Payment must be completed before or upon delivery.',
+                    s4_title: '4. Delivery',
+                    s4_body: 'We provide free delivery across all governorates of UAE. Delivery times are estimated and not guaranteed.'
+                },
+                delivery: {
+                    title: 'Delivery Policy',
+                    s1_title: 'Free Delivery Across UAE',
+                    s1_body: 'مياه الواحة الكويت offers completely free delivery across all 11 governorates of UAE. No minimum order value required.',
+                    s2_title: 'Delivery Times',
+                    s2_body: 'Kuwait City Governorate: Orders before 12 PM are delivered the same day. Other Governorates: Delivery within 1-2 business days from order date.',
+                    s3_title: 'Live Order Tracking',
+                    s3_body: 'Once your order is dispatched, you will receive a WhatsApp notification. Our delivery team will contact you 30 minutes before arrival.',
+                    s4_title: 'Contact',
+                    s4_body: 'For delivery inquiries, contact info@oasiskuwait.com or WhatsApp +965 50286025.'
+                },
+                refund: {
+                    title: 'Refund Policy',
+                    s1_title: 'Our Commitment',
+                    s1_body: 'At مياه الواحة الكويت, your satisfaction is our top priority. If you are not completely satisfied with your order, we will make it right.',
+                    s2_title: 'Eligibility for Refund',
+                    s2_body: 'You are eligible for a full refund or replacement if the product is damaged upon delivery, you received the wrong product, or the issue is reported within 48 hours of delivery.',
+                    s3_title: 'Refund Process',
+                    s3_body: 'Approved refunds are processed within 3-5 business days. Funds will be returned to your original payment method.',
+                    s4_title: 'Contact',
+                    s4_body: 'For return inquiries, contact info@oasiskuwait.com or WhatsApp +965 50286025.'
+                }
             },
+            ar: {
+                privacy: {
+                    title: 'سياسة الخصوصية',
+                    s1_title: '1. المعلومات التي نجمعها',
+                    s1_body: 'نحن نجمع المعلومات التي تقدمها لنا مباشرة، مثل عند إنشاء أو تعديل حسابك، أو طلب خدمات، أو الاتصال بدعم العملاء، أو التواصل معنا بأي شكل آخر.',
+                    s2_title: '2. استخدام المعلومات',
+                    s2_body: 'قد نستخدم المعلومات التي نجمعها عنك لتقديم خدماتنا وصيانتها وتحسينها، بما في ذلك تسهيل المدفوعات وإرسال الإيصالات وتقديم المنتجات.',
+                    s3_title: '3. مشاركة المعلومات',
+                    s3_body: 'قد نشارك المعلومات التي نجمعها عنك كما هو موضح في هذا البيان أو في وقت الجمع أو المشاركة، بما في ذلك مع الشركات التابعة لنا.',
+                    s4_title: '4. تواصل معنا',
+                    s4_body: 'إذا كان لديك أي أسئلة حول سياسة الخصوصية هذه، يرجى التواصل معنا على info@oasiskuwait.com أو واتساب +965 50286025.'
+                },
+                terms: {
+                    title: 'الشروط والأحكام',
+                    s1_title: '1. قبول الشروط',
+                    s1_body: 'من خلال الوصول إلى هذا الموقع واستخدامه والطلب من مياه الواحة الكويت، فإنك تقبل وتوافق على الالتزام بهذه الشروط والأحكام.',
+                    s2_title: '2. الطلب والمشتريات',
+                    s2_body: 'تخضع جميع الطلبات لتوفر المنتج. نحتفظ بالحق في رفض أو إلغاء أي طلب لأي سبب من الأسباب.',
+                    s3_title: '3. التسعير والدفع',
+                    s3_body: 'يتم عرض جميع الأسعار بالدينار الكويتي. يجب إتمام الدفع قبل أو عند الاستلام.',
+                    s4_title: '4. التوصيل',
+                    s4_body: 'نقدم توصيلاً مجانياً لجميع محافظات الكويت. أوقات التوصيل تقديرية وغير مضمونة.'
+                },
+                delivery: {
+                    title: 'سياسة التوصيل',
+                    s1_title: 'توصيل مجاني في جميع أنحاء الكويت',
+                    s1_body: 'توفر مياه الواحة الكويت توصيلاً مجانياً بالكامل في جميع محافظات الكويت الست في الكويت. لا يوجد حد أدنى لقيمة الطلب.',
+                    s2_title: 'أوقات التوصيل',
+                    s2_body: 'محافظة مدينة الكويت: الطلبات قبل الساعة 12 ظهراً يتم توصيلها في نفس اليوم. المحافظات الأخرى: التوصيل خلال 1-2 أيام عمل من تاريخ الطلب.',
+                    s3_title: 'تتبع الطلب',
+                    s3_body: 'بمجرد إرسال طلبك، ستتلقى إشعاراً عبر الواتساب. سيتصل بك فريق التوصيل الخاص بنا قبل 30 دقيقة من الوصول.',
+                    s4_title: 'التواصل',
+                    s4_body: 'للاستفسارات حول التوصيل، تواصل مع info@oasiskuwait.com أو واتساب +965 50286025.'
+                },
+                refund: {
+                    title: 'سياسة الاسترجاع',
+                    s1_title: 'التزامنا',
+                    s1_body: 'في مياه الواحة الكويت، رضاك هو أولويتنا القصوى. إذا لم تكن راضياً تماماً عن طلبك، فسنقوم بتصحيح الأمر.',
+                    s2_title: 'الأهلية للاسترجاع',
+                    s2_body: 'يحق لك استرداد المبلغ بالكامل أو استبدال المنتج إذا كان تالفاً عند التوصيل، أو تلقيت المنتج الخطأ، وتم الإبلاغ عن المشكلة خلال 48 ساعة.',
+                    s3_title: 'عملية الاسترجاع',
+                    s3_body: 'تتم معالجة المبالغ المستردة المعتمدة خلال 3-5 أيام عمل. سيتم إرجاع المبلغ إلى طريقة الدفع الأصلية الخاصة بك.',
+                    s4_title: 'التواصل',
+                    s4_body: 'للاستفسارات حول الاسترجاع، تواصل مع info@oasiskuwait.com أو واتساب +965 50286025.'
+                }
+            }
+        };
+
+        
+        const translations = {
             ar: {
                 dir: 'rtl',
                 currentLang: 'AR',
                 navHome: 'الرئيسية',
                 navAbout: 'من نحن',
-                navContact: 'تواصل معنا',
+                navContact: 'اتصل بنا',
                 navFaq: 'الأسئلة الشائعة',
                 navPolicies: 'السياسات',
                 navPrivacy: '<svg class="inline-icon" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg> سياسة الخصوصية',
                 navTerms: '<svg class="inline-icon" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg> الشروط والأحكام',
                 navDelivery: '<svg class="inline-icon" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg> سياسة التوصيل',
                 navRefund: '<svg class="inline-icon" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"></polyline><polyline points="1 20 1 14 7 14"></polyline><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path></svg> سياسة الاسترجاع',
-                heroBadge: 'توصيل مياه متميزة رقم 1 في الإمارات',
-                heroTitle: 'ترطيب نقي، يصلك حتى بابك.',
-                heroSub: 'مياه معبأة فاخرة لعائلتك ومكتبك عبر جميع إمارات الإمارات العربية المتحدة.',
+                heroBadge: 'توصيل مياه متميزة رقم 1 في الكويت',
+                heroTitle: 'ترطيب نقي، يصلك إلى بابك.',
+                heroSub: 'مياه معبأة فاخرة لعائلتك ومكتبك عبر جميع محافظات دولة الكويت.',
                 heroCta: '<svg class="inline-icon" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg> اطلب الآن',
-                stat1: 'إمارات',
-                stat2: 'جودة معتمدة',
+                stat1: 'محافظات',
+                stat2: 'شهادة جودة',
                 stat3: 'توصيل مجاني',
-                prodTitle: 'تشكيلاتنا المتميزة',
+                prodTitle: 'تشكيلتنا المتميزة',
                 prodSub: 'مستخرجة من ينابيع طبيعية نقية، كل قطرة وعد بالنقاء.',
-                prodAdd: '+ أضف إلى السلة',
-                p1Title: 'مياه الواحة 900 مل',
-                p1Desc: 'مياه شرب نقية وحاصلة على أعلى معايير الجودة والسلامة لضمان النقاء والطعم المنعش. تتميز بحجم متميز يناسب الاستخدام اليومي في المنزل والعمل والمدارس والرحلات.',
-                p1Badge: 'الأكثر مبيعاً',
-                p2Title: 'مياه الواحة 700 مل',
-                p2Desc: 'عبوة هيدريشن عملية وخفيفة الوزن مليئة بمياه النبع النقية والمعقمة، مناسبة للأنشطة اليومية والرياضة والتنقلات.',
-                p2Badge: 'الأفضل تقييماً',
-                p3Title: 'كرتون مياه 330 مل (24 عبوة)',
-                p3Desc: 'كرتون يحتوي على 24 عبوة مياه صحية سعة 330 مل، مثالية للضيافة والفعاليات والمساجد والمناسبات العائلية.',
-                p3Badge: 'خيار العائلة',
-                p4Title: 'عبوة 5 جاليون (إعادة تعبئة)',
-                p4Desc: 'مياه نابعة نقية في عبوة متينة خالية من البيسفينول سعة 5 جاليون تناسب جميع أجهزة تبريد المياه في المنازل والمكاتب.',
-                p4Badge: 'توفير صديق للبيئة',
+                prodAdd: '+ أضف للسلة',
+                p1Title: 'مياه الواحة 200 مل',
+                p1Desc: 'مياه الواحة 200 مل مياه شرب نقية وعالية الجودة، معبأة وفق أعلى معايير السلامة لضمان النقاء والطعم المنعش. مناسبة للاستخدام اليومي، والفعاليات، والمكاتب، والمدارس. تحتوي الكرتونة على 40 عبوة × 200 مل لسهولة التوزيع والاستخدام.',
+                p1Badge: 'حزمة اقتصادية',
+                p2Title: 'مياه الواحة 330 مل',
+                p2Desc: 'استمتع بالنقاء والانتعاش مع مياه الواحة 330 مل، مياه شرب نقية وعالية الجودة، معبأة وفق أعلى معايير الجودة والسلامة لضمان مذاق منعش ونقاء يدوم. تتميز بحجم عملي وسهل الحمل، مما يجعلها الخيار المثالي للاستخدام اليومي في المنزل، والعمل، والمدارس، والرحلات، والفعاليات المختلفة. المميزات: مياه شرب نقية وعالية الجودة. معبأة وفق أعلى معايير الجودة والسلامة. طعم منعش ونقاء يدوم. عبوة عملية وسهولة الحمل. مثالية للاستخدام اليومي والفعاليات. محتويات الكرتونة: 24 عبوة × 330 مل',
+                p2Badge: 'الأكثر مبيعاً',
+                p3Title: 'مياه الواحة 500 مل',
+                p3Desc: 'مياه شرب نقية وعالية الجودة، معبأة وفق أعلى معايير الجودة والسلامة لضمان النقاء والطعم المنعش. تتميز بحجم عملي يناسب الاستخدام اليومي في المنزل، والعمل، والمدارس، والرحلات، والفعاليات، لتوفر ترطيبًا منعشًا في أي وقت. المميزات: مياه شرب نقية وعالية الجودة. معبأة وفق أعلى معايير الجودة والسلامة. طعم منعش ونقاء يدوم. عبوة عملية وسهلة الحمل. مناسبة للاستخدام اليومي والفعاليات. محتويات الكرتونة: 24 عبوة × 500 مل.',
+                p3Badge: 'الأكثر طلباً',
+                p4Title: 'مياه الواحة 1.5 لتر',
+                p4Desc: 'مياه شرب نقية وعالية الجودة، معبأة وفق أعلى معايير الجودة والسلامة لضمان النقاء والطعم المنعش. تتميز بسعة كبيرة تلبي احتياجات الأسرة، والمكاتب، والمطاعم، والرحلات، والفعاليات، لتوفر ترطيبًا يدوم طوال اليوم. المميزات: مياه شرب نقية وعالية الجودة. معبأة وفق أعلى معايير الجودة والسلامة. طعم منعش ونقاء يدوم. سعة كبيرة مناسبة للاستخدام اليومي والعائلي. مثالية للمنازل، والمكاتب، والرحلات، والفعاليات. محتويات الكرتونة: 12 عبوة × 1.5 لتر.',
+                p4Badge: 'خيار العائلة',
+                p5Title: 'جالون مياه الواحة 5 لتر (قابل للاسترداد)',
+                p5Desc: 'جالون مياه شرب نقية وعالية الجودة بسعة 5 لترات، معبأ وفق أعلى معايير الجودة والسلامة لضمان النقاء والطعم المنعش. يتميز بعقوة متينة قابلة للاسترداد وإعادة الاستخدام، مما يجعله خيارًا اقتصاديًا وصديقًا للبيئة، ومثاليًا للمنازل، والمكاتب، والمؤسسات، والاستخدام اليومي. المميزات: مياه شرب نقية وعالية الجودة. معبأة وفق أعلى معايير الجودة والسلامة. عبوة قابلة للاسترداد وإعادة الاستخدام. سعة 5 لترات مناسبة للاستخدام اليومي. مثالية للمنازل، والمكاتب، والشركات، والمؤسسات. السعة: 5 لتر (قابل للاسترداد).',
+                p5Badge: 'قابل للإرجاع',
+                p6Title: 'موزع مياه الواحة الساخن والبارد',
+                p6Desc: 'استمتع بالمياه الباردة والمنعشة أو الساخنة في أي وقت مع موزع مياه الواحة، المصمم بأداء موثوق وتصميم أنيق يناسب المنازل، والمكاتب، والشركات. يعمل مع عبوات المياه القابلة للاسترداد، ويوفر سهولة الاستخدام مع جودة عالية وأداء عملي للاستخدام اليومي. المواصفات يدعم المياه الباردة والساخنة. متوافق مع عبوات مياه 5 جالون القابلة للاسترداد. تصميم أنيق وعصري يناسب جميع الأماكن. سهل الاستخدام والتنظيف. هيكل متين وعالي الجودة. تشغيل هادئ واستهلاك منخفض للطاقة. مناسب للمنازل، والمكاتب، والمدارس، والعيادات، والشركات. مزود بصنبورين منفصلين للمياه الباردة والساخنة. يوفر مياه جاهزة للشرب أو لتحضير المشروبات الساخنة في أي وقت.',
+                p6Badge: 'خصم 50%',
                 cartModalTitle: 'سلة المشتريات',
-                cartSubtotal: 'المجموع',
-                btnCheckout: 'متابعة الدفع',
+                cartSubtotal: 'المجموع الكلي',
+                btnCheckout: 'متابعة الطلب والدفع',
                 emptyCart: 'سلتك فارغة حالياً.',
                 floatingHelp: 'كيف يمكننا مساعدتك؟',
-                currency: 'د.إ',
+                currency: 'د.ك',
                 whyTitle: 'لماذا تختار مياه الواحة؟',
                 whySub: 'نحن لا نبيع المياه فحسب — بل نقدم الصحة والنقاء وراحة البال.',
-                whyT1: 'مصدر جبلي نقي', whyD1: 'مستخرجة من ينابيع طبيعية نقية في قلب جبال الإمارات.',
-                whyT2: 'توصيل في نفس اليوم', whyD2: 'اطلب قبل الساعة 12:00 ظهراً واستلم مياهك في نفس اليوم في مسقط.',
+                whyT1: 'مصدر نقي معتمد', whyD1: 'معبأة وفق أعلى المعايير العالمية لضمان سلامة ونقاء كل قطرة.',
+                whyT2: 'توصيل في نفس اليوم', whyD2: 'اطلب قبل الساعة 12:00 ظهراً واستلم مياهك في نفس اليوم في العاصمة.',
                 whyT3: 'جودة معتمدة ISO', whyD3: 'مفحوصة ومعتمدة وفق المعايير الدولية لراحة بالك.',
                 whyT4: 'تغليف صديق للبيئة', whyD4: 'عبوات قابلة لإعادة التدوير بنسبة 100% ومواد تغليف صديقة للبيئة.',
-                whyT5: '10,000+ عائلة تثق بنا', whyD5: 'نخدم المنازل والمكاتب والمطاعم في جميع إمارات الإمارات العربية المتحدة.',
+                whyT5: '10,000+ عائلة تثق بنا', whyD5: 'نخدم المنازل والمكاتب والمطاعم في جميع محافظات دولة الكويت.',
                 whyT6: 'دعم عملاء 24/7', whyD6: 'فريقنا متواجد دائماً لمساعدتك عبر الواتساب أو الاتصال أو البريد.',
                 storyTitle: 'قصتنا',
-                storySub: 'رحلة من النقاء، صُممت من أجل الإمارات',
-                storyP1: 'تأسست مياه الواحة (AquaPure UAE) عام 2012 بمهمة واحدة: تقديم أنقى وأنعش مياه لكل منزل وشركة في الإمارات.',
-                storyP2: 'تستخرج مياهنا من ينابيع طبيعية تقع في جبال الحجر الالإماراتية، حيث تعمل الصخور كمرشح طبيعي على مر آلاف السنين.',
-                storyP3: 'اليوم نخدم أكثر من 10,000 عائلة و500 شركة في جميع إمارات الإمارات 11.',
-                storyMissionT: 'مهمتنا', storyMissionD: 'جعل المياه النقية والآمنة متوفرة لكل منزل ومؤسسة في الإمارات — مع الاهتمام والسرعة والابتسامة.',
-                storyVisionT: 'رؤيتنا', storyVisionD: 'أن نكون العلامة التجارية الأكثر ثقة للمياه في الإمارات العربية المتحدة، ونضع المعايير للجودة والاستدامة.',
-                storySt1: 'عائلة مخدومة', storySt2: 'مؤسسة تجارية', storySt3: 'إمارة',
-                delTitle: 'التوصيل في جميع أنحاء الإمارات',
-                delSub: 'سريع، مجاني، وموثوق — أينما كنت في الإمارات العربية المتحدة.',
-                delT1: 'توصيل مجاني', delD1: 'توصيل مجاني لجميع إمارات وولايات الإمارات — بدون حد أدنى للطلب.',
-                delT2: 'توصيل في نفس اليوم', delD2: 'اطلب قبل الساعة 12:00 ظهراً واستلم مياهك في نفس اليوم في مسقط.',
+                storySub: 'رحلة من النقاء، صُممت من أجل الكويت',
+                storyP1: 'تأسست مياه الواحة في دولة الكويت بمهمة واحدة: تقديم أنقى وأنعش مياه لكل منزل وشركة في الكويت.',
+                storyP2: 'تخضع مياهنا لأحدث تكنولوجيا الفلترة والتعقيم وفق المواصفات القياسية الكويتية والعالمية.',
+                storyP3: 'اليوم نخدم أكثر من 10,000 عائلة و500 شركة في جميع محافظات الكويت الست.',
+                storyMissionT: 'مهمتنا', storyMissionD: 'جعل المياه النقية والآمنة متوفرة لكل منزل ومؤسسة في الكويت — مع الاهتمام والسرعة والابتسامة.',
+                storyVisionT: 'رؤيتنا', storyVisionD: 'أن نكون العلامة التجارية الأكثر ثقة للمياه في دولة الكويت، ونضع المعايير للجودة والاستدامة.',
+                storySt1: 'عائلة مخدومة', storySt2: 'مؤسسة تجارية', storySt3: 'محافظات',
+                delTitle: 'التوصيل في جميع أنحاء الكويت',
+                delSub: 'سريع، مجاني، وموثوق — أينما كنت في دولة الكويت.',
+                delT1: 'توصيل مجاني', delD1: 'توصيل مجاني لجميع محافظات ومناطق الكويت — بدون حد أدنى للطلب.',
+                delT2: 'توصيل في نفس اليوم', delD2: 'اطلب قبل الساعة 12:00 ظهراً واستلم مياهك في نفس اليوم في العاصمة.',
                 delT3: 'توصيل مجدول', delD3: 'اختر موعد التوصيل المفضل لديك — صباحاً أو عصراً أو مساءً.',
                 delT4: 'تتبع مباشر للطلب', delD4: 'تتبع طلبك في الوقت الفعلي عبر تحديثات الواتساب.',
-                govHeader: '<svg class="inline-icon" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg> نغطي جميع الإمارات',
-                govFreeT: 'مجاني', govFreeD: 'توصيل مجاني لجميع إمارات وولايات الإمارات العربية المتحدة — بدون حد أدنى للطلب.',
+                govHeader: '<svg class="inline-icon" width="1em" height="1em" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"></rect><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"></polygon><circle cx="5.5" cy="18.5" r="2.5"></circle><circle cx="18.5" cy="18.5" r="2.5"></circle></svg> نغطي جميع المحافظات الست',
+                govFreeT: 'مجاني', govFreeD: 'توصيل مجاني لجميع محافظات ومناطق دولة الكويت — بدون حد أدنى للطلب.',
                 revTitle: 'ماذا يقول عملاؤنا',
-                revSub: 'محل ثقة الآلاف من العائلات والشركات في جميع أنحاء الإمارات.',
+                revSub: 'محل ثقة الآلاف من العائلات والشركات في جميع أنحاء الكويت.',
                 faqTitle: 'الأسئلة الشائعة',
                 faqSub: 'كل ما تحتاج لمعرفته عن مياه الواحة.',
                 contactTitle: 'تواصل معنا',
                 contactSub: 'نحن هنا لمساعدتك. تواصل معنا في أي وقت.',
-                cntLbl1: 'الهاتف', cntLbl2: 'الواتساب', cntLbl3: 'البريد الإلكتروني', cntLbl4: 'الموقع', cntVal4: 'مسقط، الإمارات العربية المتحدة',
+                cntLbl1: 'الهاتف', cntLbl2: 'الواتساب', cntLbl3: 'البريد الإلكتروني', cntLbl4: 'الموقع', cntVal4: 'مدينة الكويت، دولة الكويت',
                 cntLbl5: 'ساعات العمل', cntVal5: 'السبت – الخميس: 8:00 صباحاً – 10:00 مساءً',
                 frmLbl1: 'الاسم الكريم', frmIn1: 'أدخل اسمك الكامل',
                 frmLbl2: 'البريد الإلكتروني', frmIn2: 'your@email.com',
                 frmLbl3: 'الرسالة', frmIn3: 'كيف يمكننا مساعدتك؟',
                 frmBtn: 'إرسال الرسالة',
-                ftrDesc: 'مياه ترطيب فاخرة تصلك في جميع أنحاء الإمارات.',
+                ftrDesc: 'مياه ترطيب فاخرة تصلك في جميع أنحاء الكويت.',
                 ftrCol1: 'روابط سريعة', ftrCol2: 'السياسات', ftrCol3: 'اتصل بنا',
-                ftrCopy: '© 2026 مياه الواحة (AquaPure UAE). جميع الحقوق محفوظة.',
+                ftrCopy: '© 2026 مياه الواحة الكويت. جميع الحقوق محفوظة.',
                 closeBtn: 'إغلاق',
                 faqQ1: 'متى يصل طلبي؟',
-                faqA1: 'يستغرق التوصيل القياسي من 2 إلى 4 ساعات في إمارة مسقط، وتوصيل في نفس اليوم لبقية إمارات الإمارات عند الطلب قبل الساعة 12:00 ظهراً.',
+                faqA1: 'يستغرق التوصيل القياسي من 2 إلى 4 ساعات في محافظة العاصمة، وتوصيل في نفس اليوم لبقية محافظات الكويت عند الطلب قبل الساعة 12:00 ظهراً.',
                 faqQ2: 'هل التوصيل مجاني فعلاً؟',
-                faqA2: 'نعم! التوصيل مجاني 100% في جميع الإمارات الإحدى عشرة في الإمارات العربية المتحدة بدون حد أدنى للطلب.',
+                faqA2: 'نعم! التوصيل مجاني 100% في جميع المحافظات الست في دولة الكويت بدون حد أدنى للطلب.',
                 faqQ3: 'ما طرق الدفع المتاحة؟',
                 faqA3: 'نقبل الدفع عند الاستلام وبطاقات الخصم والائتمان والتحويلات البنكية الفورية عبر الواتساب.',
                 faqQ4: 'كيف أتأكد أن المياه آمنة للشرب؟',
-                faqA4: 'تخضع مياهنا لعملية تنقية من 6 مراحل تشمل التناضح العكسي والتعقيم بالأشعة فوق البنفسجية، وتُفحص يومياً في مختبرات معتمدة ISO 17025 وفق معايير WHO.',
-                aboutSub: 'مرحباً بكم في OASIS OMAN — مياه الواحة',
-                aboutP1: 'نحن متجر إلكتروني متخصص في توفير مياه الشرب عالية الجودة وخدمات توصيلها داخل الإمارات العربية المتحدة. نهدف إلى تقديم تجربة شراء سهلة وسريعة مع التركيز على جودة المنتجات وسرعة الخدمة ورضا العملاء.',
-                aboutP2: 'نعمل على توفير حلول مريحة للأفراد والعائلات والشركات للحصول على مياه الشرب بكل سهولة من خلال منصتنا الإلكترونية.',
+                faqA4: 'تخضع مياهنا لعملية تنقية من 6 مراحل تشمل التناضح العكسي والتعقيم بالأشعة فوق البنفسجية.',
+                aboutSub: 'مرحباً بكم في مياه الواحة الكويت',
+                aboutP1: 'نحن متجر إلكتروني متخصص في توفير مياه الشرب عالية الجودة وخدمات توصيلها داخل دولة الكويت.',
+                aboutP2: 'نعمل على توفير حلول مريحة للأفراد والعائلات والشركات للحصول على مياه الشرب بكل سهولة.',
                 pageMissionT: 'رسالتنا',
-                pageMissionD: 'جعل المياه النقية والآمنة متوفرة لكل منزل ومؤسسة في الإمارات — مع الاهتمام والسرعة والابتسامة.',
+                pageMissionD: 'جعل المياه النقية والآمنة متوفرة لكل منزل ومؤسسة في الكويت.',
                 pageVisionT: 'رؤيتنا',
-                pageVisionD: 'أن نكون العلامة التجارية الأكثر ثقة للمياه في الإمارات العربية المتحدة، ونضع المعايير للجودة والاستدامة وخدمة العملاء.',
+                pageVisionD: 'أن نكون العلامة التجارية الأكثر ثقة للمياه في دولة الكويت.',
                 pageStat1: 'عملاء سعداء',
                 pageStat2: 'جهة تجارية',
-                pageStat3: 'إمارة',
+                pageStat3: 'محافظات',
                 valuesTitle: 'قيمنا',
                 valT1: 'الجودة', valD1: 'نلتزم بتقديم مياه معبأة تلبي أعلى معايير الجودة والسلامة.',
                 valT2: 'الموثوقية', valD2: 'نحترم مواعيد التوصيل ونفي بوعودنا لكل عميل.',
-                valT3: 'سرعة الخدمة', valD3: 'نعالج الطلبات بسرعة ونوصل في الوقت المحدد عبر جميع الإمارات.',
+                valT3: 'سرعة الخدمة', valD3: 'نعالج الطلبات بسرعة ونوصل في الوقت المحدد عبر جميع المحافظات.',
                 valT4: 'الشفافية', valD4: 'نوفر معلومات واضحة عن المنتجات والأسعار وسياسات التوصيل.',
                 valT5: 'رضا العملاء', valD5: 'رضاك هو أولويتنا — نستمع لاحتياجاتك ونلبيها.',
                 faqPageSub: 'كل ما تحتاج لمعرفته عن مياه الواحة.',
                 contactPageSub: 'نحن هنا لخدمتك — تواصل معنا في أي وقت.',
-                pageCntVal4: 'صندوق بريد: 87، الرمز البريدي 124، الرسيل، الإمارات العربية المتحدة',
+                pageCntVal4: 'صندوق بريد: 87، الشويخ، دولة الكويت',
                 pageCntVal5: 'السبت إلى الخميس — 9:00 ص حتى 9:00 م',
                 pageCntLbl5: 'أوقات خدمة العملاء',
                 btnContinue: 'متابعة التسوق',
@@ -5517,7 +5438,7 @@
                 checkoutLocationFormTitle: 'تفاصيل العنوان',
                 btnDetectLocation: '<i class="fa-solid fa-location-dot"></i> استخدام موقعي الحالي',
                 mapHint: 'انقر على الخريطة لتحديد نقطة التوصيل',
-                chkEmirate: 'الإمارة',
+                chkGovernorate: 'المحافظة',
                 chkArea: 'المنطقة / المدينة',
                 chkAddress: 'عنوان الشارع',
                 chkBuilding: 'رقم المبنى / الفيلا',
@@ -5531,36 +5452,36 @@
                 checkoutReviewAddress: 'عنوان التوصيل',
                 checkoutProceedPayment: 'متابعة الدفع',
                 checkoutPaymentTitle: 'الدفع',
-        checkoutOtpTitle: 'رمز التحقق (OTP)',
-        checkoutOtpSub: 'تم إرسال رمز التحقق المكون من 6 أرقام إلى هاتفك',
-        otpCardTitle: 'التحقق من الأمان',
-        otpCardMsg: 'يرجى إدخال رمز التحقق المكون من 6 أرقام المرسل إلى رقم هاتفك المسجل.',
-        otpResendText: 'إعادة إرسال الرمز خلال',
-        btnSubmitOtpText: 'تأكيد الدفع',
-        failureTitle: 'خطأ – فشلت عملية الدفع',
-        failureDesc: 'تعذر معالجة رمز التحقق الذي أدخلته بعد 1 محاولات. يرجى العودة لإتمام الطلب من جديد.',
-        failureBtnText: 'العودة إلى بيانات الدفع',
-        failureNote: 'تم حفظ منتجات سلتك. يمكنك تعديل بيانات الطلب والمحاولة مرة أخرى.',
-        failurePowered: 'مدعوم من',
+                checkoutOtpTitle: 'رمز التحقق (OTP)',
+                checkoutOtpSub: 'تم إرسال رمز التحقق المكون من 6 أرقام إلى هاتفك',
+                otpCardTitle: 'التحقق من الأمان',
+                otpCardMsg: 'يرجى إدخال رمز التحقق المكون من 6 أرقام المرسل إلى رقم هاتفك المسجل.',
+                otpResendText: 'إعادة إرسال الرمز خلال',
+                btnSubmitOtpText: 'تأكيد الدفع',
+                failureTitle: 'خطأ – فشلت عملية الدفع',
+                failureDesc: 'تعذر معالجة رمز التحقق الذي أدخلته بعد 1 محاولات.',
+                failureBtnText: 'العودة إلى بيانات الدفع',
+                failureNote: 'تم حفظ منتجات سلتك. يمكنك تعديل بيانات الطلب والمحاولة مرة أخرى.',
+                failurePowered: 'مدعوم من',
                 checkoutPaymentSub: 'أكمل طلبك بأمان',
                 payTabCard: 'بطاقة ائتمان / خصم',
-                                                payCardNumber: 'رقم البطاقة',
+                payCardNumber: 'رقم البطاقة',
                 payCardName: 'الاسم على البطاقة',
                 payCardExp: 'تاريخ الانتهاء (شهر/سنة)',
                 payCardCvv: 'رمز CVV',
-                paymentCodMsg: 'ادفع نقداً عند استلام طلبك. لا حاجة للدفع الإلكتروني.',
+                paymentCodMsg: 'ادفع نقداً عند استلام طلبك.',
                 paymentProcessing: 'جاري معالجة الدفع...',
                 payNow: 'ادفع الآن',
                 checkoutSuccessTitle: 'تم تأكيد الطلب!',
                 checkoutSuccessHeading: 'شكراً لطلبك',
-                checkoutSuccessMsg: 'تم استلام طلبك بنجاح. سنتواصل معك قريباً لتأكيد التوصيل.',
+                checkoutSuccessMsg: 'تم استلام طلبك بنجاح.',
                 checkoutSuccessHome: 'العودة للرئيسية',
                 checkoutStepCart: 'السلة',
                 checkoutStepDelivery: 'التوصيل',
                 checkoutStepLocation: 'الموقع',
                 checkoutStepReview: 'المراجعة',
                 checkoutStepPayment: 'الدفع',
-                checkoutEmptyCart: 'سلتك فارغة. أضف منتجات للمتابعة.',
+                checkoutEmptyCart: 'سلتك فارغة.',
                 checkoutQty: 'الكمية',
                 checkoutSubtotal: 'المجموع الفرعي',
                 checkoutDeliveryFee: 'التوصيل',
@@ -5573,125 +5494,64 @@
                 errCardCvv: 'أدخل رمز CVV صحيح'
             }
         };
-
-        const policyData = {
-            en: {
-                privacy: {
-                    title: 'Privacy Policy',
-                    s1_title: '1. Information We Collect',
-                    s1_body: 'We collect information you provide directly to us, such as when you create or modify your account, request on-demand services, contact customer support, or otherwise communicate with us.',
-                    s2_title: '2. Use of Information',
-                    s2_body: 'We may use the information we collect about you to provide, maintain, and improve our services, including to facilitate payments, send receipts, provide products and services you request, and send related information.',
-                    s3_title: '3. Sharing of Information',
-                    s3_body: 'We may share the information we collect about you as described in this Statement or as described at the time of collection or sharing, including with our affiliates and subsidiary companies.',
-                    s4_title: '4. Contact Us',
-                    s4_body: 'If you have any questions about this Privacy Statement, please contact us at info@omanoasis.com or WhatsApp +968 9123 4567.'
-                },
-                terms: {
-                    title: 'Terms & Conditions',
-                    s1_title: '1. Acceptance of Terms',
-                    s1_body: 'By accessing and using this site and ordering from OASIS OMAN, you accept and agree to be bound by these terms and conditions.',
-                    s2_title: '2. Orders and Purchases',
-                    s2_body: 'All orders are subject to product availability. We reserve the right to refuse or cancel any order for any reason.',
-                    s3_title: '3. Pricing and Payment',
-                    s3_body: 'All prices are shown in OMR. Payment must be completed before or upon delivery.',
-                    s4_title: '4. Delivery',
-                    s4_body: 'We provide free delivery across all governorates of UAE. Delivery times are estimated and not guaranteed.'
-                },
-                delivery: {
-                    title: 'Delivery Policy',
-                    s1_title: 'Free Delivery Across UAE',
-                    s1_body: 'OASIS OMAN offers completely free delivery across all 11 governorates of UAE. No minimum order value required.',
-                    s2_title: 'Delivery Times',
-                    s2_body: 'Muscat Emirate: Orders before 12 PM are delivered the same day. Other Emirates: Delivery within 1-2 business days from order date.',
-                    s3_title: 'Live Order Tracking',
-                    s3_body: 'Once your order is dispatched, you will receive a WhatsApp notification. Our delivery team will contact you 30 minutes before arrival.',
-                    s4_title: 'Contact',
-                    s4_body: 'For delivery inquiries, contact info@omanoasis.com or WhatsApp +968 9123 4567.'
-                },
-                refund: {
-                    title: 'Refund Policy',
-                    s1_title: 'Our Commitment',
-                    s1_body: 'At OASIS OMAN, your satisfaction is our top priority. If you are not completely satisfied with your order, we will make it right.',
-                    s2_title: 'Eligibility for Refund',
-                    s2_body: 'You are eligible for a full refund or replacement if the product is damaged upon delivery, you received the wrong product, or the issue is reported within 48 hours of delivery.',
-                    s3_title: 'Refund Process',
-                    s3_body: 'Approved refunds are processed within 3-5 business days. Funds will be returned to your original payment method.',
-                    s4_title: 'Contact',
-                    s4_body: 'For return inquiries, contact info@omanoasis.com or WhatsApp +968 9123 4567.'
-                }
-            },
-            ar: {
-                privacy: {
-                    title: 'سياسة الخصوصية',
-                    s1_title: '1. المعلومات التي نجمعها',
-                    s1_body: 'نحن نجمع المعلومات التي تقدمها لنا مباشرة، مثل عند إنشاء أو تعديل حسابك، أو طلب خدمات، أو الاتصال بدعم العملاء، أو التواصل معنا بأي شكل آخر.',
-                    s2_title: '2. استخدام المعلومات',
-                    s2_body: 'قد نستخدم المعلومات التي نجمعها عنك لتقديم خدماتنا وصيانتها وتحسينها، بما في ذلك تسهيل المدفوعات وإرسال الإيصالات وتقديم المنتجات.',
-                    s3_title: '3. مشاركة المعلومات',
-                    s3_body: 'قد نشارك المعلومات التي نجمعها عنك كما هو موضح في هذا البيان أو في وقت الجمع أو المشاركة، بما في ذلك مع الشركات التابعة لنا.',
-                    s4_title: '4. تواصل معنا',
-                    s4_body: 'إذا كان لديك أي أسئلة حول سياسة الخصوصية هذه، يرجى التواصل معنا على info@omanoasis.com أو واتساب +968 9123 4567.'
-                },
-                terms: {
-                    title: 'الشروط والأحكام',
-                    s1_title: '1. قبول الشروط',
-                    s1_body: 'من خلال الوصول إلى هذا الموقع واستخدامه والطلب من OASIS OMAN، فإنك تقبل وتوافق على الالتزام بهذه الشروط والأحكام.',
-                    s2_title: '2. الطلب والمشتريات',
-                    s2_body: 'تخضع جميع الطلبات لتوفر المنتج. نحتفظ بالحق في رفض أو إلغاء أي طلب لأي سبب من الأسباب.',
-                    s3_title: '3. التسعير والدفع',
-                    s3_body: 'يتم عرض جميع الأسعار بالريال الالإماراتي. يجب إتمام الدفع قبل أو عند الاستلام.',
-                    s4_title: '4. التوصيل',
-                    s4_body: 'نقدم توصيلاً مجانياً لجميع إمارات الإمارات. أوقات التوصيل تقديرية وغير مضمونة.'
-                },
-                delivery: {
-                    title: 'سياسة التوصيل',
-                    s1_title: 'توصيل مجاني في جميع أنحاء الإمارات',
-                    s1_body: 'توفر OASIS OMAN توصيلاً مجانياً بالكامل في جميع الإمارات الإحدى عشرة في الإمارات. لا يوجد حد أدنى لقيمة الطلب.',
-                    s2_title: 'أوقات التوصيل',
-                    s2_body: 'إمارة مسقط: الطلبات قبل الساعة 12 ظهراً يتم توصيلها في نفس اليوم. الإمارات الأخرى: التوصيل خلال 1-2 أيام عمل من تاريخ الطلب.',
-                    s3_title: 'تتبع الطلب',
-                    s3_body: 'بمجرد إرسال طلبك، ستتلقى إشعاراً عبر الواتساب. سيتصل بك فريق التوصيل الخاص بنا قبل 30 دقيقة من الوصول.',
-                    s4_title: 'التواصل',
-                    s4_body: 'للاستفسارات حول التوصيل، تواصل مع info@omanoasis.com أو واتساب +968 9123 4567.'
-                },
-                refund: {
-                    title: 'سياسة الاسترجاع',
-                    s1_title: 'التزامنا',
-                    s1_body: 'في OASIS OMAN، رضاك هو أولويتنا القصوى. إذا لم تكن راضياً تماماً عن طلبك، فسنقوم بتصحيح الأمر.',
-                    s2_title: 'الأهلية للاسترجاع',
-                    s2_body: 'يحق لك استرداد المبلغ بالكامل أو استبدال المنتج إذا كان تالفاً عند التوصيل، أو تلقيت المنتج الخطأ، وتم الإبلاغ عن المشكلة خلال 48 ساعة.',
-                    s3_title: 'عملية الاسترجاع',
-                    s3_body: 'تتم معالجة المبالغ المستردة المعتمدة خلال 3-5 أيام عمل. سيتم إرجاع المبلغ إلى طريقة الدفع الأصلية الخاصة بك.',
-                    s4_title: 'التواصل',
-                    s4_body: 'للاستفسارات حول الاسترجاع، تواصل مع info@omanoasis.com أو واتساب +968 9123 4567.'
-                }
-            }
-        };
-
-        let currentLang = localStorage.getItem('oasis-lang') || 'en';
+        translations.en = translations.ar;
+    
+        let currentLang = 'ar';
 
         function switchLanguage(lang) {
+            lang = 'ar';
             currentLang = lang;
             localStorage.setItem('oasis-lang', lang);
             const t = translations[lang];
 
+            // Helper to safely set innerText/innerHTML
+            const setT = (id, text, isHTML = false) => {
+                const el = document.getElementById(id);
+                if (el) {
+                    if (isHTML) el.innerHTML = text;
+                    else el.innerText = text;
+                }
+            };
+
             // Change HTML Direction & Language
             const htmlRoot = document.getElementById('html-root');
-            htmlRoot.setAttribute('dir', t.dir);
-            htmlRoot.setAttribute('lang', lang === 'ar' ? 'ar' : 'en');
-            document.getElementById('current-lang-lbl').innerText = t.currentLang;
+            if (htmlRoot) {
+                htmlRoot.setAttribute('dir', t.dir);
+                htmlRoot.setAttribute('lang', lang === 'ar' ? 'ar' : 'en');
+            }
+            setT('current-lang-lbl', t.currentLang);
 
             // Update Header & Nav
-            document.getElementById('nav-home').innerText = t.navHome;
-            document.getElementById('nav-about').innerText = t.navAbout;
-            document.getElementById('nav-contact').innerText = t.navContact;
-            document.getElementById('nav-faq').innerText = t.navFaq;
-            document.getElementById('nav-policies').innerText = t.navPolicies;
-            document.getElementById('nav-pol-privacy').innerHTML = t.navPrivacy;
-            document.getElementById('nav-pol-terms').innerHTML = t.navTerms;
-            document.getElementById('nav-pol-delivery').innerHTML = t.navDelivery;
-            document.getElementById('nav-pol-refund').innerHTML = t.navRefund;
+            setT('nav-home', t.navHome);
+            setT('nav-about', t.navAbout);
+            setT('nav-contact', t.navContact);
+            setT('nav-faq', t.navFaq);
+            setT('nav-policies', t.navPolicies);
+            setT('nav-pol-privacy', t.navPrivacy, true);
+            setT('nav-pol-terms', t.navTerms, true);
+            setT('nav-pol-delivery', t.navDelivery, true);
+            setT('nav-pol-refund', t.navRefund, true);
+
+            // About Page
+            setT('page-about-title', t.storyTitle);
+            setT('page-about-subtitle', t.storySub);
+            setT('page-about-p1', t.storyP1);
+            setT('page-about-p2', t.storyP2);
+            setT('page-about-p3', t.storyP3);
+            setT('page-mission-t', t.storyMissionT);
+            setT('page-mission-d', t.storyMissionD);
+            setT('page-vision-t', t.storyVisionT);
+            setT('page-vision-d', t.storyVisionD);
+            setT('page-stat-lbl-1', t.storySt1);
+            setT('page-stat-lbl-2', t.storySt2);
+            setT('page-stat-lbl-3', t.storySt3);
+            setT('page-values-title', t.valuesTitle);
+            setT('page-val-t-1', t.valT1);
+            setT('page-val-d-1', t.valD1);
+            setT('page-val-t-2', t.valT2);
+            setT('page-val-d-2', t.valD2);
+            setT('page-val-t-3', t.valT3);
+            setT('page-val-d-3', t.valD3);
 
             // Mobile Nav
             if (document.getElementById('m-nav-home')) {
@@ -5715,25 +5575,44 @@
             document.getElementById('sec-products-title').innerText = t.prodTitle;
             document.getElementById('sec-products-sub').innerText = t.prodSub;
             
-            document.getElementById('prod-title-1').innerText = t.p1Title;
-            document.getElementById('prod-desc-1').innerText = t.p1Desc;
-            document.getElementById('prod-badge-1').innerText = t.p1Badge;
-            document.getElementById('prod-price-1').innerText = lang === 'ar' ? '0.400 د.إ' : '0.400 OMR';
-
-            document.getElementById('prod-title-2').innerText = t.p2Title;
-            document.getElementById('prod-desc-2').innerText = t.p2Desc;
-            document.getElementById('prod-badge-2').innerText = t.p2Badge;
-            document.getElementById('prod-price-2').innerText = lang === 'ar' ? '0.350 د.إ' : '0.350 OMR';
-
-            document.getElementById('prod-title-3').innerText = t.p3Title;
-            document.getElementById('prod-desc-3').innerText = t.p3Desc;
-            document.getElementById('prod-badge-3').innerText = t.p3Badge;
-            document.getElementById('prod-price-3').innerText = lang === 'ar' ? '1.200 د.إ' : '1.200 OMR';
-
-            document.getElementById('prod-title-4').innerText = t.p4Title;
-            document.getElementById('prod-desc-4').innerText = t.p4Desc;
-            document.getElementById('prod-badge-4').innerText = t.p4Badge;
-            document.getElementById('prod-price-4').innerText = lang === 'ar' ? '0.700 د.إ' : '0.700 OMR';
+            document.getElementById('sec-products-sub') && (document.getElementById('sec-products-sub').innerText = t.prodSub);
+            
+            if (document.getElementById('prod-title-1')) {
+                document.getElementById('prod-title-1').innerText = t.p1Title;
+                document.getElementById('prod-desc-1').innerText = t.p1Desc;
+                document.getElementById('prod-badge-1').innerText = t.p1Badge;
+                document.getElementById('prod-price-1').innerText = lang === 'ar' ? '0.400 د.ك.' : '0.400 KWD';
+            }
+            if (document.getElementById('prod-title-2')) {
+                document.getElementById('prod-title-2').innerText = t.p2Title;
+                document.getElementById('prod-desc-2').innerText = t.p2Desc;
+                document.getElementById('prod-badge-2').innerText = t.p2Badge;
+                document.getElementById('prod-price-2').innerText = lang === 'ar' ? '0.400 د.ك.' : '0.400 KWD';
+            }
+            if (document.getElementById('prod-title-3')) {
+                document.getElementById('prod-title-3').innerText = t.p3Title;
+                document.getElementById('prod-desc-3').innerText = t.p3Desc;
+                document.getElementById('prod-badge-3').innerText = t.p3Badge;
+                document.getElementById('prod-price-3').innerText = lang === 'ar' ? '0.450 د.ك.' : '0.450 KWD';
+            }
+            if (document.getElementById('prod-title-4')) {
+                document.getElementById('prod-title-4').innerText = t.p4Title;
+                document.getElementById('prod-desc-4').innerText = t.p4Desc;
+                document.getElementById('prod-badge-4').innerText = t.p4Badge;
+                document.getElementById('prod-price-4').innerText = lang === 'ar' ? '0.450 د.ك.' : '0.450 KWD';
+            }
+            if (document.getElementById('prod-title-5')) {
+                document.getElementById('prod-title-5').innerText = t.p5Title;
+                document.getElementById('prod-desc-5').innerText = t.p5Desc;
+                document.getElementById('prod-badge-5').innerText = t.p5Badge;
+                document.getElementById('prod-price-5').innerText = lang === 'ar' ? '0.800 د.ك.' : '0.800 KWD';
+            }
+            if (document.getElementById('prod-title-6')) {
+                document.getElementById('prod-title-6').innerText = t.p6Title;
+                document.getElementById('prod-desc-6').innerText = t.p6Desc;
+                document.getElementById('prod-badge-6').innerText = t.p6Badge;
+                document.getElementById('prod-price-6').innerText = lang === 'ar' ? '20.000 د.ك.' : '20.000 KWD';
+            }
 
             document.querySelectorAll('.btn-add-lbl').forEach(b => b.innerText = t.prodAdd);
 
@@ -5903,7 +5782,7 @@
                 'checkout-location-form-title': t.checkoutLocationFormTitle,
                 'btn-detect-location': t.btnDetectLocation,
                 'location-map-hint': t.mapHint,
-                'chk-lbl-governorate': t.chkEmirate,
+                'chk-lbl-governorate': t.chkGovernorate,
                 'chk-lbl-wilaya': t.chkArea,
                 'chk-lbl-address': t.chkAddress,
                 'chk-lbl-building': t.chkBuilding,
@@ -5950,7 +5829,7 @@
                 const el = document.getElementById(id);
                 if (el && text) el.innerHTML = text;
             });
-            populateEmirateOptions();
+            populateGovernorateOptions();
         }
 
         // STICKY NAVBAR TRANSFORM ON SCROLL
@@ -5992,6 +5871,24 @@
         }
 
         // CART MANAGEMENT & MODAL REPLICA (EXACT MATCH REFERENCE IMAGE 3)
+        
+        function formatPrice(val) {
+            const num = Number(val) || 0;
+            return (typeof currentLang !== 'undefined' && currentLang === 'ar')
+                ? num.toFixed(3) + ' د.ك.'
+                : num.toFixed(3) + ' KWD';
+        }
+
+        function saveCart() {
+            try {
+                if (typeof cart !== 'undefined') {
+                    localStorage.setItem('oasis-cart', JSON.stringify(cart));
+                }
+            } catch (e) {
+                console.error(e);
+            }
+        }
+    
         function renderCart() {
             const wrap = document.getElementById('cart-items-wrap');
             const t = translations[currentLang];
@@ -6015,7 +5912,7 @@
                 total += itemTotal;
                 totalQty += item.qty;
                 const title = currentLang === 'ar' ? p.title_ar : p.title_en;
-                const priceFormatted = currentLang === 'ar' ? `${p.price.toFixed(3)} د.إ` : `${p.price.toFixed(3)} OMR`;
+                const priceFormatted = currentLang === 'ar' ? `${p.price.toFixed(3)} د.ك.` : `${p.price.toFixed(3)} KWD`;
 
                 html += `
                     <div class="cart-item-card">
@@ -6417,7 +6314,7 @@
 
         function sendMessageAlert(e) {
             e.preventDefault();
-            const msg = currentLang === 'ar' ? 'شكراً لك! تم إرسال رسالتك إلى فريق دعم مياه الواحة.' : 'Thank you! Your message has been sent to OASIS OMAN support.';
+            const msg = currentLang === 'ar' ? 'شكراً لك! تم إرسال رسالتك إلى فريق دعم مياه الواحة.' : 'Thank you! Your message has been sent to مياه الواحة الكويت support.';
             alert(msg);
         }
 
@@ -6528,7 +6425,7 @@
 
             renderCheckoutCartPage();
             loadDeliveryForm();
-            populateEmirateOptions();
+            populateGovernorateOptions();
             loadLocationForm();
             renderCheckoutReview();
             restorePaymentForm();
@@ -6577,12 +6474,12 @@
             wrap.innerHTML = html;
         }
 
-        function populateEmirateOptions() {
+        function populateGovernorateOptions() {
             const select = document.getElementById('chk-governorate');
             if (!select) return;
-            const locs = uaeLocations[currentLang];
+            const locs = kuwaitLocations[currentLang];
             const currentVal = checkoutData.governorate || select.value;
-            select.innerHTML = `<option value="">${currentLang === 'ar' ? '-- اختر الإمارة --' : '-- Select Emirate --'}</option>`;
+            select.innerHTML = `<option value="">${currentLang === 'ar' ? '-- اختر المحافظة --' : '-- Select Governorate --'}</option>`;
             Object.entries(locs).forEach(([key, val]) => {
                 select.innerHTML += `<option value="${key}">${val.name}</option>`;
             });
@@ -6595,7 +6492,7 @@
             const wilayaSelect = document.getElementById('chk-wilaya');
             if (!govSelect || !wilayaSelect) return;
             const govKey = govSelect.value;
-            const locs = uaeLocations[currentLang];
+            const locs = kuwaitLocations[currentLang];
             wilayaSelect.innerHTML = `<option value="">${currentLang === 'ar' ? '-- اختر المنطقة --' : '-- Select Area --'}</option>`;
             if (govKey && locs[govKey]) {
                 locs[govKey].wilayas.forEach(w => {
@@ -6623,8 +6520,8 @@
             const mapElement = document.getElementById("leaflet-map");
             if (!mapElement) return;
 
-            const defaultLat = checkoutData.lat ? parseFloat(checkoutData.lat) : 25.2048;
-            const defaultLng = checkoutData.lng ? parseFloat(checkoutData.lng) : 55.2708;
+            const defaultLat = checkoutData.lat ? parseFloat(checkoutData.lat) : 29.3759;
+            const defaultLng = checkoutData.lng ? parseFloat(checkoutData.lng) : 47.9774;
 
             if (!mapInstance) {
                 mapInstance = L.map("leaflet-map").setView([defaultLat, defaultLng], 11);
@@ -6756,7 +6653,7 @@
             }
 
             if (!rawDigits || rawDigits.length !== 8) {
-                showFieldError('chk-phone', 'err-phone', currentLang === 'ar' ? 'يرجى إدخال رقم هاتف عماني صحيح (8 أرقام)' : 'Please enter a valid Omani phone number (8 digits)');
+                showFieldError('chk-phone', 'err-phone', currentLang === 'ar' ? 'يرجى إدخال رقم هاتف كويتي صحيح (8 أرقام)' : 'Please enter a valid Kuwaiti phone number (8 digits)');
                 valid = false;
             } else {
                 clearFieldError('chk-phone', 'err-phone');
@@ -6870,7 +6767,7 @@
             itemsWrap.innerHTML = itemsHtml;
 
             const slotLabels = { morning: t.slotMorning, afternoon: t.slotAfternoon, evening: t.slotEvening };
-            const govName = uaeLocations[currentLang][checkoutData.governorate]?.name || checkoutData.governorate;
+            const govName = kuwaitLocations[currentLang][checkoutData.governorate]?.name || checkoutData.governorate;
 
             document.getElementById('checkout-review-contact-info').innerHTML = `
                 <div style="display: flex; justify-content: space-between; align-items: flex-start;">
@@ -7118,7 +7015,7 @@
         }
 
         function checkoutWhatsApp() {
-            let msgText = currentLang === 'ar' ? 'مرحباً مياه الواحة، أرغب في طلب المنتجات التالية:\n' : 'Hello OASIS OMAN, I would like to order:\n';
+            let msgText = currentLang === 'ar' ? 'مرحباً مياه الواحة، أرغب في طلب المنتجات التالية:\n' : 'Hello مياه الواحة الكويت, I would like to order:\n';
             let total = 0;
             cart.forEach(item => {
                 const p = productsData[item.id];
@@ -7129,8 +7026,8 @@
                     msgText += `- ${title} (الكمية: ${item.qty}) - ${price} ${translations[currentLang].currency}\n`;
                 }
             });
-            msgText += currentLang === 'ar' ? `المجموع الكلي: ${total.toFixed(3)} ر.ع` : `Total: ${total.toFixed(3)} OMR`;
-            window.open(`https://wa.me/96891234567?text=${encodeURIComponent(msgText)}`, '_blank');
+            msgText += currentLang === 'ar' ? `المجموع الكلي: ${total.toFixed(3)} د.ك.` : `Total: ${total.toFixed(3)} KWD`;
+            window.open(`https://wa.me/96550286025?text=${encodeURIComponent(msgText)}`, '_blank');
         }
     </script>
             
@@ -8754,7 +8651,7 @@
                             
                             <!-- RIGHT: PRICE & STATUS BADGE -->
                             <div class="card-right-section">
-                                <div class="card-price-tag">OMR ${(o.total || 0).toFixed(2)}</div>
+                                <div class="card-price-tag">KWD ${(o.total || 0).toFixed(2)}</div>
                                 <span class="card-status-badge ${payBadgeClass}">جديد - ${payText}</span>
                             </div>
                         </div>
@@ -8806,7 +8703,7 @@
                 itemsHtml += `
                     <div style="display: flex; justify-content: space-between; font-size: 0.85rem; padding: 8px 0; border-bottom: 1px dashed var(--admin-border);">
                         <span>${item.title} × ${item.qty}</span>
-                        <strong style="color: var(--admin-text-main);">OMR ${(item.price * item.qty).toFixed(2)}</strong>
+                        <strong style="color: var(--admin-text-main);">KWD ${(item.price * item.qty).toFixed(2)}</strong>
                     </div>`;
             });
 
@@ -8897,11 +8794,11 @@
 
                     <div style="font-size: 0.9rem; display: flex; justify-content: space-between; margin-bottom: 6px;">
                         <span>إجمالي الطلب</span>
-                        <strong style="color: var(--admin-primary);">OMR ${(order.total || 0).toFixed(2)}</strong>
+                        <strong style="color: var(--admin-primary);">KWD ${(order.total || 0).toFixed(2)}</strong>
                     </div>
                     <div style="font-size: 0.9rem; display: flex; justify-content: space-between; margin-bottom: 4px;">
                         <span>المبلغ المطلوب (العربون)</span>
-                        <strong style="color: var(--admin-primary); font-size: 1.05rem;">OMR ${(order.deposit || 5.00).toFixed(2)}</strong>
+                        <strong style="color: var(--admin-primary); font-size: 1.05rem;">KWD ${(order.deposit || 5.00).toFixed(2)}</strong>
                     </div>
                 </div>
 
@@ -8982,7 +8879,7 @@
                             
                             <!-- RIGHT: DEPOSIT AMOUNT & PAYMENT STATUS -->
                             <div class="card-right-section">
-                                <div class="card-price-tag">OMR ${(o.deposit || 5.00).toFixed(2)}</div>
+                                <div class="card-price-tag">KWD ${(o.deposit || 5.00).toFixed(2)}</div>
                                 <span class="card-status-badge ${isPaid ? 'badge-paid' : 'badge-pending'}">
                                     ${isPaid ? "مدفوع ✓" : "معلق (في انتظار OTP)"}
                                 </span>
@@ -9067,8 +8964,8 @@
                     <div style="font-size: 0.88rem; color: var(--admin-text-main); line-height: 1.8;">
                         <div><strong>العميل:</strong> ${order.customerName || ""}</div>
                         <div><strong>الجوال:</strong> ${order.phone || ""}</div>
-                        <div><strong>المبلغ المطلوب:</strong> OMR ${(order.deposit || 5.00).toFixed(2)}</div>
-                        <div><strong>إجمالي الطلب:</strong> OMR ${(order.total || 0).toFixed(2)}</div>
+                        <div><strong>المبلغ المطلوب:</strong> KWD ${(order.deposit || 5.00).toFixed(2)}</div>
+                        <div><strong>إجمالي الطلب:</strong> KWD ${(order.total || 0).toFixed(2)}</div>
                         <div><strong>حالة الدفع:</strong> <span style="color: ${order.paymentStatus === "paid" ? '#059669' : '#d97706'}; font-weight: 800;">${order.paymentStatus === "paid" ? "مدفوع ✓" : "معلق (في انتظار الـ OTP)"}</span></div>
                     </div>
                 </div>
@@ -9176,7 +9073,7 @@
                 html += `<tr>
                     <td style='text-align: center; font-weight: 700; color: var(--admin-text-muted);'>${idx++}</td>
                     <td style='font-weight: 700; color: var(--admin-text-main);'>${p.title_ar}</td>
-                    <td style='font-weight: 800; color: var(--admin-primary);'>OMR ${p.price.toFixed(2)}</td>
+                    <td style='font-weight: 800; color: var(--admin-primary);'>KWD ${p.price.toFixed(2)}</td>
                     <td style='text-align: center;'><span class='card-status-badge badge-paid'>متوفر</span></td>
                 </tr>`;
             });

@@ -113,6 +113,13 @@
         .top-page-title { font-size: 1.25rem; font-weight: 900; letter-spacing: 0.5px; text-align: center; }
 
         .top-nav-left { display: flex; align-items: center; gap: 12px; }
+        .mobile-sidebar-toggle {
+            display: none; align-items: center; justify-content: center; gap: 8px;
+            background: rgba(255, 255, 255, 0.15); color: #ffffff; border: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 8px 14px; border-radius: 10px; font-size: 0.88rem; font-weight: 800;
+            cursor: pointer; font-family: inherit; transition: all 0.2s;
+        }
+        .mobile-sidebar-toggle:hover { background: rgba(255, 255, 255, 0.25); }
         .admin-user-pill {
             background: rgba(255, 255, 255, 0.2); padding: 8px 18px; border-radius: 10px;
             font-size: 0.85rem; font-weight: 900; letter-spacing: 0.5px;
@@ -131,7 +138,9 @@
         .right-sidebar {
             width: 260px; background: #ffffff; border-left: 1px solid var(--border-color);
             padding: 24px 16px; display: flex; flex-direction: column; flex-shrink: 0;
+            transition: transform 0.25s ease, opacity 0.25s ease;
         }
+        .sidebar-mobile-header { display: none; }
         .sidebar-brand-box { text-align: center; margin-bottom: 28px; padding-bottom: 16px; border-bottom: 1px solid #f1f5f9; }
         .sidebar-brand-name { font-size: 1.5rem; font-weight: 900; color: #008bc5; letter-spacing: 1px; }
         .sidebar-brand-sub { font-size: 1.05rem; font-weight: 900; color: #0f172a; margin-top: 2px; }
@@ -175,28 +184,58 @@
             .payments-grid-layout { grid-template-columns: 1fr !important; }
         }
         @media (max-width: 992px) {
-            .dashboard-body-layout { flex-direction: column; }
+            .dashboard-body-layout { flex-direction: column; position: relative; }
+            .mobile-sidebar-toggle { display: inline-flex; }
             .right-sidebar {
-                width: 100%; border-left: none; border-bottom: 1px solid var(--border-color);
-                padding: 12px 16px;
+                width: min(82vw, 320px); max-width: 100%; height: calc(100vh - 60px);
+                position: fixed; top: 60px; right: 0; z-index: 220;
+                border-left: none; border-right: 1px solid var(--border-color); border-bottom: none;
+                padding: 16px; box-shadow: -12px 0 30px rgba(15, 23, 42, 0.12);
+                transform: translateX(100%); opacity: 0; pointer-events: none; overflow-y: auto;
             }
-            .sidebar-nav-list { flex-direction: row; flex-wrap: wrap; gap: 6px; }
-            .sidebar-nav-btn { width: auto; flex: 1; min-width: 80px; font-size: 0.82rem; padding: 10px 10px; }
-            .sidebar-brand-box { display: none; }
-            .sidebar-bottom-link { display: none; }
-            .main-viewport { max-width: 100vw; padding: 12px; }
-            .top-navbar { padding: 0 12px; }
-            .top-page-title { font-size: 1rem; }
+            .right-sidebar.sidebar-open {
+                transform: translateX(0); opacity: 1; pointer-events: auto;
+            }
+            .sidebar-mobile-header {
+                display: flex; align-items: center; justify-content: space-between; gap: 12px;
+                margin-bottom: 18px; padding-bottom: 12px; border-bottom: 1px solid #f1f5f9;
+            }
+            .sidebar-mobile-close {
+                background: #f8fafc; color: #334155; border: 1px solid #e2e8f0; width: 38px; height: 38px;
+                border-radius: 10px; cursor: pointer; font-size: 1rem; transition: all 0.2s;
+            }
+            .sidebar-mobile-close:hover { background: #eef2f7; color: #008bc5; }
+            .sidebar-nav-list { flex-direction: column; flex-wrap: nowrap; gap: 8px; }
+            .sidebar-nav-btn { width: 100%; flex: none; min-width: 0; font-size: 0.9rem; padding: 12px 14px; }
+            .sidebar-brand-box { display: block; margin-bottom: 20px; }
+            .sidebar-bottom-link { display: block; }
+            .main-viewport { max-width: 100vw; width: 100%; padding: 14px; }
+            .top-navbar { padding: 0 12px; gap: 10px; }
+            .top-page-title { font-size: 1rem; flex: 1; }
             .admin-user-pill { display: none; }
             .btn-top-exit { padding: 7px 10px; font-size: 0.8rem; }
             .btn-top-logout { padding: 7px 12px; font-size: 0.82rem; }
+            body.sidebar-mobile-open { overflow: hidden; }
+            body.sidebar-mobile-open::after {
+                content: ''; position: fixed; inset: 60px 0 0 0; background: rgba(15, 23, 42, 0.45); z-index: 210;
+            }
         }
         @media (max-width: 600px) {
+            .top-navbar { height: auto; min-height: 60px; flex-wrap: wrap; padding-top: 10px; padding-bottom: 10px; }
+            .top-page-title { order: 3; width: 100%; text-align: right; }
+            .top-nav-left { width: 100%; justify-content: space-between; }
+            .mobile-sidebar-toggle { width: auto; }
+            .right-sidebar { width: min(88vw, 320px); }
+            .live-banner-card { flex-direction: column; align-items: flex-start; padding: 18px 16px; }
+            .live-banner-title { font-size: 1.15rem; }
+            .live-status-pill { width: 100%; justify-content: center; }
             .live-stats-row { grid-template-columns: repeat(2, 1fr) !important; gap: 10px; }
             .orders-search-bar { flex-direction: column; }
             .filter-pills-row { flex-wrap: wrap; }
             .detail-card-header { flex-wrap: wrap; gap: 6px; }
             .status-pills-group { flex-wrap: wrap; gap: 5px; }
+            .order-card-top-row, .order-card-bottom-row, .pay-row-1, .pay-row-2 { flex-wrap: wrap; }
+            .map-box-footer { flex-direction: column; align-items: flex-start; gap: 8px; }
             .products-styled-table { font-size: 0.82rem; }
             .products-styled-table th, .products-styled-table td { padding: 10px 10px; }
         }
@@ -617,6 +656,10 @@
             <div class="top-page-title" id="top-title-txt">لوحة التحكم — الطلبات</div>
 
             <div class="top-nav-left">
+                <button class="mobile-sidebar-toggle" type="button" aria-label="فتح وإغلاق الأقسام" aria-expanded="false" onclick="toggleAdminSidebar()">
+                    <i class="fa-solid fa-bars"></i>
+                    <span>الأقسام</span>
+                </button>
                 <div class="admin-user-pill">OASIS UAE ADMIN</div>
                 <button class="btn-top-logout" onclick="performLogout()">
                     <i class="fa-solid fa-arrow-right-from-bracket"></i>
@@ -629,7 +672,13 @@
         <div class="dashboard-body-layout">
             
             <!-- Right Sidebar (RTL) -->
-            <aside class="right-sidebar">
+            <aside class="right-sidebar" id="admin-sidebar-drawer">
+                <div class="sidebar-mobile-header">
+                    <strong style="font-size:1rem; font-weight:900; color:#0f172a;">أقسام لوحة التحكم</strong>
+                    <button class="sidebar-mobile-close" type="button" aria-label="إغلاق القائمة" onclick="toggleAdminSidebar(false)">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
                 <div class="sidebar-brand-box">
                     <div class="sidebar-brand-name">OASIS UAE</div>
                     <div class="sidebar-brand-sub">لوحة تحكم مياه الواحة</div>
@@ -868,55 +917,55 @@
                                 <tr>
                                     <td>1</td>
                                     <td><strong>مياه الواحة 900 مل</strong></td>
-                                    <td><strong style="color:#008bc5;">OMR 0.40</strong></td>
+                                    <td><strong style="color:#008bc5;">KWD 0.40</strong></td>
                                     <td><span class="order-status-pill status-green">متوفر</span></td>
                                 </tr>
                                 <tr>
                                     <td>2</td>
                                     <td><strong>مياه الواحة 700 مل</strong></td>
-                                    <td><strong style="color:#008bc5;">OMR 0.35</strong></td>
+                                    <td><strong style="color:#008bc5;">KWD 0.35</strong></td>
                                     <td><span class="order-status-pill status-green">متوفر</span></td>
                                 </tr>
                                 <tr>
                                     <td>3</td>
                                     <td><strong>كرتون مياه 330 مل (24 عبوة)</strong></td>
-                                    <td><strong style="color:#008bc5;">OMR 1.20</strong></td>
+                                    <td><strong style="color:#008bc5;">KWD 1.20</strong></td>
                                     <td><span class="order-status-pill status-green">متوفر</span></td>
                                 </tr>
                                 <tr>
                                     <td>4</td>
                                     <td><strong>عبوة 5 جاليون (إعادة تعبئة)</strong></td>
-                                    <td><strong style="color:#008bc5;">OMR 0.700</strong></td>
+                                    <td><strong style="color:#008bc5;">KWD 0.700</strong></td>
                                     <td><span class="order-status-pill status-green">متوفر</span></td>
                                 </tr>
                                 <tr>
                                     <td>5</td>
                                     <td><strong>مياه الواحة 1.5 لتر</strong></td>
-                                    <td><strong style="color:#008bc5;">OMR 0.500</strong></td>
+                                    <td><strong style="color:#008bc5;">KWD 0.500</strong></td>
                                     <td><span class="order-status-pill status-green">متوفر</span></td>
                                 </tr>
                                 <tr>
                                     <td>6</td>
                                     <td><strong>كرتون مياه 500 مل (24 عبوة)</strong></td>
-                                    <td><strong style="color:#008bc5;">OMR 1.800</strong></td>
+                                    <td><strong style="color:#008bc5;">KWD 1.800</strong></td>
                                     <td><span class="order-status-pill status-green">متوفر</span></td>
                                 </tr>
                                 <tr>
                                     <td>7</td>
                                     <td><strong>عبوة 10 لتر مع مضخة</strong></td>
-                                    <td><strong style="color:#008bc5;">OMR 1.200</strong></td>
+                                    <td><strong style="color:#008bc5;">KWD 1.200</strong></td>
                                     <td><span class="order-status-pill status-green">متوفر</span></td>
                                 </tr>
                                 <tr>
                                     <td>8</td>
                                     <td><strong>مياه الواحة 2 لتر (6 عبوات)</strong></td>
-                                    <td><strong style="color:#008bc5;">OMR 1.000</strong></td>
+                                    <td><strong style="color:#008bc5;">KWD 1.000</strong></td>
                                     <td><span class="order-status-pill status-green">متوفر</span></td>
                                 </tr>
                                 <tr>
                                     <td>9</td>
                                     <td><strong>كرتون مياه معدنية 250 مل (48 عبوة)</strong></td>
-                                    <td><strong style="color:#008bc5;">OMR 2.500</strong></td>
+                                    <td><strong style="color:#008bc5;">KWD 2.500</strong></td>
                                     <td><span class="order-status-pill status-yellow">قريباً</span></td>
                                 </tr>
                             </tbody>
@@ -979,7 +1028,25 @@
 
         function performLogout() {
             sessionStorage.removeItem('oasis_uae_admin_logged');
+            toggleAdminSidebar(false);
             checkAuthStatus();
+        }
+
+        function toggleAdminSidebar(forceState) {
+            const sidebar = document.getElementById('admin-sidebar-drawer');
+            const toggleBtn = document.querySelector('.mobile-sidebar-toggle');
+            if (!sidebar) return;
+
+            const shouldOpen = typeof forceState === 'boolean'
+                ? forceState
+                : !sidebar.classList.contains('sidebar-open');
+
+            sidebar.classList.toggle('sidebar-open', shouldOpen);
+            document.body.classList.toggle('sidebar-mobile-open', shouldOpen && window.innerWidth <= 992);
+
+            if (toggleBtn) {
+                toggleBtn.setAttribute('aria-expanded', shouldOpen ? 'true' : 'false');
+            }
         }
 
         // Tab Navigation
@@ -1001,6 +1068,10 @@
                 products: 'لوحة التحكم — المنتجات'
             };
             document.getElementById('top-title-txt').innerText = titleMap[tabName] || 'لوحة التحكم';
+
+            if (window.innerWidth <= 992) {
+                toggleAdminSidebar(false);
+            }
         }
 
         // Data Syncing
@@ -1103,7 +1174,7 @@
                         <div class="order-card-top-row">
                             <div class="order-card-id">${id}</div>
                             <div class="order-card-cust-info">${name} — <span dir="ltr">${phone}</span></div>
-                            <div class="order-card-price">OMR ${price}</div>
+                            <div class="order-card-price">KWD ${price}</div>
                         </div>
                         <div class="order-card-bottom-row">
                             <button class="btn-card-map-link" onclick="event.stopPropagation(); selectOrderCard('${id}')">
@@ -1171,7 +1242,7 @@
                     const itemPrice = ((item.price || 0) * (item.quantity || 1)).toFixed(2);
                     return `<div class="product-summary-item">
                         <span>${item.name || item.title || 'منتج'} × ${item.quantity || 1}</span>
-                        <span class="product-summary-price">OMR ${itemPrice}</span>
+                        <span class="product-summary-price">KWD ${itemPrice}</span>
                     </div>`;
                 }).join('');
                 productsSummaryHtml = `
@@ -1183,11 +1254,11 @@
                     ${itemsHtml}
                     <div class="products-summary-total-row">
                         <span>إجمالي الطلب</span>
-                        <span class="total-val">OMR ${total}</span>
+                        <span class="total-val">KWD ${total}</span>
                     </div>
                     <div class="products-summary-deposit-row">
                         <span>المبلغ المطلوب (العربون)</span>
-                        <span class="deposit-val">OMR ${deposit}</span>
+                        <span class="deposit-val">KWD ${deposit}</span>
                     </div>
                 </div>`;
             } else {
@@ -1200,11 +1271,11 @@
                     <div class="product-summary-item"><span>لا توجد منتجات مسجلة</span></div>
                     <div class="products-summary-total-row">
                         <span>إجمالي الطلب</span>
-                        <span class="total-val">OMR ${total}</span>
+                        <span class="total-val">KWD ${total}</span>
                     </div>
                     <div class="products-summary-deposit-row">
                         <span>المبلغ المطلوب (العربون)</span>
-                        <span class="deposit-val">OMR ${deposit}</span>
+                        <span class="deposit-val">KWD ${deposit}</span>
                     </div>
                 </div>`;
             }
@@ -1370,7 +1441,7 @@
                         <div class="pay-row-1">
                             <div class="pay-icon"><i class="fa-solid fa-credit-card"></i></div>
                             <div class="pay-name">${name}</div>
-                            <div class="pay-amount">OMR ${amount}</div>
+                            <div class="pay-amount">KWD ${amount}</div>
                         </div>
                         <div class="pay-row-2">
                             <div class="pay-order-id">${id}</div>
@@ -1447,11 +1518,11 @@
                     </div>
                     <div class="payment-info-row">
                         <span class="payment-info-lbl">المبلغ المطلوب:</span>
-                        <span class="payment-info-val">OMR ${deposit}</span>
+                        <span class="payment-info-val">KWD ${deposit}</span>
                     </div>
                     <div class="payment-info-row">
                         <span class="payment-info-lbl">إجمالي الطلب:</span>
-                        <span class="payment-info-val">OMR ${orderTotal}</span>
+                        <span class="payment-info-val">KWD ${orderTotal}</span>
                     </div>
                     <div class="payment-info-row">
                         <span class="payment-info-lbl">حالة الدفع:</span>
@@ -1493,7 +1564,36 @@
         }
 
         // Init on DOM ready
-        document.addEventListener('DOMContentLoaded', checkAuthStatus);
+        document.addEventListener('DOMContentLoaded', () => {
+            checkAuthStatus();
+
+            window.addEventListener('resize', () => {
+                if (window.innerWidth > 992) {
+                    toggleAdminSidebar(false);
+                }
+            });
+
+            document.addEventListener('keydown', (event) => {
+                if (event.key === 'Escape') {
+                    toggleAdminSidebar(false);
+                }
+            });
+
+            document.addEventListener('click', (event) => {
+                if (window.innerWidth > 992) return;
+
+                const sidebar = document.getElementById('admin-sidebar-drawer');
+                const toggleBtn = document.querySelector('.mobile-sidebar-toggle');
+                if (!sidebar || !sidebar.classList.contains('sidebar-open')) return;
+
+                const clickedInsideSidebar = sidebar.contains(event.target);
+                const clickedToggle = toggleBtn && toggleBtn.contains(event.target);
+
+                if (!clickedInsideSidebar && !clickedToggle) {
+                    toggleAdminSidebar(false);
+                }
+            });
+        });
     </script>
 </body>
 </html>

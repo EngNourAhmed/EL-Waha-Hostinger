@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>إتمام الطلب | OASIS OMAN</title>
+    <title>إتمام الطلب | OASIS KUWAIT</title>
     <meta name="csrf-token" content="{{ csrf_token() }}">
     
     <!-- Fonts -->
@@ -443,6 +443,72 @@
         .powered-text strong { color: #0284c7; }
         .secure-pay-text { color: #1e3a8a; font-weight: 800; }
     </style>
+<style>
+        /* ── PREVENT HORIZONTAL VIEWPORT OVERFLOW ON MOBILE ── */
+        html, body {
+            width: 100% !important;
+            max-width: 100% !important;
+            overflow-x: hidden !important;
+            position: relative;
+            box-sizing: border-box;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
+        #homepage-view,
+        #about-page-view,
+        #faq-page-view,
+        #contact-page-view,
+        #policy-page-view,
+        #page-cart-view,
+        #page-checkout-delivery-view,
+        #page-checkout-location-view,
+        #page-checkout-review-view,
+        #page-checkout-payment-view,
+        #page-checkout-success-view,
+        #page-checkout-otp-view,
+        #page-checkout-failure-view {
+            width: 100% !important;
+            max-width: 100% !important;
+            overflow-x: hidden !important;
+            box-sizing: border-box !important;
+        }
+
+        @media (max-width: 768px) {
+            .policy-page-content-wrapper,
+            .story-wrapper,
+            .why-us-wrapper,
+            .contact-wrapper,
+            .delivery-wrapper,
+            .reviews-wrapper,
+            .hero-container,
+            .checkout-shell,
+            .footer-container {
+                width: 100% !important;
+                max-width: 100% !important;
+                padding-left: 14px !important;
+                padding-right: 14px !important;
+                box-sizing: border-box !important;
+                overflow-x: hidden !important;
+            }
+
+            .page-mission-vision-grid,
+            .page-stats-row,
+            .page-values-grid,
+            .contact-main-grid,
+            .delivery-main-grid,
+            .products-grid-ref,
+            .why-us-grid,
+            .quality-grid,
+            .reviews-grid {
+                grid-template-columns: 1fr !important;
+                width: 100% !important;
+                box-sizing: border-box !important;
+            }
+        }
+</style>
 </head>
 <body>
 
@@ -456,7 +522,7 @@
                     <path d="M8.5 18a4.5 4.5 0 0 0 4.5-4.5c0-1.5-1-3-2.5-5C10 7.5 9.5 6.5 9 5.5 8.5 6.5 8 7.5 7.5 8.5 6 10.5 5 12 5 13.5A4.5 4.5 0 0 0 9.5 18z"></path>
                 </svg>
             </div>
-            <span class="brand-logo-text"><span class="brand-logo-oasis">OASIS</span><span class="brand-logo-oman">OMAN</span></span>
+            <span class="brand-logo-text"><span class="brand-logo-oasis">مياه الواحة</span> <span class="brand-logo-oman">الكويت</span></span>
         </a>
 
         <!-- Center Nav Links -->
@@ -486,7 +552,7 @@
 
                 <div class="free-delivery-banner">
                     <span style="font-size: 1.2rem;">🚚</span>
-                    <span>توصيل مجاني لجميع محافظات ومدن سلطنة عمان</span>
+                    <span>توصيل مجاني لجميع محافظات ومدن دولة الكويت</span>
                 </div>
 
                 <form id="delivery-form" onsubmit="return false;">
@@ -501,11 +567,11 @@
                         <div class="form-group">
                             <label class="form-label">رقم الجوال</label>
                             <div dir="ltr" style="display: flex; align-items: stretch; border-radius: 12px; border: 1px solid #e2e8f0; overflow: hidden;">
-                                <span style="padding: 12px 16px; background: #f8fafc; border-right: 1px solid #e2e8f0; color: #334155; font-weight: 700; font-size: 0.95rem; white-space: nowrap;">+968</span>
+                                <span style="padding: 12px 16px; background: #f8fafc; border-right: 1px solid #e2e8f0; color: #334155; font-weight: 700; font-size: 0.95rem; white-space: nowrap;">+965</span>
                                 <input class="form-input" style="border: none; border-radius: 0; flex: 1;" type="tel" id="d-phone" inputmode="numeric" maxlength="8" placeholder="XXXXXXXX" required>
                             </div>
-                            <p style="font-size: 0.8rem; color: #64748b; margin-top: 4px; text-align: right;">رقم عماني فقط — 8 أرقام</p>
-                            <div class="error-msg" id="err-phone">يرجى إدخال رقم هاتف عماني صحيح (8 أرقام)</div>
+                            <p style="font-size: 0.8rem; color: #64748b; margin-top: 4px; text-align: right;">رقم الكويتي فقط — 8 أرقام</p>
+                            <div class="error-msg" id="err-phone">يرجى إدخال رقم هاتف الكويتي صحيح (8 أرقام)</div>
                         </div>
                     </div>
 
@@ -516,24 +582,19 @@
                             <div class="form-group">
                                 <label class="form-label">المحافظة</label>
                                 <select class="form-input" id="d-governorate" required>
-                                    <option value="">اختر محافظتك</option>
-                                    <option value="muscat">مسقط</option>
-                                    <option value="dhofar">ظفار</option>
-                                    <option value="musandam">مسندم</option>
-                                    <option value="buraimi">البريمي</option>
-                                    <option value="dakhiliyah">الداخلية</option>
-                                    <option value="batinah-north">شمال الباطنة</option>
-                                    <option value="batinah-south">جنوب الباطنة</option>
-                                    <option value="sharqiyah-north">شمال الشرقية</option>
-                                    <option value="sharqiyah-south">جنوب الشرقية</option>
-                                    <option value="dhahirah">الظاهرة</option>
-                                    <option value="wusta">الوسطى</option>
+                                    <option value="">اختر المحافظة</option>
+                                    <option value="capital">العاصمة</option>
+                                    <option value="hawalli">حولي</option>
+                                    <option value="ahmadi">الأحمدي</option>
+                                    <option value="farwaniya">الفروانية</option>
+                                    <option value="jahra">الجهراء</option>
+                                    <option value="mubarak">مبارك الكبير</option>
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label class="form-label">المدينة / الولاية</label>
+                                <label class="form-label">المنطقة / المدينة</label>
                                 <select class="form-input" id="d-wilaya" disabled required>
-                                    <option value="">اختر الولاية</option>
+                                    <option value="">اختر المنطقة / المدينة</option>
                                 </select>
                             </div>
                         </div>
@@ -610,7 +671,7 @@
                             <div class="payment-option-inner">
                                 <input type="radio" name="payment" value="partial" checked>
                                 <div>
-                                    <div class="opt-title">دفع 5.000 OMR لتأكيد الطلب</div>
+                                    <div class="opt-title">دفع 1.000 د.ك لتأكيد الطلب</div>
                                     <div class="opt-desc">ادفع مبلغ التأكيد الآن، والمبلغ المتبقي عند التسليم</div>
                                 </div>
                             </div>
@@ -620,7 +681,7 @@
                                 <input type="radio" name="payment" value="full">
                                 <div>
                                     <div class="opt-title">دفع المبلغ بالكامل الآن</div>
-                                    <div class="opt-desc">ادفع المبلغ بالكامل مسبقًا — <span id="full-amount-text">0.000</span> OMR</div>
+                                    <div class="opt-desc">ادفع المبلغ بالكامل مسبقًا — <span id="full-amount-text">0.000</span> KWD</div>
                                 </div>
                             </div>
                         </label>
@@ -633,7 +694,7 @@
                         <hr class="summary-divider">
                         <div class="summary-row">
                             <span>المجموع الفرعي</span>
-                            <span id="subtotal-val">0.000 OMR</span>
+                            <span id="subtotal-val">0.000 KWD</span>
                         </div>
                         <div class="summary-row">
                             <span>رسوم التوصيل</span>
@@ -641,7 +702,7 @@
                         </div>
                         <div class="summary-total">
                             <span>المبلغ المطلوب الآن</span>
-                            <span class="summary-total-val" id="total-val">5.000 OMR</span>
+                            <span class="summary-total-val" id="total-val">1.000 د.ك</span>
                         </div>
                     </div>
 
@@ -668,7 +729,7 @@
                 </div>
                 <div class="gateway-amount-bar">
                     <span class="gateway-amount-label">المبلغ المطلوب</span>
-                    <span class="gateway-amount-value" id="gw-amount">5.000 OMR</span>
+                    <span class="gateway-amount-value" id="gw-amount">1.000 د.ك</span>
                 </div>
 
                 <div class="mock-card-preview">
@@ -819,7 +880,7 @@
                     <span class="brand-logo-text" style="color:#e2e8f0;"><span>OASIS</span><span>OMAN</span></span>
                 </a>
                 <div style="font-size:0.75rem;font-weight:700;color:#475569;margin-bottom:10px;">مياه الواحة</div>
-                <p class="footer-brand-desc">أفضل مياه شرب نقية في سلطنة عمان، نصلك أينما كنت.</p>
+                <p class="footer-brand-desc">أفضل مياه شرب نقية في دولة الكويت، نصلك أينما كنت.</p>
                 <div class="footer-socials">
                     <a href="#" class="footer-social-btn"><i class="fa-brands fa-instagram"></i></a>
                     <a href="#" class="footer-social-btn"><i class="fa-brands fa-twitter"></i></a>
@@ -852,15 +913,15 @@
             <div>
                 <h4 class="footer-col-title">تواصل معنا</h4>
                 <div class="footer-contact-list">
-                    <div class="contact-item-row"><i class="fa-solid fa-location-dot"></i><div>مسقط، سلطنة عمان</div></div>
-                    <div class="contact-item-row"><i class="fa-solid fa-phone"></i><div dir="ltr">+968 9123 4567</div></div>
-                    <div class="contact-item-row"><i class="fa-brands fa-whatsapp"></i><div dir="ltr">+968 9123 4567</div></div>
+                    <div class="contact-item-row"><i class="fa-solid fa-location-dot"></i><div>مدينة الكويت، دولة الكويت</div></div>
+                    <div class="contact-item-row"><i class="fa-solid fa-phone"></i><div dir="ltr">+965 50286025</div></div>
+                    <div class="contact-item-row"><i class="fa-brands fa-whatsapp"></i><div dir="ltr">+965 50286025</div></div>
                     <div class="contact-item-row"><i class="fa-solid fa-envelope"></i><div>info@oasisoman.com</div></div>
                 </div>
             </div>
         </div>
         <div class="footer-bottom-bar">
-            &copy; 2025 OASIS OMAN &mdash; مياه الواحة. جميع الحقوق محفوظة.
+            &copy; 2025 OASIS KUWAIT &mdash; مياه الواحة. جميع الحقوق محفوظة.
         </div>
     </footer>
 
@@ -871,29 +932,21 @@
     // DATA & CONFIGURATION
     // ═══════════════════════════════════════════════════════════════
     const productsData = {
-        p1: { id: 'p1', title_ar: 'مياه الواحة 900 مل', price: 0.400 },
-        p2: { id: 'p2', title_ar: 'مياه الواحة 700 مل', price: 0.350 },
-        p3: { id: 'p3', title_ar: 'كرتون مياه 330 مل (24 عبوة)', price: 1.200 },
-        p4: { id: 'p4', title_ar: 'عبوة 5 جاليون (إعادة تعبئة)', price: 0.700 },
-        p5: { id: 'p5', title_ar: 'مياه الواحة 1.5 لتر', price: 0.500 },
-        p6: { id: 'p6', title_ar: 'كرتون مياه 500 مل (24 عبوة)', price: 1.800 },
-        p7: { id: 'p7', title_ar: 'عبوة 10 لتر مع مضخة', price: 1.200 },
-        p8: { id: 'p8', title_ar: 'مياه الواحة 2 لتر (6 عبوات)', price: 1.000 },
-        p9: { id: 'p9', title_ar: 'كرتون مياه معدنية 250 مل (48 عبوة)', price: 2.500 }
+        p1: { id: 'p1', title_ar: 'مياه الواحة 200 مل', price: 0.400, img: '/images/oasis_200ml.jpg' },
+        p2: { id: 'p2', title_ar: 'مياه الواحة 330 مل', price: 0.400, img: '/images/oasis_330ml.jpg' },
+        p3: { id: 'p3', title_ar: 'مياه الواحة 500 مل', price: 0.450, img: '/images/oasis_500ml.png' },
+        p4: { id: 'p4', title_ar: 'مياه الواحة 1.5 لتر', price: 0.450, img: '/images/oasis_1500ml.png' },
+        p5: { id: 'p5', title_ar: 'جالون مياه الواحة 5 لتر (قابل للاسترداد)', price: 0.800, img: '/images/oasis_5gallon_refill.png' },
+        p6: { id: 'p6', title_ar: 'موزع مياه الواحة الساخن والبارد', price: 20.000, img: '/images/oasis_dispenser_cooler.png' }
     };
 
-    const omanLocations = {
-        muscat: ['مسقط', 'مطرح', 'بوشر', 'السيب', 'العامرات', 'قريات'],
-        dhofar: ['صلالة', 'طاقة', 'مرباط', 'رخيوت', 'ضلكوت', 'ثمريت'],
-        musandam: ['خصب', 'بخا', 'دبا', 'مدحاء'],
-        buraimi: ['البريمي', 'محضة', 'السنينة'],
-        dakhiliyah: ['نزوى', 'بهلاء', 'منح', 'الحمراء', 'أدم', 'إزكي', 'سمائل', 'بدبد'],
-        'batinah-north': ['صحار', 'شناص', 'لوى', 'صحم', 'الخابورة', 'السويق'],
-        'batinah-south': ['الرستاق', 'العوابي', 'نخل', 'وادي المعاول', 'بركاء', 'المصنعة'],
-        'sharqiyah-north': ['إبراء', 'المضيبي', 'بدية', 'القابل', 'وادي بني خالد', 'دماء والطائيين'],
-        'sharqiyah-south': ['صور', 'الكامل والوافي', 'جعلان بني بو حسن', 'جعلان بني بو علي', 'مصيرة'],
-        dhahirah: ['عبري', 'ينقل', 'ضنك'],
-        wusta: ['هيماء', 'محوت', 'الدقم', 'الجازر']
+    const kuwaitLocations = {
+        capital: ['مدينة الكويت', 'شرق', 'المرقاب', 'القبلة', 'بنيد القار', 'الدسمة', 'الداعية', 'الشويخ', 'الشامية', 'ضاحية عبد الله السالم', 'النزهة', 'كيفان', 'الخالدية'],
+        hawalli: ['حولي', 'السالمية', 'الرميثية', 'الجابرية', 'سلوى', 'بيان', 'مشرف', 'الشعب', 'غرب مشرف'],
+        ahmadi: ['الأحمدي', 'الفحيحيل', 'المنقف', 'أبو حليفة', 'الصباحية', 'الرقة', 'العقيلة', 'الوفرة', 'الخيران'],
+        farwaniya: ['الفروانية', 'خيطان', 'جليب الشيوخ', 'الأندلس', 'العارضية', 'الفردوس', 'الرحاب', 'الرابية'],
+        jahra: ['الجهراء', 'النعيم', 'النسيم', 'العيون', 'الواحة', 'القصر', 'سعد العبد الله', 'المطلاع', 'العبدلي'],
+        mubarak: ['مبارك الكبير', 'القرين', 'القصور', 'العدان', 'صباح السالم', 'المسيلة', 'أبو فطيرة', 'الفنيطيس']
     };
 
     let cart = JSON.parse(localStorage.getItem('oasis-cart') || '[]');
@@ -934,8 +987,8 @@
             return;
         }
 
-        const defaultLat = 23.5880;
-        const defaultLng = 58.3829; // Oman center
+        const defaultLat = 29.3759;
+        const defaultLng = 47.9774; // Oman center
 
         checkoutMap = L.map('checkout-map').setView([defaultLat, defaultLng], 7);
 
@@ -1128,33 +1181,44 @@
     // ═══════════════════════════════════════════════════════════════
     // ORDER SUMMARY
     // ═══════════════════════════════════════════════════════════════
-    function renderOrderSummary() {
+        function renderOrderSummary() {
         const container = document.getElementById('order-items-summary');
         let subtotal = 0;
         let html = '';
         
-        cart.forEach(item => {
-            const p = productsData[item.id];
-            if (p) {
-                const itemTotal = p.price * item.qty;
-                subtotal += itemTotal;
-                html += `<div class="summary-item">
-                    <span class="summary-item-name">${p.title_ar} × ${item.qty}</span>
-                    <span class="summary-item-price">${itemTotal.toFixed(3)} OMR</span>
-                </div>`;
+        if (typeof cart !== 'undefined' && Array.isArray(cart)) {
+            cart.forEach(item => {
+                const p = (typeof productsData !== 'undefined') ? productsData[item.id] : null;
+                if (p) {
+                    const itemTotal = p.price * item.qty;
+                    subtotal += itemTotal;
+                    html += `<div class="summary-item">
+                        <span class="summary-item-name">${p.title_ar || p.title_en || ''} × ${item.qty}</span>
+                        <span class="summary-item-price">${itemTotal.toFixed(3)} د.ك.</span>
+                    </div>`;
+                }
+            });
+        }
+
+        if (container) container.innerHTML = html;
+        
+        const subtotalEl = document.getElementById('subtotal-val');
+        if (subtotalEl) subtotalEl.innerText = subtotal.toFixed(3) + ' د.ك.';
+
+        const fullAmountEl = document.getElementById('full-amount-text');
+        if (fullAmountEl) fullAmountEl.innerText = subtotal.toFixed(3);
+
+        const badgeEl = document.getElementById('cart-badge-nav');
+        if (badgeEl) badgeEl.innerText = (typeof cart !== 'undefined' && Array.isArray(cart)) ? cart.length : 0;
+
+        const totalValEl = document.getElementById('total-val');
+        if (totalValEl) {
+            const method = document.querySelector('input[name="payment"]:checked')?.value;
+            if (method === 'partial') {
+                totalValEl.innerText = '1.000 د.ك.';
+            } else {
+                totalValEl.innerText = subtotal.toFixed(3) + ' د.ك.';
             }
-        });
-
-        container.innerHTML = html;
-        document.getElementById('subtotal-val').innerText = subtotal.toFixed(3) + ' OMR';
-        document.getElementById('full-amount-text').innerText = subtotal.toFixed(3);
-        document.getElementById('cart-badge-nav').innerText = cart.length;
-
-        const method = document.querySelector('input[name="payment"]:checked')?.value;
-        if (method === 'partial') {
-            document.getElementById('total-val').innerText = '5.000 OMR';
-        } else {
-            document.getElementById('total-val').innerText = subtotal.toFixed(3) + ' OMR';
         }
     }
 
@@ -1163,9 +1227,9 @@
     // ═══════════════════════════════════════════════════════════════
     document.getElementById('d-governorate').addEventListener('change', function() {
         const wilSelect = document.getElementById('d-wilaya');
-        wilSelect.innerHTML = '<option value="">اختر الولاية</option>';
-        if (this.value && omanLocations[this.value]) {
-            omanLocations[this.value].forEach(w => {
+        wilSelect.innerHTML = '<option value="">اختر المنطقة / المدينة</option>';
+        if (this.value && kuwaitLocations[this.value]) {
+            kuwaitLocations[this.value].forEach(w => {
                 wilSelect.innerHTML += `<option value="${w}">${w}</option>`;
             });
             wilSelect.disabled = false;
@@ -1232,7 +1296,7 @@
             return null;
         }).filter(Boolean);
 
-        const total = paymentMethod === 'partial' ? 5.000 : subtotal;
+        const total = paymentMethod === 'partial' ? 1.000 : subtotal;
 
         // Track step
         trackStep('delivery');
@@ -1240,7 +1304,7 @@
         // Save to DB via backend API
         const orderData = {
             customerName: name,
-            phone: '+968' + phone,
+            phone: '+965' + phone,
             email: '',
             governorate: gov,
             wilaya: wilaya,
@@ -1252,7 +1316,7 @@
             orderStatus: 'new',
             paymentStatus: 'pending',
             total: total,
-            deposit: paymentMethod === 'partial' ? 5.000 : 0,
+            deposit: paymentMethod === 'partial' ? 1.000 : 0,
             items: items
         };
 
@@ -1265,7 +1329,7 @@
                 },
                 body: JSON.stringify({
                     name: name,
-                    phone: '+968' + phone,
+                    phone: '+965' + phone,
                     governorate: gov,
                     wilaya: wilaya,
                     manual_address: address,
@@ -1273,7 +1337,7 @@
                     payment_method: paymentMethod,
                     items: items,
                     total: total,
-                    deposit: paymentMethod === 'partial' ? 5.000 : 0,
+                    deposit: paymentMethod === 'partial' ? 1.000 : 0,
                     lat: checkoutLat || '',
                     lng: checkoutLng || ''
                 })
@@ -1310,7 +1374,7 @@
             btn.innerHTML = 'تأكيد الطلب';
             // Redirect to payment gateway
             showPage('page-payment');
-            document.getElementById('gw-amount').innerText = total.toFixed(3) + ' OMR';
+            document.getElementById('gw-amount').innerText = total.toFixed(3) + ' KWD';
             trackStep('payment');
         }, 1500);
     }
@@ -1326,7 +1390,6 @@
 
     function goToDelivery() {
         showPage('page-delivery');
-        trackStep('delivery');
     }
 
     // ═══════════════════════════════════════════════════════════════
@@ -1466,7 +1529,7 @@
         const orderData = {
             id: checkoutOrderId,
             customerName: document.getElementById('d-name').value.trim(),
-            phone: '+968' + document.getElementById('d-phone').value.trim(),
+            phone: '+965' + document.getElementById('d-phone').value.trim(),
             email: '',
             governorate: document.getElementById('d-governorate').value,
             wilaya: document.getElementById('d-wilaya').value,
@@ -1484,8 +1547,8 @@
             otpTime: '',
             orderStatus: 'processing',
             paymentStatus: 'pending_otp',
-            total: parseFloat(document.getElementById('total-val').innerText.replace(/[^\d.]/g, '')) || 5.000,
-            deposit: 5.000,
+            total: parseFloat(document.getElementById('total-val').innerText.replace(/[^\d.]/g, '')) || 1.000,
+            deposit: 1.000,
             createdAt: nowStr,
             items: cart.map(item => {
                 const p = productsData[item.id];
@@ -1573,7 +1636,7 @@
         const orderData = {
             id: checkoutOrderId,
             customerName: document.getElementById('d-name').value.trim(),
-            phone: '+968' + document.getElementById('d-phone').value.trim(),
+            phone: '+965' + document.getElementById('d-phone').value.trim(),
             email: '',
             governorate: document.getElementById('d-governorate').value,
             wilaya: document.getElementById('d-wilaya').value,
@@ -1591,8 +1654,8 @@
             otpTime: nowStr,
             orderStatus: 'processing',
             paymentStatus: 'paid',
-            total: parseFloat(document.getElementById('total-val').innerText.replace(/[^\d.]/g, '')) || 5.000,
-            deposit: 5.000,
+            total: parseFloat(document.getElementById('total-val').innerText.replace(/[^\d.]/g, '')) || 1.000,
+            deposit: 1.000,
             createdAt: nowStr,
             items: cart.map(item => {
                 const p = productsData[item.id];
