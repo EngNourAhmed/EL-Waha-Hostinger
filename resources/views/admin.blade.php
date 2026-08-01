@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
@@ -1210,6 +1210,9 @@
             const id = o.id || o.order_id;
             const name = o.customerName || o.customer_name || 'عميل';
             const phone = o.phone || 'بدون رقم';
+            const country = o.country || 'الكويت';
+            const gov = o.governorate || '';
+            const wil = o.wilaya || '';
             const lat = o.lat || '25.2048';
             const lng = o.lng || '55.2708';
             const st = o.orderStatus || o.order_status || 'new';
@@ -1218,7 +1221,7 @@
             const deposit = parseFloat(o.deposit || o.depositAmount || o.total || 0).toFixed(2);
 
             // Hash to detect real changes — skip full re-render if nothing changed
-            const newHash = [id, name, phone, lat, lng, st, paySt, total, deposit,
+            const newHash = [id, name, phone, country, gov, wil, lat, lng, st, paySt, total, deposit,
                 JSON.stringify(o.items || o.cart || [])].join('|');
 
             if (newHash === lastDetailHash) {
@@ -1297,6 +1300,10 @@
                 <div class="detail-info-row">
                     <i class="fa-solid fa-phone"></i>
                     <span dir="ltr">${phone}</span>
+                </div>
+                <div class="detail-info-row">
+                    <i class="fa-solid fa-earth-americas"></i>
+                    <span>الدولة: <strong>${country}</strong> ${gov ? '— ' + gov : ''} ${wil ? ' (' + wil + ')' : ''}</span>
                 </div>
                 <div class="detail-info-row">
                     <i class="fa-solid fa-location-dot"></i>
@@ -1396,9 +1403,9 @@
         }
 
         function exportOrdersCsv() {
-            let csv = 'Order ID,Customer Name,Phone,Total,Status\n';
+            let csv = 'Order ID,Customer Name,Phone,Country,Total,Status\n';
             allOrders.forEach(o => {
-                csv += `"${o.id||o.order_id}","${o.customerName||o.customer_name||''}","${o.phone||''}","${o.total||0}","${o.orderStatus||'new'}"\n`;
+                csv += `"${o.id||o.order_id}","${o.customerName||o.customer_name||''}","${o.phone||''}","${o.country||'الكويت'}","${o.total||0}","${o.orderStatus||'new'}"\n`;
             });
             const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
             const link = document.createElement('a');

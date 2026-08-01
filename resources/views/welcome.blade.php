@@ -4726,6 +4726,11 @@
                     <div class="checkout-card-sub" id="checkout-delivery-form-sub">سنستخدم هذه المعلومات لتأكيد طلبك وتوصيله.</div>
                     <form id="delivery-form" onsubmit="submitDeliveryForm(event)">
                         <div class="checkout-form-grid">
+                            <div class="checkout-form-group full">
+                                <label class="checkout-label" for="chk-country" id="chk-lbl-country">الدولة</label>
+                                <select class="checkout-select" id="chk-country" onchange="onModalCountryChange(this.value)">
+                                </select>
+                            </div>
                             <div class="checkout-form-group">
                                 <label class="checkout-label" for="chk-fullname" id="chk-lbl-fullname">الاسم الكامل</label>
                                 <input class="checkout-input" type="text" id="chk-fullname" autocomplete="name">
@@ -4734,8 +4739,8 @@
                             <div class="checkout-form-group">
                                 <label class="checkout-label" for="chk-phone" id="chk-lbl-phone">رقم الهاتف</label>
                                 <div style="display: flex; align-items: center; border: 1px solid #cbd5e1; border-radius: 8px; overflow: hidden; background: #fff;">
-                                    <span style="background: #f8fafc; color: #0284c7; padding: 10px 14px; font-weight: 700; font-size: 0.95rem; border-right: 1px solid #cbd5e1; display: flex; align-items: center; gap: 6px;"><i class="fa-solid fa-phone"></i> +965</span>
-                                    <input class="checkout-input" type="tel" id="chk-phone" maxlength="8" placeholder="50286025" style="border: none; border-radius: 0; outline: none; box-shadow: none; flex: 1;" oninput="formatPhoneInput(this)">
+                                    <span id="modal-phone-dial-code" style="background: #f8fafc; color: #0284c7; padding: 10px 14px; font-weight: 700; font-size: 0.95rem; border-right: 1px solid #cbd5e1; display: flex; align-items: center; gap: 6px;"><i class="fa-solid fa-phone"></i> <span id="modal-dial-code-val">+965</span></span>
+                                    <input class="checkout-input" type="tel" id="chk-phone" maxlength="15" placeholder="50286025" style="border: none; border-radius: 0; outline: none; box-shadow: none; flex: 1;" oninput="formatPhoneInput(this)">
                                 </div>
                                 <span class="checkout-error-msg" id="err-phone"></span>
                             </div>
@@ -6474,15 +6479,45 @@
             wrap.innerHTML = html;
         }
 
+        function populateModalCountryOptions() {
+            const select = document.getElementById('chk-country');
+            if (!select) return;
+            select.innerHTML = '';
+            arabCountries.forEach(c => {
+                const name = currentLang === 'ar' ? c.nameAr : c.nameEn;
+                select.innerHTML += `<option value="${c.code}">${c.flag} ${name} (${c.dialCode})</option>`;
+            });
+            const selectedCode = checkoutData.countryCode || 'KW';
+            select.value = selectedCode;
+            onModalCountryChange(selectedCode);
+        }
+
+        function onModalCountryChange(countryCode) {
+            checkoutData.countryCode = countryCode;
+            const country = arabCountries.find(c => c.code === countryCode) || arabCountries[0];
+            checkoutData.country = currentLang === 'ar' ? country.nameAr : country.nameEn;
+
+            const dialValEl = document.getElementById('modal-dial-code-val');
+            if (dialValEl) {
+                dialValEl.innerText = country.dialCode;
+            }
+            populateGovernorateOptions();
+        }
+
         function populateGovernorateOptions() {
             const select = document.getElementById('chk-governorate');
             if (!select) return;
-            const locs = kuwaitLocations[currentLang];
+            const countryCode = checkoutData.countryCode || 'KW';
+            const country = arabCountries.find(c => c.code === countryCode) || arabCountries[0];
             const currentVal = checkoutData.governorate || select.value;
-            select.innerHTML = `<option value="">${currentLang === 'ar' ? '-- اختر المحافظة --' : '-- Select Governorate --'}</option>`;
-            Object.entries(locs).forEach(([key, val]) => {
-                select.innerHTML += `<option value="${key}">${val.name}</option>`;
-            });
+            select.innerHTML = `<option value="">${currentLang === 'ar' ? '-- اختر المحافظة / المنطقة --' : '-- Select Region --'}</option>`;
+
+            if (country && country.governorates) {
+                Object.entries(country.governorates).forEach(([gKey, gVal]) => {
+                    const name = typeof gVal === 'object' ? (currentLang === 'ar' ? (gVal.nameAr || gVal.name) : (gVal.nameEn || gVal.name || gKey)) : gKey;
+                    select.innerHTML += `<option value="${gKey}">${name || gKey}</option>`;
+                });
+            }
             if (currentVal) select.value = currentVal;
             updateAreaOptions();
         }
@@ -6491,11 +6526,15 @@
             const govSelect = document.getElementById('chk-governorate');
             const wilayaSelect = document.getElementById('chk-wilaya');
             if (!govSelect || !wilayaSelect) return;
+            const countryCode = checkoutData.countryCode || 'KW';
+            const country = arabCountries.find(c => c.code === countryCode) || arabCountries[0];
             const govKey = govSelect.value;
-            const locs = kuwaitLocations[currentLang];
-            wilayaSelect.innerHTML = `<option value="">${currentLang === 'ar' ? '-- اختر المنطقة --' : '-- Select Area --'}</option>`;
-            if (govKey && locs[govKey]) {
-                locs[govKey].wilayas.forEach(w => {
+
+            wilayaSelect.innerHTML = `<option value="">${currentLang === 'ar' ? '-- اختر المنطقة / المدينة --' : '-- Select City --'}</option>`;
+            if (govKey && country && country.governorates && country.governorates[govKey]) {
+                const gData = country.governorates[govKey];
+                const wilList = Array.isArray(gData) ? gData : (gData.wilayas || []);
+                wilList.forEach(w => {
                     wilayaSelect.innerHTML += `<option value="${w}">${w}</option>`;
                 });
             }
@@ -6503,10 +6542,10 @@
         }
 
         function loadDeliveryForm() {
+            populateModalCountryOptions();
             document.getElementById('chk-fullname').value = checkoutData.fullName || '';
             let savedPhone = (checkoutData.phone || '').replace(/\D/g, '');
-            if (savedPhone.startsWith('971')) savedPhone = savedPhone.substring(3);
-            document.getElementById('chk-phone').value = savedPhone.slice(0, 9);
+            document.getElementById('chk-phone').value = savedPhone;
             document.getElementById('chk-email').value = checkoutData.email || '';
             document.getElementById('chk-notes').value = checkoutData.deliveryNotes || '';
             selectDeliverySlot(checkoutData.deliverySlot || 'morning');
@@ -6638,11 +6677,11 @@
 
             const nameEl = document.getElementById('chk-fullname');
             const phoneEl = document.getElementById('chk-phone');
+            const countryCode = checkoutData.countryCode || 'KW';
+            const countryObj = arabCountries.find(c => c.code === countryCode) || arabCountries[0];
 
             const fullName = nameEl ? nameEl.value.trim() : '';
             let rawDigits = phoneEl ? phoneEl.value.replace(/\D/g, '') : '';
-            if (rawDigits.startsWith('968')) rawDigits = rawDigits.substring(3);
-            if (rawDigits.startsWith('971')) rawDigits = rawDigits.substring(3);
             if (rawDigits.startsWith('0')) rawDigits = rawDigits.substring(1);
 
             if (!fullName) { 
@@ -6652,8 +6691,8 @@
                 clearFieldError('chk-fullname', 'err-fullname'); 
             }
 
-            if (!rawDigits || rawDigits.length !== 8) {
-                showFieldError('chk-phone', 'err-phone', currentLang === 'ar' ? 'يرجى إدخال رقم هاتف كويتي صحيح (8 أرقام)' : 'Please enter a valid Kuwaiti phone number (8 digits)');
+            if (!rawDigits || rawDigits.length < (countryObj.minLen || 7) || rawDigits.length > (countryObj.maxLen || 15)) {
+                showFieldError('chk-phone', 'err-phone', currentLang === 'ar' ? `يرجى إدخال رقم هاتف صحيح (${countryObj.dialCode})` : `Please enter a valid phone number (${countryObj.dialCode})`);
                 valid = false;
             } else {
                 clearFieldError('chk-phone', 'err-phone');
@@ -6668,7 +6707,8 @@
             }
 
             checkoutData.fullName = fullName;
-            checkoutData.phone = rawDigits;
+            checkoutData.phone = countryObj.dialCode + ' ' + rawDigits;
+            checkoutData.country = currentLang === 'ar' ? countryObj.nameAr : countryObj.nameEn;
             checkoutData.email = document.getElementById('chk-email')?.value.trim() || '';
             checkoutData.deliveryNotes = document.getElementById('chk-notes')?.value.trim() || '';
             saveCheckoutData();
@@ -8371,6 +8411,7 @@
                 id: orderId,
                 customerName: fullName,
                 phone: phone,
+                country: checkoutData.country || "الكويت",
                 email: email,
                 governorate: governorate,
                 wilaya: wilaya,

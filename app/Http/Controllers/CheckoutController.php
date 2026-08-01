@@ -23,7 +23,8 @@ class CheckoutController extends Controller
         try {
             $validated = $request->validate([
                 'name' => 'required|string|max:255',
-                'phone' => 'required|string|max:20',
+                'phone' => 'required|string|max:30',
+                'country' => 'nullable|string|max:100',
                 'governorate' => 'required|string',
                 'wilaya' => 'required|string',
                 'lat' => 'nullable|string',
@@ -43,6 +44,7 @@ class CheckoutController extends Controller
                 'order_id' => $orderId,
                 'customer_name' => $validated['name'],
                 'phone' => $validated['phone'],
+                'country' => $validated['country'] ?? 'الكويت',
                 'governorate' => $validated['governorate'],
                 'wilaya' => $validated['wilaya'],
                 'lat' => $validated['lat'] ?? '',

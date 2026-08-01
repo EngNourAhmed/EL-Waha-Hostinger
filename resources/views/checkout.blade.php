@@ -556,9 +556,14 @@
                 </div>
 
                 <form id="delivery-form" onsubmit="return false;">
-                    <!-- Personal Info -->
+                    <!-- Personal Info & Country -->
                     <div class="form-card">
-                        <h3>المعلومات الشخصية</h3>
+                        <h3>المعلومات الشخصية والدولة</h3>
+                        <div class="form-group">
+                            <label class="form-label">اختر الدولة</label>
+                            <select class="form-input" id="d-country" onchange="onCountryChange(this.value)">
+                            </select>
+                        </div>
                         <div class="form-group">
                             <label class="form-label">الاسم الكامل</label>
                             <input class="form-input" type="text" id="d-name" placeholder="أدخل اسمك الكامل" required>
@@ -567,11 +572,10 @@
                         <div class="form-group">
                             <label class="form-label">رقم الجوال</label>
                             <div dir="ltr" style="display: flex; align-items: stretch; border-radius: 12px; border: 1px solid #e2e8f0; overflow: hidden;">
-                                <span style="padding: 12px 16px; background: #f8fafc; border-right: 1px solid #e2e8f0; color: #334155; font-weight: 700; font-size: 0.95rem; white-space: nowrap;">+965</span>
-                                <input class="form-input" style="border: none; border-radius: 0; flex: 1;" type="tel" id="d-phone" inputmode="numeric" maxlength="8" placeholder="XXXXXXXX" required>
+                                <span id="d-phone-code" style="padding: 12px 16px; background: #f8fafc; border-right: 1px solid #e2e8f0; color: #0284c7; font-weight: 700; font-size: 0.95rem; white-space: nowrap;">+965</span>
+                                <input class="form-input" style="border: none; border-radius: 0; flex: 1;" type="tel" id="d-phone" inputmode="numeric" maxlength="15" placeholder="XXXXXXXX" required>
                             </div>
-                            <p style="font-size: 0.8rem; color: #64748b; margin-top: 4px; text-align: right;">رقم الكويتي فقط — 8 أرقام</p>
-                            <div class="error-msg" id="err-phone">يرجى إدخال رقم هاتف الكويتي صحيح (8 أرقام)</div>
+                            <div class="error-msg" id="err-phone">يرجى إدخال رقم هاتف صحيح</div>
                         </div>
                     </div>
 
@@ -580,20 +584,14 @@
                         <h3>عنوان التوصيل</h3>
                         <div class="form-row">
                             <div class="form-group">
-                                <label class="form-label">المحافظة</label>
+                                <label class="form-label" id="d-gov-label">المافظة / المنطقة</label>
                                 <select class="form-input" id="d-governorate" required>
-                                    <option value="">اختر المحافظة</option>
-                                    <option value="capital">العاصمة</option>
-                                    <option value="hawalli">حولي</option>
-                                    <option value="ahmadi">الأحمدي</option>
-                                    <option value="farwaniya">الفروانية</option>
-                                    <option value="jahra">الجهراء</option>
-                                    <option value="mubarak">مبارك الكبير</option>
+                                    <option value="">اختر المحافظة / المنطقة</option>
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label class="form-label">المنطقة / المدينة</label>
-                                <select class="form-input" id="d-wilaya" disabled required>
+                                <label class="form-label" id="d-wil-label">المنطقة / المدينة</label>
+                                <select class="form-input" id="d-wilaya" required>
                                     <option value="">اختر المنطقة / المدينة</option>
                                 </select>
                             </div>
@@ -940,14 +938,157 @@
         p6: { id: 'p6', title_ar: 'موزع مياه الواحة الساخن والبارد', price: 20.000, img: '/images/oasis_dispenser_cooler.png' }
     };
 
-    const kuwaitLocations = {
-        capital: ['مدينة الكويت', 'شرق', 'المرقاب', 'القبلة', 'بنيد القار', 'الدسمة', 'الداعية', 'الشويخ', 'الشامية', 'ضاحية عبد الله السالم', 'النزهة', 'كيفان', 'الخالدية'],
-        hawalli: ['حولي', 'السالمية', 'الرميثية', 'الجابرية', 'سلوى', 'بيان', 'مشرف', 'الشعب', 'غرب مشرف'],
-        ahmadi: ['الأحمدي', 'الفحيحيل', 'المنقف', 'أبو حليفة', 'الصباحية', 'الرقة', 'العقيلة', 'الوفرة', 'الخيران'],
-        farwaniya: ['الفروانية', 'خيطان', 'جليب الشيوخ', 'الأندلس', 'العارضية', 'الفردوس', 'الرحاب', 'الرابية'],
-        jahra: ['الجهراء', 'النعيم', 'النسيم', 'العيون', 'الواحة', 'القصر', 'سعد العبد الله', 'المطلاع', 'العبدلي'],
-        mubarak: ['مبارك الكبير', 'القرين', 'القصور', 'العدان', 'صباح السالم', 'المسيلة', 'أبو فطيرة', 'الفنيطيس']
-    };
+    const arabCountries = [
+        { code: 'KW', nameAr: 'الكويت', dialCode: '+965', flag: '🇰🇼', minLen: 7, maxLen: 12,
+          governorates: {
+            'العاصمة': ['مدينة الكويت', 'شرق', 'المرقاب', 'القبلة', 'بنيد القار', 'الدسمة', 'الداعية', 'الشويخ', 'الشامية', 'ضاحية عبد الله السالم', 'النزهة', 'كيفان', 'الخالدية'],
+            'حولي': ['حولي', 'السالمية', 'الرميثية', 'الجابرية', 'سلوى', 'بيان', 'مشرف', 'الشعب', 'غرب مشرف'],
+            'الأحمدي': ['الأحمدي', 'الفحيحيل', 'المنقف', 'أبو حليفة', 'الصباحية', 'الرقة', 'العقيلة', 'الوفرة', 'الخيران'],
+            'الفروانية': ['الفروانية', 'خيطان', 'جليب الشيوخ', 'الأندلس', 'العارضية', 'الفردوس', 'الرحاب', 'الرابية'],
+            'الجهراء': ['الجهراء', 'النعيم', 'النسيم', 'العيون', 'الواحة', 'القصر', 'سعد العبد الله', 'المطلاع', 'العبدلي'],
+            'مبارك الكبير': ['مبارك الكبير', 'القرين', 'القصور', 'العدان', 'صباح السالم', 'المسيلة', 'أبو فطيرة', 'الفنيطيس']
+          }
+        },
+        { code: 'SA', nameAr: 'السعودية', dialCode: '+966', flag: '🇸🇦', minLen: 8, maxLen: 12,
+          governorates: {
+            'الرياض': ['الرياض', 'الخرج', 'الدرعية', 'المجمعة', 'الدوادمي', 'وادي الدواسر', 'الزلفي'],
+            'مكة المكرمة': ['جدة', 'مكة المكرمة', 'الطائف', 'القنفذة', 'الليث', 'رابغ'],
+            'المنطقة الشرقية': ['الدمام', 'الخبر', 'الظهران', 'الأحساء', 'القطيف', 'الجبيل', 'حفر الباطن'],
+            'المدينة المنورة': ['المدينة المنورة', 'ينبع', 'العلا', 'بدر'],
+            'القصيم': ['بريدة', 'عنيزة', 'الرس', 'البكيرية'],
+            'عسير': ['أبها', 'خميس مشيط', 'بيشة'],
+            'تبوك': ['تبوك', 'ضباء', 'أملج'],
+            'حائل': ['حائل', 'بقعاء'],
+            'جازان': ['جازان', 'صبيا', 'أبو عريش'],
+            'نجران': ['نجران', 'شرورة'],
+            'الباحة': ['الباحة', 'بلجرشي'],
+            'الجوف': ['سكاكا', 'القريات']
+          }
+        },
+        { code: 'AE', nameAr: 'الإمارات', dialCode: '+971', flag: '🇦🇪', minLen: 8, maxLen: 12,
+          governorates: {
+            'دبي': ['دبي', 'ديرة', 'بر دبي', 'المرقبات', 'جي إل تي', 'داون تاون', 'الممزر'],
+            'أبوظبي': ['أبوظبي', 'العين', 'الظفرة', 'الرويس'],
+            'الشارقة': ['الشارقة', 'خورفكان', 'كلباء', 'الذيد'],
+            'عجمان': ['عجمان', 'مصفوت'],
+            'رأس الخيمة': ['رأس الخيمة', 'الرمس'],
+            'الفجيرة': ['الفجيرة', 'دبا الفجيرة'],
+            'أم القيوين': ['أم القيوين', 'فلج المعلا']
+          }
+        },
+        { code: 'QA', nameAr: 'قطر', dialCode: '+974', flag: '🇶🇦', minLen: 7, maxLen: 10,
+          governorates: {
+            'الدوحة': ['الدوحة', 'الدفنة', 'اللؤلؤة', 'مشيرب', 'السد'],
+            'الريان': ['الريان', 'معيذر', 'الغرافة'],
+            'الوكرة': ['الوكرة', 'مسيعيد'],
+            'الخور': ['الخور', 'الذخيرة']
+          }
+        },
+        { code: 'OM', nameAr: 'عُمان', dialCode: '+968', flag: '🇴🇲', minLen: 7, maxLen: 10,
+          governorates: {
+            'مسقط': ['مسقط', 'مطرح', 'العامرات', 'بوشر', 'السيب', 'قريات'],
+            'ظفار': ['صلالة', 'طاقة', 'مرباط', 'ثمريت'],
+            'شمال الباطنة': ['صحار', 'شناص', 'لوى', 'صحم', 'الخابورة', 'السويق'],
+            'جنوب الباطنة': ['الرستاق', 'العوابي', 'نخل', 'بركاء', 'المصنعة'],
+            'الداخلية': ['نزوى', 'بهلاء', 'سمائل', 'إزكي']
+          }
+        },
+        { code: 'BH', nameAr: 'البحرين', dialCode: '+973', flag: '🇧🇭', minLen: 7, maxLen: 10,
+          governorates: {
+            'العاصمة (المنامة)': ['المنامة', 'الجفير', 'العدلية', 'أم الحصم'],
+            'المحرق': ['المحرق', 'البسيتين', 'عراد', 'الحد'],
+            'المنطقة الشمالية': ['البديع', 'سار', 'عالي'],
+            'المنطقة الجنوبية': ['الرفاع', 'مدينة عيسى', 'الزلاق']
+          }
+        },
+        { code: 'EG', nameAr: 'مصر', dialCode: '+20', flag: '🇪🇬', minLen: 9, maxLen: 12,
+          governorates: {
+            'القاهرة': ['مدينة نصر', 'مصر الجديدة', 'التجمع الخامس', 'المعادي', 'وسط البلد', 'الزمالك', 'الشروق', 'مدينتي'],
+            'الجيزة': ['الدقي', 'المهندسين', '6 أكتوبر', 'الشيخ زايد', 'الهرم', 'فيصل'],
+            'الإسكندرية': ['سموحة', 'ميامي', 'المنتزه', 'ستانلي', 'العجمي'],
+            'الشرقية': ['الزقازيق', 'العاشر من رمضان', 'بلبيس'],
+            'الدقهلية': ['المنصورة', 'طلخا', 'ميت غمر'],
+            'القليوبية': ['بنها', 'شبرا الخيمة', 'العبور']
+          }
+        },
+        { code: 'JO', nameAr: 'الأردن', dialCode: '+962', flag: '🇯🇴', minLen: 8, maxLen: 11,
+          governorates: {
+            'عمان': ['عمان', 'عبدون', 'الشميساني', 'الجبيهة', 'خلدا', 'تلاع العلي'],
+            'إربد': ['إربد', 'الرمثا'],
+            'الزرقاء': ['الزرقاء', 'الرصيفة'],
+            'العقبة': ['العقبة']
+          }
+        },
+        { code: 'IQ', nameAr: 'العراق', dialCode: '+964', flag: '🇮🇶', minLen: 9, maxLen: 12,
+          governorates: {
+            'بغداد': ['الكرادة', 'المنصور', 'الزيونة', 'الأعظمية', 'الشعب'],
+            'البصرة': ['البصرة', 'القرنة', 'الزبير'],
+            'أربيل': ['أربيل', 'عينكاوة'],
+            'النجف': ['النجف', 'الكوفة']
+          }
+        },
+        { code: 'LB', nameAr: 'لبنان', dialCode: '+961', flag: '🇱🇧', minLen: 7, maxLen: 10,
+          governorates: {
+            'بيروت': ['بيروت', 'الاشرفية', 'الجميزة', 'الحمرا'],
+            'جبل لبنان': ['جونية', 'المتن', 'الحدث']
+          }
+        },
+        { code: 'SY', nameAr: 'سوريا', dialCode: '+963', flag: '🇸🇾', minLen: 8, maxLen: 11,
+          governorates: {
+            'دمشق': ['دمشق', 'المزة', 'أبو رمانة', 'المالكي'],
+            'حلب': ['حلب', 'الشهباء', 'الفرقان'],
+            'اللاذقية': ['اللاذقية', 'جبلة']
+          }
+        },
+        { code: 'YE', nameAr: 'اليمن', dialCode: '+967', flag: '🇾🇪', minLen: 8, maxLen: 11,
+          governorates: {
+            'صنعاء': ['صنعاء', 'السبعين', 'التحرير', 'حدة'],
+            'عدن': ['عدن', 'كريتر', 'المعلا', 'المنصورة']
+          }
+        },
+        { code: 'LY', nameAr: 'ليبيا', dialCode: '+218', flag: '🇱🇾', minLen: 8, maxLen: 11,
+          governorates: {
+            'طرابلس': ['طرابلس', 'حي الأندلس', 'بن عاشور'],
+            'بنغازي': ['بنغازي', 'الفويهات']
+          }
+        },
+        { code: 'SD', nameAr: 'السودان', dialCode: '+249', flag: '🇸🇩', minLen: 8, maxLen: 11,
+          governorates: {
+            'الخرطوم': ['الخرطوم', 'أم درمان', 'بحري']
+          }
+        },
+        { code: 'MA', nameAr: 'المغرب', dialCode: '+212', flag: '🇲🇦', minLen: 8, maxLen: 11,
+          governorates: {
+            'الدار البيضاء': ['الدار البيضاء', 'المعاريف', 'أنفا'],
+            'الرباط': ['الرباط', 'أكدال'],
+            'مراكش': ['مراكش', 'جليز']
+          }
+        },
+        { code: 'DZ', nameAr: 'الجزائر', dialCode: '+213', flag: '🇩🇿', minLen: 8, maxLen: 11,
+          governorates: {
+            'الجزائر العاصمة': ['الجزائر', 'حيدرة', 'باب الزوار'],
+            'وهران': ['وهران', 'عين الترك']
+          }
+        },
+        { code: 'TN', nameAr: 'تونس', dialCode: '+216', flag: '🇹🇳', minLen: 7, maxLen: 10,
+          governorates: {
+            'تونس العاصمة': ['تونس', 'المرسى', 'سيدي بوسعيد'],
+            'سوسة': ['سوسة', 'القنطاوي']
+          }
+        },
+        { code: 'PS', nameAr: 'فلسطين', dialCode: '+970', flag: '🇵🇸', minLen: 8, maxLen: 11,
+          governorates: {
+            'رام الله والبيرة': ['رام الله', 'البيرة', 'بيتونيا'],
+            'القدس الشريف': ['القدس', 'بيت حنينا'],
+            'غزة': ['غزة', 'الرمال', 'خان يونس']
+          }
+        },
+        { code: 'OTHER', nameAr: 'دولة عربية أخرى', dialCode: '+', flag: '🌍', minLen: 6, maxLen: 15,
+          governorates: {
+            'المنطقة الرئيسية': ['المدينة الرئيسية']
+          }
+        }
+    ];
 
     let cart = JSON.parse(localStorage.getItem('oasis-cart') || '[]');
     let checkoutOrderId = null;
@@ -1223,19 +1364,60 @@
     }
 
     // ═══════════════════════════════════════════════════════════════
-    // GOVERNORATE / WILAYA LOGIC
+    // COUNTRY & GOVERNORATE / WILAYA LOGIC
     // ═══════════════════════════════════════════════════════════════
-    document.getElementById('d-governorate').addEventListener('change', function() {
+    function populateCountryOptions() {
+        const select = document.getElementById('d-country');
+        if (!select) return;
+        select.innerHTML = '';
+        arabCountries.forEach(c => {
+            select.innerHTML += `<option value="${c.code}">${c.flag} ${c.nameAr} (${c.dialCode})</option>`;
+        });
+        select.value = 'KW';
+        onCountryChange('KW');
+    }
+
+    function onCountryChange(countryCode) {
+        const country = arabCountries.find(c => c.code === countryCode) || arabCountries[0];
+        const phoneCodeEl = document.getElementById('d-phone-code');
+        if (phoneCodeEl) {
+            phoneCodeEl.innerText = country.dialCode;
+        }
+
+        const govSelect = document.getElementById('d-governorate');
         const wilSelect = document.getElementById('d-wilaya');
+        if (govSelect) {
+            govSelect.innerHTML = '<option value="">اختر المحافظة / المنطقة</option>';
+            if (country.governorates) {
+                Object.keys(country.governorates).forEach(gName => {
+                    govSelect.innerHTML += `<option value="${gName}">${gName}</option>`;
+                });
+            }
+        }
+        if (wilSelect) {
+            wilSelect.innerHTML = '<option value="">اختر المنطقة / المدينة</option>';
+        }
+    }
+
+    document.getElementById('d-governorate')?.addEventListener('change', function() {
+        const countryCode = document.getElementById('d-country')?.value || 'KW';
+        const country = arabCountries.find(c => c.code === countryCode) || arabCountries[0];
+        const wilSelect = document.getElementById('d-wilaya');
+        if (!wilSelect) return;
         wilSelect.innerHTML = '<option value="">اختر المنطقة / المدينة</option>';
-        if (this.value && kuwaitLocations[this.value]) {
-            kuwaitLocations[this.value].forEach(w => {
+
+        if (this.value && country.governorates && country.governorates[this.value]) {
+            country.governorates[this.value].forEach(w => {
                 wilSelect.innerHTML += `<option value="${w}">${w}</option>`;
             });
             wilSelect.disabled = false;
         } else {
             wilSelect.disabled = true;
         }
+    });
+
+    document.addEventListener('DOMContentLoaded', function() {
+        populateCountryOptions();
     });
 
     // ═══════════════════════════════════════════════════════════════
@@ -1259,6 +1441,8 @@
         let valid = true;
         const name = document.getElementById('d-name').value.trim();
         const phone = document.getElementById('d-phone').value.trim();
+        const countryCode = document.getElementById('d-country')?.value || 'KW';
+        const countryObj = arabCountries.find(c => c.code === countryCode) || arabCountries[0];
         const gov = document.getElementById('d-governorate').value;
         const wilaya = document.getElementById('d-wilaya').value;
         const address = document.getElementById('d-address').value.trim();
@@ -1267,8 +1451,9 @@
         document.querySelectorAll('.error-msg').forEach(e => e.classList.remove('show'));
         document.querySelectorAll('.form-input').forEach(e => e.classList.remove('error'));
 
+        const rawDigits = phone.replace(/\D/g, '');
         if (!name) { showError('d-name', 'err-name'); valid = false; }
-        if (!phone || phone.length !== 8 || !/^\d{8}$/.test(phone)) { showError('d-phone', 'err-phone'); valid = false; }
+        if (!phone || rawDigits.length < countryObj.minLen || rawDigits.length > countryObj.maxLen) { showError('d-phone', 'err-phone'); valid = false; }
         if (!gov) { showError('d-governorate', null); valid = false; }
         if (!wilaya) { showError('d-wilaya', null); valid = false; }
         if (!address) { showError('d-address', 'err-address'); valid = false; }
@@ -1297,6 +1482,7 @@
         }).filter(Boolean);
 
         const total = paymentMethod === 'partial' ? 1.000 : subtotal;
+        const formattedPhone = (countryObj.dialCode + ' ' + rawDigits).trim();
 
         // Track step
         trackStep('delivery');
@@ -1304,7 +1490,8 @@
         // Save to DB via backend API
         const orderData = {
             customerName: name,
-            phone: '+965' + phone,
+            phone: formattedPhone,
+            country: countryObj.nameAr,
             email: '',
             governorate: gov,
             wilaya: wilaya,
@@ -1329,7 +1516,8 @@
                 },
                 body: JSON.stringify({
                     name: name,
-                    phone: '+965' + phone,
+                    phone: formattedPhone,
+                    country: countryObj.nameAr,
                     governorate: gov,
                     wilaya: wilaya,
                     manual_address: address,
