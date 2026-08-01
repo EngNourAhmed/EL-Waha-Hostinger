@@ -1091,6 +1091,7 @@
           }
         }
     ];
+    window.arabCountries = arabCountries;
 
     let cart = JSON.parse(localStorage.getItem('oasis-cart') || '[]');
     let checkoutOrderId = null;
